@@ -10,7 +10,7 @@ const { check, validationResult } = require('express-validator');
 // @access  private
 router.get('/me', auth, async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.user.id }).populate('user', [name, avatar]);
+        const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
 
         if (!profile) {
             return res.status(400).json({ msg: 'Profile does not exist' });
@@ -75,6 +75,62 @@ router.post('/', auth, async (req, res) => {
 
         await profile.save();
         res.json(profile);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+})
+
+// @route   GET api/profile
+// @desc    get all profiles
+// @access  public
+
+router.get('/', async (req, res) => {
+    try {
+        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+
+        res.json(profiles)
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+})
+
+// @route   GET api/profile/user/:user_id
+// @desc    get profile by user id
+// @access  public
+
+router.get('/user/:user_id', async (req, res) => {
+    try {
+        const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', ['name', 'avatar']);
+
+        if (!profile) {
+            return res.status(500).json({ msg: 'Profile does not exist' });
+        }
+
+        res.json(profile)
+
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(500).json({ msg: 'Profile does not exist' });
+        }
+        res.status(500).send('Server error');
+    }
+})
+
+// @route   DELETE api/profile
+// @desc    delete profile, user and posts
+// @access  private
+
+router.delete('/', auth, async (req, res) => {
+    try {
+        await Profile.findOneAndRemove({ user: req.user.id }); // remove profile
+        await User.findOneAndRemove({ _id: req.user.id }); // remove user
+
+        res.json({ msg: 'User deleted' });
+
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
