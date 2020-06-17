@@ -42,10 +42,147 @@ h1, h2, h3, h4, h5, h6 {
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 1rem 4rem;
-  background: #b2ebf2;
+  background: #b3e5fc;
 }
 
 .navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.navbar ul li a {
+  font-weight: 700;
+  font-size: larger;
+}
+
+.navbar ul li textarea {
+  outline: none;
+  resize: none;
+  border: none;
+  background-color: #e6ffff;
+  padding: .75em 1em;
+  font: inherit;
+}
+
+.search {
+  margin-left: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #e6ffff;
+}
+
+.search i {
+  padding: 0 1em;
+}
+
+.landing {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b3e5fc), to(rgba(255, 174, 0, 0.7))), url("../img/arrows.jpg");
+  background-image: linear-gradient(#b3e5fc, rgba(255, 174, 0, 0.7)), url("../img/arrows.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.landing p {
+  font-size: 18px;
+  padding: 2em 0 1em 0;
+  text-align: center;
+}
+
+.lan-card {
+  margin: -15rem 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background: -webkit-gradient(linear, left top, left bottom, from(#b3e5fc), color-stop(20%), to(white));
+  background: linear-gradient(#b3e5fc, 20%, white);
+  padding: 2rem 4rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #b3e5fc;
+  padding: .5em 1em;
+  font: inherit;
+  font-weight: 600;
+  outline: none;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #e6ffff;
+}
+
+.btn:active {
+  background-color: #4ba3c7;
+}
+
+.buttons {
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,69 +199,7 @@ h1, h2, h3, h4, h5, h6 {
           flex-direction: row;
 }
 
-.navbar ul li {
-  padding: 1em;
-}
-
-.navbar ul li a {
-  font-weight: 700;
-  font-size: larger;
-}
-
-.navbar ul li textarea {
-  outline: none;
-  resize: none;
-  border: none;
-  background-color: #e5ffff;
-  padding: .75em 1em;
-  font: inherit;
-  border: none;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.navbar ul li textarea ::-webkit-input-placeholder {
-  color: #81b9bf;
-}
-
-.navbar ul li textarea :-ms-input-placeholder {
-  color: #81b9bf;
-}
-
-.navbar ul li textarea ::-ms-input-placeholder {
-  color: #81b9bf;
-}
-
-.navbar ul li textarea ::placeholder {
-  color: #81b9bf;
-}
-
-.landing {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#b2ebf2), to(rgba(255, 174, 0, 0.5))), url("../img/arrows.jpg");
-  background-image: linear-gradient(#b2ebf2, rgba(255, 174, 0, 0.5)), url("../img/arrows.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-.btn {
-  border: none;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: #b2ebf2;
-  padding: .5em 1em;
-  font: inherit;
-  font-weight: 600;
-  outline: none;
-}
-
-.btn:hover {
-  background-color: #e5ffff;
-}
-
-.btn:active {
-  background-color: #81b9bf;
+.txt-xl {
+  font-size: 50px;
 }
 /*# sourceMappingURL=main.css.map */

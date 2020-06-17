@@ -1,12 +1,12 @@
 .navbar {
     @include flexCenter(space-between);
+
     padding: 1rem 4rem;
     background: $primary;
 
     ul {
-        @include flexCenter(space-around);
+        @include flexCenter(space-between);
         li {
-            padding: 1em;
             a{
                 font-weight: 700;
                 font-size: larger;
@@ -18,11 +18,19 @@
                 background-color: $p-light;
                 padding: .75em 1em;
                 font: inherit;
-                @include roundedBorders();
-                ::placeholder{
-                    color: $p-dark;
-                }
+                
             }
+            
         }
+    }
+}
+
+.search {
+    margin-left: 1em;
+    @include flexCenter(space-around);
+    @include roundedBorders();
+    background-color: $p-light;
+    i{
+        padding: 0 1em;
     }
 }

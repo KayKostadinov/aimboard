@@ -1,24 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <nav className='navbar'>
             <div className="logo">
                 <h2>
-                    <a href="/">
+                    <Link to="/">
                         <i className='fas fa-crosshairs' /> AimBoard
-                    </a>
+                    </Link>
                 </h2>
             </div>
             <div className="navigation">
                 <ul>
                     <li>
-                        <a href="#">Aim</a>
+                        <Link className="btn" to="#">Aim</Link>
                     </li>
                     <li>
-                        <a href="#">Boards</a>
+                        <Link className="btn" to="#">Boards</Link>
                     </li>
-                    <li>
+                    <li className="search">
+                        <i className="fas fa-search" />
                         <textarea id="search" cols="25" rows="1" placeholder="Search"></textarea>
                     </li>
                 </ul>
@@ -26,10 +28,10 @@ const Navbar = () => {
             <div className="profile">
                 <ul>
                     <li>
-                        <a href="#">Profile</a>
+                        <Link className="btn" to="/register">Sign Up</Link>
                     </li>
                     <li>
-                        <a href="#">Log out</a>
+                        <Link className="btn" to="/login">Login</Link>
                     </li>
                 </ul>
             </div>

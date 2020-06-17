@@ -1,9 +1,24 @@
 .landing {
-    background-image: linear-gradient(rgba($primary, 1), rgba(255, 174, 0, 0.5)),
+    background-image: 
+        linear-gradient(rgba($primary, 1), rgba(255, 174, 0, 0.7)),
         url('../img/arrows.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100vw;
     height: 100vh;
+    @include flexCenter(center);
+
+    p {
+        font-size: 18px;
+        padding: 2em 0 1em 0;
+        text-align: center;
+    }
+
+    
+}
+
+.lan-card {
+    margin: -15rem 0 0 0;
+    @include flexCenter(center, column);
 }
