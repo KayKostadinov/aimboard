@@ -1,0 +1,14 @@
+.form-container{
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.form{
+    @include flexCenter(space-between, column, flex-start);
+}
+
+.form-group {
+    @include flexCenter(space-between, column, flex-start);
+    padding: 1em;
+    
+}
