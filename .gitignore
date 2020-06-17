@@ -9,3 +9,10 @@ dist
 coverage/
 .nyc_output/
 yarn.lock
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
