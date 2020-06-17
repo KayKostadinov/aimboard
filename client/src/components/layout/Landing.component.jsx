@@ -2,8 +2,8 @@ import React from 'react';
 
 const Landing = () => {
     return (
-        <div>
-            Landing
+        <div className='landing'>
+            <button className="btn">button</button>
         </div>
     )
 }

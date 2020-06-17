@@ -44,4 +44,87 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem 4rem;
   background: #b2ebf2;
 }
+
+.navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.navbar ul li {
+  padding: 1em;
+}
+
+.navbar ul li a {
+  font-weight: 700;
+  font-size: larger;
+}
+
+.navbar ul li textarea {
+  outline: none;
+  resize: none;
+  border: none;
+  background-color: #e5ffff;
+  padding: .75em 1em;
+  font: inherit;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.navbar ul li textarea ::-webkit-input-placeholder {
+  color: #81b9bf;
+}
+
+.navbar ul li textarea :-ms-input-placeholder {
+  color: #81b9bf;
+}
+
+.navbar ul li textarea ::-ms-input-placeholder {
+  color: #81b9bf;
+}
+
+.navbar ul li textarea ::placeholder {
+  color: #81b9bf;
+}
+
+.landing {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b2ebf2), to(rgba(255, 174, 0, 0.5))), url("../img/arrows.jpg");
+  background-image: linear-gradient(#b2ebf2, rgba(255, 174, 0, 0.5)), url("../img/arrows.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #b2ebf2;
+  padding: .5em 1em;
+  font: inherit;
+  font-weight: 600;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #e5ffff;
+}
+
+.btn:active {
+  background-color: #81b9bf;
+}
 /*# sourceMappingURL=main.css.map */

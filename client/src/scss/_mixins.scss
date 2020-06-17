@@ -6,3 +6,9 @@
     justify-content: $spacing;
     flex-direction: $direction;
 }
+
+@mixin roundedBorders{
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+}

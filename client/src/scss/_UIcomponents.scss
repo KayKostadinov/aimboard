@@ -1,0 +1,16 @@
+.btn {
+    @include roundedBorders();
+    background-color: $primary;
+    padding: .5em 1em;
+    font: inherit;
+    font-weight: 600;
+    outline: none;
+}
+
+.btn:hover{
+    background-color: $p-light;
+}
+
+.btn:active{
+    background-color: $p-dark;
+}

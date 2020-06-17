@@ -2,4 +2,27 @@
     @include flexCenter(space-between);
     padding: 1rem 4rem;
     background: $primary;
+
+    ul {
+        @include flexCenter(space-around);
+        li {
+            padding: 1em;
+            a{
+                font-weight: 700;
+                font-size: larger;
+            }
+            textarea{
+                outline: none;
+                resize: none;
+                border: none;
+                background-color: $p-light;
+                padding: .75em 1em;
+                font: inherit;
+                @include roundedBorders();
+                ::placeholder{
+                    color: $p-dark;
+                }
+            }
+        }
+    }
 }
