@@ -1,14 +1,44 @@
 .form-container{
-    padding-top: 5rem;
+    margin-top: 5rem;
+    padding: 2rem;
     text-align: center;
+    @include roundedBorders();
+    border: solid $p-dark 1px;
 }
 
 .form{
     @include flexCenter(space-between, column, flex-start);
+    margin-top: 3rem;
 }
 
 .form-group {
     @include flexCenter(space-between, column, flex-start);
-    padding: 1em;
-    
+    padding: .7em 1em;
+
+    &:focus-within{
+        label{
+            display: block;
+        }
+    }
+
+    label{
+        display: none;
+        padding: 0 0 .5rem 1rem;
+        font-weight: 500;
+
+    }
+    input{
+        @include roundedBorders();
+        border: solid $primary 1px;
+        font: inherit;
+        padding: .5rem 1rem;
+        width: 300px;
+        outline: none;
+        &:active, &:invalid{
+            border: solid $red 3px;
+        }
+        // &:focus{
+        //     border: solid $p-dark 3px;
+        // }
+    }
 }

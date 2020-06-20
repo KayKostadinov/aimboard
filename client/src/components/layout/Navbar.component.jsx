@@ -21,7 +21,7 @@ const Navbar = () => {
                     </li>
                     <li className="search">
                         <i className="fas fa-search" />
-                        <textarea id="search" cols="25" rows="1" placeholder="Search"></textarea>
+                        <input id="search" type="text" placeholder="Search"></input>
                     </li>
                 </ul>
             </div>
@@ -40,3 +40,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

@@ -20,7 +20,7 @@ const Register = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="password2">Confirm Password</label>
-                        <input type="password" placeholder='confirm password' name='password2' required />
+                        <input type="password" placeholder='confirm password' name='password2' minLength='6' required />
                     </div>
                 </form>
             </div>

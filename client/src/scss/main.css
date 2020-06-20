@@ -8,7 +8,7 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  background: whitesmoke;
+  height: 100%;
 }
 
 a {
@@ -41,8 +41,11 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
   padding: 1rem 4rem;
-  background: #b3e5fc;
+  background: #fff;
 }
 
 .navbar ul {
@@ -68,13 +71,37 @@ h1, h2, h3, h4, h5, h6 {
   font-size: larger;
 }
 
-.navbar ul li textarea {
+.navbar ul li input {
+  width: 100px;
   outline: none;
   resize: none;
   border: none;
-  background-color: #e6ffff;
+  background-color: transparent;
   padding: .75em 1em;
   font: inherit;
+}
+
+.navbar ul li input:focus {
+  -webkit-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  background-color: #fff;
+  width: 100%;
+}
+
+.navbar ul li ::-webkit-input-placeholder {
+  color: #c2c2c2;
+}
+
+.navbar ul li :-ms-input-placeholder {
+  color: #c2c2c2;
+}
+
+.navbar ul li ::-ms-input-placeholder {
+  color: #c2c2c2;
+}
+
+.navbar ul li ::placeholder {
+  color: #c2c2c2;
 }
 
 .search {
@@ -94,18 +121,26 @@ h1, h2, h3, h4, h5, h6 {
       -ms-flex-direction: row;
           flex-direction: row;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   overflow: hidden;
-  background-color: #e6ffff;
+  background-color: #e7e7e7;
+  border: solid #fff 1px;
 }
 
 .search i {
-  padding: 0 1em;
+  padding: 0 .5em;
+  color: #c2c2c2;
+}
+
+.search:focus-within {
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .landing {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#b3e5fc), to(rgba(255, 174, 0, 0.7))), url("../img/arrows.jpg");
-  background-image: linear-gradient(#b3e5fc, rgba(255, 174, 0, 0.7)), url("../img/arrows.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 174, 0, 0.7))), url("../img/arrows.jpg");
+  background-image: linear-gradient(white, rgba(255, 174, 0, 0.7)), url("../img/arrows.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -157,8 +192,6 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   height: 100vh;
   width: 100vw;
-  background: -webkit-gradient(linear, left top, left bottom, from(#b3e5fc), color-stop(20%), to(white));
-  background: linear-gradient(#b3e5fc, 20%, white);
   padding: 2rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -179,9 +212,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn {
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   overflow: hidden;
-  background-color: #b3e5fc;
+  background-color: #fff;
   padding: .5em 1em;
   font: inherit;
   font-weight: 600;
@@ -190,11 +223,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn:hover {
-  background-color: #e6ffff;
+  -webkit-transition-property: background-color padding;
+  transition-property: background-color padding;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  background-color: #fff;
 }
 
 .btn:active {
-  background-color: #4ba3c7;
+  padding: .5rem 2rem;
+  background-color: #c2c2c2;
 }
 
 .buttons {
@@ -220,8 +260,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-container {
-  padding-top: 5rem;
+  margin-top: 5rem;
+  padding: 2rem;
   text-align: center;
+  border: none;
+  border-radius: 7px;
+  overflow: hidden;
+  border: solid #c2c2c2 1px;
 }
 
 .form {
@@ -240,6 +285,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 3rem;
 }
 
 .form-group {
@@ -258,6 +304,31 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 1em;
+  padding: .7em 1em;
+}
+
+.form-group:focus-within label {
+  display: block;
+}
+
+.form-group label {
+  display: none;
+  padding: 0 0 .5rem 1rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  border: none;
+  border-radius: 7px;
+  overflow: hidden;
+  border: solid #e7e7e7 1px;
+  font: inherit;
+  padding: .5rem 1rem;
+  width: 300px;
+  outline: none;
+}
+
+.form-group input:active, .form-group input:invalid {
+  border: solid #ff6b51 3px;
 }
 /*# sourceMappingURL=main.css.map */
