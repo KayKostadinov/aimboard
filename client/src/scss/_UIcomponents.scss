@@ -17,9 +17,7 @@
 }
 
 .btn:hover{
-    transition-property: background-color padding;
-    transition-timing-function: ease-in-out;
-    transition-duration: .2s;
+    transition: all .2s ease-in-out;
     background-color: $p-light;
 }
 

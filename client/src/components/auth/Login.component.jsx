@@ -1,49 +1,51 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const { name, email, password, password2 } = formData;
+
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onSubmit = e => {
+        console.log('register')
+    }
+
     return (
         <div className="container">
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate" />
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate" />
-                            <label for="last_name">Last Name</label>
-                        </div>
+            <div className="form-container">
+                <h2>Login</h2>
+                <form className="form" onSubmit={e => onSubmit(e)}>
+                    <div className="form-group">
+                        <input type="email"
+                            placeholder='e-mail address'
+                            name='email'
+                            value={email}
+                            onChange={e => onChange(e)}
+                            required
+                        />
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input disabled value="I am not editable" id="disabled" type="text" class="validate" />
-                            <label for="disabled">Disabled</label>
-                        </div>
+                    <div className="form-group">
+                        <input
+                            type="password"
+                            placeholder='password'
+                            name='password'
+                            minLength='6'
+                            value={password}
+                            onChange={e => onChange(e)}
+                            required
+                        />
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" />
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" />
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            This is an inline input field:
-                            <div class="input-field inline">
-                                <input id="email_inline" type="email" class="validate" />
-                                <label for="email_inline">Email</label>
-                                <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                            </div>
-                        </div>
-                    </div>
+
+                    <input type="submit" className='btn' value='Register' />
                 </form>
+                <p>
+                    Already have an account? <Link to='/login'>Login</Link>
+                </p>
             </div>
         </div>
     )

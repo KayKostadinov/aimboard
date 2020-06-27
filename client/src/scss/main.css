@@ -89,19 +89,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar ul li ::-webkit-input-placeholder {
-  color: #c2c2c2;
+  color: #929292;
 }
 
 .navbar ul li :-ms-input-placeholder {
-  color: #c2c2c2;
+  color: #929292;
 }
 
 .navbar ul li ::-ms-input-placeholder {
-  color: #c2c2c2;
+  color: #929292;
 }
 
 .navbar ul li ::placeholder {
-  color: #c2c2c2;
+  color: #929292;
 }
 
 .search {
@@ -123,13 +123,13 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 7px;
   overflow: hidden;
-  background-color: #e7e7e7;
+  background-color: #d1d1d1;
   border: solid #fff 1px;
 }
 
 .search i {
   padding: 0 .5em;
-  color: #c2c2c2;
+  color: #929292;
 }
 
 .search:focus-within {
@@ -223,18 +223,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn:hover {
-  -webkit-transition-property: background-color padding;
-  transition-property: background-color padding;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
-  -webkit-transition-duration: .2s;
-          transition-duration: .2s;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
   background-color: #fff;
 }
 
 .btn:active {
   padding: .5rem 2rem;
-  background-color: #c2c2c2;
+  background-color: #929292;
 }
 
 .buttons {
@@ -266,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 7px;
   overflow: hidden;
-  border: solid #c2c2c2 1px;
+  border: solid #929292 1px;
 }
 
 .form {
@@ -321,14 +317,14 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 7px;
   overflow: hidden;
-  border: solid #e7e7e7 1px;
+  border: solid #d1d1d1 1px;
   font: inherit;
   padding: .5rem 1rem;
   width: 300px;
   outline: none;
 }
 
-.form-group input:active, .form-group input:invalid {
-  border: solid #ff6b51 3px;
+.form-group input:focus {
+  border: solid #929292 3px;
 }
 /*# sourceMappingURL=main.css.map */
