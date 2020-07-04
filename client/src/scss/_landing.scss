@@ -9,7 +9,7 @@
     height: 100vh;
     @include flexCenter(center);
 
-    p {
+    .message{
         font-size: 20px;
         padding: 2em 0 1em 0;
         text-align: center;

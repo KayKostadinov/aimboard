@@ -1,20 +1,25 @@
 .form-container{
-    margin-top: 5rem;
+    // margin-top: 5rem;
+    height: 100vh;
+    width: 30%;
+    min-width: 350px;
     padding: 2rem;
     text-align: center;
-    @include roundedBorders();
-    border: solid $p-dark 1px;
+    // border: solid rgba($color: $p-dark, $alpha: .4) 1px;
+    // border-top: none;
+    background-color: rgba($color: $p-light, $alpha: .4);
 }
 
 .form{
     @include flexCenter(space-between, column, flex-start);
     margin-top: 3rem;
+    
 }
 
 .form-group {
-    @include flexCenter(space-between, column, flex-start);
+    @include flexCenter(space-between, column, center);
+    align-self: center;
     padding: .7em 1em;
-
     input{
         @include roundedBorders();
         border: solid $primary 1px;
@@ -22,9 +27,10 @@
         padding: .5rem 1rem;
         width: 300px;
         outline: none;
- 
+        
         &:focus{
             border: solid $p-dark 3px;
         }
     }
+
 }

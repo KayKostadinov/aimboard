@@ -28,10 +28,10 @@ const Navbar = () => {
             <div className="profile">
                 <ul>
                     <li>
-                        <Link className="btn" to="/register">Sign Up</Link>
+                        <Link className="btn fade" to="/register">Sign Up</Link>
                     </li>
                     <li>
-                        <Link className="btn" to="/login">Login</Link>
+                        <Link className="btn fade" to="/login">Login</Link>
                     </li>
                 </ul>
             </div>

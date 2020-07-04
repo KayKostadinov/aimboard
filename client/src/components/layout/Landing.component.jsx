@@ -6,7 +6,7 @@ const Landing = () => {
         <div className='landing'>
             <div className="lan-card">
                 <h1 className="txt-xl">Welcome to AimBoard</h1>
-                <p>Aim at your goals, inspire and be inspired! <br /> Join our community of dreamers!</p>
+                <p className='message'>Aim at your goals, inspire and be inspired! <br /> Join our community of dreamers!</p>
                 <div className="buttons">
                     <Link className="btn" to="/register">Sign Up</Link>
                     <Link className="btn" to="/login">Login</Link>

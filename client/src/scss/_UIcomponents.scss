@@ -3,8 +3,19 @@
     width: 100vw;
     // background: linear-gradient(rgba($primary, 1), 20%, rgb(255, 255, 255));
     padding: 2rem 4rem;
-    @include flexCenter(center, row, flex-start);
+    @include flexCenter(center, row, center);
+
 }
+
+.landing-container{
+    height: 100vh;
+    width: 100vw;
+    @include flexCenter(flex-end, row, flex-start);
+}
+
+// .blur {
+//     filter: blur(10px);
+// }
 
 .btn {
     @include roundedBorders();
@@ -19,6 +30,7 @@
 .btn:hover{
     transition: all .2s ease-in-out;
     background-color: $p-light;
+    cursor: pointer;
 }
 
 .btn:active{
@@ -35,3 +47,28 @@
     font-size: 50px;
 }
 
+
+.submit{
+    margin: 1rem 0;
+    align-self: center;
+}
+
+.tooltip{
+    margin: 2rem 0;
+    font-size: 16px;
+    
+}
+
+.link {
+    color: $dark-blue;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.fade{
+    
+    &::selection{
+        color: red;
+    }
+}
