@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar.component';
 import Landing from './components/layout/Landing.component';
 import Register from './components/auth/Register.component';
 import Login from './components/auth/Login.component';
+
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
