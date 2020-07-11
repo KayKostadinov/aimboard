@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { REG_SUCCESS, REG_FAIL, AUTH_SUCCESS, AUTH_FAIL, LOGIN_SUCCESS, LOGIN_FAIL } from './types';
+import {
+    REG_SUCCESS,
+    REG_FAIL,
+    AUTH_SUCCESS,
+    AUTH_FAIL,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT,
+} from './types';
 import { setAlert } from './alert';
 import setToken from '../utils/setAuthToken';
 import auth from '../reducers/auth';
@@ -81,4 +89,10 @@ export const login = (email, password) => async dispatch => {
             type: LOGIN_FAIL
         })
     }
+}
+
+// log out
+
+export const logout = () => async dispatch => {
+    dispatch({ type: LOGOUT });
 }
