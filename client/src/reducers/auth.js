@@ -1,4 +1,4 @@
-import { REG_SUCCESS, REG_FAIL } from '../actions/types';
+import { REG_SUCCESS, REG_FAIL, AUTH_SUCCESS, AUTH_FAIL, LOGIN_FAIL, LOGIN_SUCCESS } from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -9,6 +9,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
+        case LOGIN_SUCCESS:
         case REG_SUCCESS:
             localStorage.setItem('token', action.payload.token);
             return {
@@ -18,12 +19,21 @@ export default function (state = initialState, action) {
                 loading: false
             }
         case REG_FAIL:
+        case AUTH_FAIL:
+        case LOGIN_FAIL:
             localStorage.removeItem('token');
             return {
                 ...state,
                 token: null,
                 isAuthenticated: false,
                 loading: false
+            }
+        case AUTH_SUCCESS:
+            return {
+                ...state,
+                isAuthenticated: true,
+                loading: false,
+                user: action.payload
             }
         default: return state;
     }

@@ -1,7 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
+import Alert from '../layout/Alert.component';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -12,7 +16,15 @@ const Login = () => {
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
-        console.log('login')
+        e.preventDefault();
+        login(email, password);
+    }
+
+    // redirect on login
+    if (isAuthenticated) {
+        return (
+            <Redirect to='/boards' />
+        )
     }
 
     return (
@@ -40,7 +52,7 @@ const Login = () => {
                                 required
                             />
                         </div>
-
+                        <Alert />
                         <input type="submit" className='btn submit' value='Login' />
                     </form>
                     <p className="tooltip">
@@ -52,4 +64,14 @@ const Login = () => {
 
     )
 }
-export default Login;
+
+Login.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { login })(Login);

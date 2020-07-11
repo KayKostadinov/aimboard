@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../actions/alert';
@@ -7,7 +7,7 @@ import { register } from '../../actions/auth';
 import Alert from '../layout/Alert.component';
 
 
-const Register = (props) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -22,10 +22,17 @@ const Register = (props) => {
     const onSubmit = async e => {
         e.preventDefault();
         if (password !== password2) {
-            props.setAlert("Passwords don't match", 'error'); // use error as a dynamic styling class
+            setAlert("Passwords don't match", 'error'); // use error as a dynamic styling class
         } else {
-            props.register({ name, email, password });
+            register({ name, email, password });
         }
+    }
+
+    // redirect on reg
+    if (isAuthenticated) {
+        return (
+            <Redirect to='/aim' />
+        )
     }
 
     return (
@@ -90,6 +97,11 @@ const Register = (props) => {
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
 }
 
-export default connect(null, { setAlert, register })(Register);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { setAlert, register })(Register);

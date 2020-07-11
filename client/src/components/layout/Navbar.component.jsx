@@ -14,10 +14,10 @@ const Navbar = () => {
             <div className="navigation">
                 <ul>
                     <li>
-                        <Link className="btn" to="#">Aim</Link>
+                        <Link className="btn" to="/aim">Aim</Link>
                     </li>
                     <li>
-                        <Link className="btn" to="#">Boards</Link>
+                        <Link className="btn" to="/boards">Boards</Link>
                     </li>
                     <li className="search">
                         <i className="fas fa-search" />
