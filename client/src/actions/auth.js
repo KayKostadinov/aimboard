@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { REG_SUCCESS, REG_FAIL } from './types';
+import { setAlert } from './alert';
 
 //register
 
@@ -19,6 +20,10 @@ export const register = ({ name, email, password }) => async dispatch => {
             payload: res.data
         })
     } catch (err) {
+        const errors = err.response.data.errors;
+        if (errors) {
+            errors.forEach(x => dispatch(setAlert(x.msg, 'error'))); // change error to dynamic styling class
+        }
         dispatch({
             type: REG_FAIL
         })

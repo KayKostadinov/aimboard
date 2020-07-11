@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import Alert from '../layout/Alert.component';
 
 
@@ -21,9 +22,9 @@ const Register = (props) => {
     const onSubmit = async e => {
         e.preventDefault();
         if (password !== password2) {
-            props.setAlert("Passwords don't match", 'error');
+            props.setAlert("Passwords don't match", 'error'); // use error as a dynamic styling class
         } else {
-            console.log('Success')
+            props.register({ name, email, password });
         }
     }
 
@@ -87,7 +88,8 @@ const Register = (props) => {
 }
 
 Register.propTypes = {
-    setAlert: PropTypes.func.isRequired
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
 }
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
