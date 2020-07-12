@@ -1,8 +1,11 @@
 import React from 'react';
 
+// fetch data from db
+// order by date
+
 export default function Boards() {
     return (
-        <div>
+        <div className='container'>
             boards page
         </div>
     )

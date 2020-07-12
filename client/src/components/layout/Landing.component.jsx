@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// implement single page login and register
+// keep a shared state between Landing and the other two components in the App comp
+
 const Landing = () => {
     return (
         <div className='landing'>
@@ -12,6 +15,7 @@ const Landing = () => {
                     <Link className="btn" to="/login">Login</Link>
                 </div>
             </div>
+
         </div>
     )
 }

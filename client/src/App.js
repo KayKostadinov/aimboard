@@ -6,8 +6,9 @@ import Navbar from './components/layout/Navbar.component';
 import Landing from './components/layout/Landing.component';
 import Register from './components/auth/Register.component';
 import Login from './components/auth/Login.component';
-import Boards from './components/pages/Boards.component';
-import Aim from './components/pages/Aim.component';
+import Boards from './components/pages/boards/Boards.component';
+import Aim from './components/pages/aim/Aim.component';
+import PrivateRoute from './components/routing/PrivateRoute.component';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -35,8 +36,8 @@ function App() {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/aim' component={Aim} />
-            <Route exact path='/boards' component={Boards} />
+            <PrivateRoute exact path='/aim' component={Aim} />
+            <PrivateRoute exact path='/boards' component={Boards} />
           </Switch>
         </Fragment>
       </Router>
