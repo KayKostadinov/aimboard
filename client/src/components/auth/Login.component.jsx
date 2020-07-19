@@ -23,45 +23,40 @@ const Login = ({ login, isAuthenticated }) => {
     // redirect on login
     if (isAuthenticated) {
         return (
-            <Redirect to='/boards' />
+            <Redirect to='/aim' />
         )
     }
 
     return (
-        <div className='landing'>
-            <div className="landing-container">
-                <div className="form-container">
-                    <form className="form" onSubmit={e => onSubmit(e)}>
-                        <div className="form-group">
-                            <input type="email"
-                                placeholder='e-mail address'
-                                name='email'
-                                value={email}
-                                onChange={e => onChange(e)}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <input
-                                type="password"
-                                placeholder='password'
-                                name='password'
-                                minLength='6'
-                                value={password}
-                                onChange={e => onChange(e)}
-                                required
-                            />
-                        </div>
-                        <Alert />
-                        <input type="submit" className='btn submit' value='Login' />
-                    </form>
-                    <p className="tooltip">
-                        Don't have an account? <Link to='/register' className='link'>Register</Link>
-                    </p>
+        <div className="form-container">
+            <form className="form" onSubmit={e => onSubmit(e)}>
+                <div className="form-group">
+                    <input type="email"
+                        placeholder='e-mail address'
+                        name='email'
+                        value={email}
+                        onChange={e => onChange(e)}
+                        required
+                    />
                 </div>
-            </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        placeholder='password'
+                        name='password'
+                        minLength='6'
+                        value={password}
+                        onChange={e => onChange(e)}
+                        required
+                    />
+                </div>
+                <Alert />
+                <input type="submit" className='btn submit' value='Login' />
+                <p className="tooltip">
+                    Don't have an account? <Link to='#!' name='register' className='link'>Register</Link>
+                </p>
+            </form>
         </div>
-
     )
 }
 

@@ -140,28 +140,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .landing {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 174, 0, 0.7))), url("../img/arrows.jpg");
-  background-image: linear-gradient(white, rgba(255, 174, 0, 0.7)), url("../img/arrows.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 145, 0, 0.7))), url("../img/arrows.jpg");
+  background-image: linear-gradient(white, rgba(255, 145, 0, 0.7)), url("../img/arrows.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100vw;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .landing .message {
@@ -171,8 +158,26 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+.landing-grid-one {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0;
+      grid-template-columns: 1fr 0;
+}
+
+.landing-grid-two {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+}
+
 .lan-card {
-  margin: -15rem 0 0 0;
+  height: 50%;
+  width: 80%;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,13 +186,34 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.sidebar {
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  opacity: 0;
+}
+
+.slide {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+.lan-card:active + .sidebar {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
 }
 
 .container {
@@ -287,6 +313,9 @@ h1, h2, h3, h4, h5, h6 {
 .tooltip {
   margin: 2rem 0;
   font-size: 16px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .link {
@@ -306,8 +335,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   height: 100vh;
-  width: 30%;
   min-width: 350px;
   padding: 2rem;
   text-align: center;
@@ -323,14 +363,14 @@ h1, h2, h3, h4, h5, h6 {
           align-items: flex-start;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 3rem;
+  height: 80%;
 }
 
 .form-group {

@@ -1,13 +1,13 @@
 .landing {
     background-image: 
-        linear-gradient(rgba($p-light, 1), rgba(255, 174, 0, 0.7)),
+        linear-gradient(rgba($p-light, 1), rgba(255, 145, 0, 0.7)),
         url('../img/arrows.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100vw;
     height: 100vh;
-    @include flexCenter(center);
+    transition: all .5s ease-in-out;
 
     .message{
         font-size: 20px;
@@ -15,10 +15,40 @@
         text-align: center;
         font-weight: 400;
     }
+}
 
+.landing-grid-one{
+    display: grid;
+    grid-template-columns: 1fr 0;
+}
+
+.landing-grid-two{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
 
 .lan-card {
-    margin: -15rem 0 0 0;
-    @include flexCenter(center, column);
+    height: 50%;
+    width: 80%;
+    justify-self: center;
+    align-self: center;
+    @include flexCenter(flex-start, column);
 }
+
+.sidebar {
+    width: 100%;
+    transform: translateY(-100%);
+    transition: all .5s ease-in-out;
+    opacity: 0;
+}
+
+.slide {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.lan-card:active + .sidebar {
+    transform: translateY(0);
+    opacity: 1;
+}
+
