@@ -39,8 +39,11 @@
 }
 
 .buttons {
-    width: 40%;
-    @include flexCenter(space-around);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 
 .txt-xl {
@@ -71,4 +74,11 @@
     &::selection{
         color: red;
     }
+}
+
+.fabutton{
+    font-size: 24px;
+    background: none;
+    outline: none;
+    color: red;
 }

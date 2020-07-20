@@ -282,21 +282,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .buttons {
-  width: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  justify-items: center;
 }
 
 .txt-xl {
@@ -331,6 +324,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fade::selection {
+  color: red;
+}
+
+.fabutton {
+  font-size: 24px;
+  background: none;
+  outline: none;
   color: red;
 }
 
