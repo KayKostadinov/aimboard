@@ -32,7 +32,7 @@ router.post('/', auth, async (req, res) => {
         goals,
         interests,
     } = req.body;
-    console.log(req.body)
+
     const {
         youtube,
         twitter,

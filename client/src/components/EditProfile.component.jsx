@@ -52,7 +52,8 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
     }
 
     const handleSocialChange = e => {
-        setFormData({ ...formData, social: { [e.target.name]: e.target.value } });
+        setFormData({ ...formData, social: { ...formData.social, [e.target.name]: e.target.value } });
+        console.log(formData)
     }
 
     const onSubmit = e => {
@@ -61,33 +62,53 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
     }
 
     return (
-        <div className="container">
-            {!loading && profile &&
-                <div className="user">
-                    <h4>{userData.name}</h4>
-                    <img src={userData.avatar} alt="profile image" />
+        !loading && !profile ? null : (
+            <div className="container">
+                {!loading && profile &&
+                    <div className="user">
+                        <h4>{userData.name}</h4>
+                        <img src={userData.avatar} alt="profile image" />
+                    </div>
+                }
+                <div className="form-container">
+                    <Alert />
+                    <form className="form" onSubmit={e => onSubmit(e)}>
+                        <div className="form-group">
+                            <label htmlFor="">About you</label>
+                            <input type="text" name='about' value={formData.about} onChange={e => handleChange(e)} />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="">Your interests</label>
+                            <input type="text" name='interests' value={formData.interests} onChange={e => handleChange(e)} />
+                        </div>
+                        <div>
+                            <p>Social media</p>
+                            <div className="form-group">
+                                <label htmlFor="">YouTube</label>
+                                <input type="text" name='youtube' value={formData.social.youtube} onChange={e => handleSocialChange(e)} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Twitter</label>
+                                <input type="text" name='twitter' value={formData.social.twitter} onChange={e => handleSocialChange(e)} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Facebook</label>
+                                <input type="text" name='facebook' value={formData.social.facebook} onChange={e => handleSocialChange(e)} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Instagram</label>
+                                <input type="text" name='instagram' value={formData.social.instagram} onChange={e => handleSocialChange(e)} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">LinkedIn</label>
+                                <input type="text" name='linkedin' value={formData.social.linkedin} onChange={e => handleSocialChange(e)} />
+                            </div>
+                        </div>
+                        <button type='submit' className='btn'>Update</button>
+                    </form>
                 </div>
-            }
-            <div className="form-container">
-                <Alert />
-                <form className="form" onSubmit={e => onSubmit(e)}>
-                    <div className="form-group">
-                        <label htmlFor="">About you</label>
-                        <input type="text" name='about' value={formData.about} onChange={e => handleChange(e)} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="">Your interests</label>
-                        <input type="text" name='interests' value={formData.interests} onChange={e => handleChange(e)} />
-                    </div>
-                    <p>Social media</p>
-                    <div className="form-group">
-                        <label htmlFor="">YouTube</label>
-                        <input type="text" name='youtube' value={formData.social.youtube} onChange={e => handleSocialChange(e)} />
-                    </div>
-                    <button type='submit' className='btn'>Update</button>
-                </form>
             </div>
-        </div>
+        )
     )
 }
 
@@ -98,7 +119,7 @@ EditProfile.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    profile: state.profile
+    profile: state.profile,
 })
 
 export default connect(mapStateToProps, { createProfile, getMyProfile })(withRouter(EditProfile));
