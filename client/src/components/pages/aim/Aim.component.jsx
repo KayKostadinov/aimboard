@@ -22,12 +22,9 @@ const Aim = ({ getMyProfile, auth: { user }, profile: { profile, loading } }) =>
                 <Fragment>
                     <h1> Welcome {user && user.name}</h1>
                     {profile !== null ?
-                        <Fragment> has a profile</Fragment> :
-                        <Fragment>
-                            <div className="container">
-                                <ProfileSetup />
-                            </div>
-                        </Fragment>
+                        <Fragment> Render aim GUI</Fragment>
+                        :
+                        <ProfileSetup />
                     }
                 </Fragment>
             )

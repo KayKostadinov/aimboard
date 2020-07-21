@@ -33,37 +33,39 @@ const ProfileSetup = ({ createProfile, history }) => {
     }
 
     return (
-        <div className="form-container">
-            <form className="form" onSubmit={e => onSubmit(e)}>
-                {step === 1 &&
-                    <div className="form-group">
-                        <label htmlFor="">Say something about yourself</label>
-                        <input type="text" name='about' value={formData.about} onChange={e => handleChange(e)} />
-                    </div>
-                }
-                {step === 2 &&
-                    <div className="form-group">
-                        <label htmlFor="">What are you interested in?</label>
-                        <input type="text" name='interests' value={formData.interests} onChange={e => handleChange(e)} />
-                    </div>
-                }
-                {step === 3 &&
-                    <div className="form-group">
-                        <label htmlFor="">What goals are you focusing on?</label>
-                        <input type="text" name='goals' value={formData.goals} onChange={e => handleChange(e)} />
-                    </div>
-                }
-                <div className="buttons">
-                    {step !== 1 &&
-                        <div onClick={() => setStep(step - 1)} className='btn'>{'<<'}</div>
+        <div className="container">
+            <div className="form-container">
+                <form className="form" onSubmit={e => onSubmit(e)}>
+                    {step === 1 &&
+                        <div className="form-group">
+                            <label htmlFor="">Say something about yourself</label>
+                            <input type="text" name='about' value={formData.about} onChange={e => handleChange(e)} />
+                        </div>
                     }
-                    {step === 3 ?
-                        (<button type='submit' className='btn'>Create</button>)
-                        :
-                        (<div onClick={() => setStep(step + 1)} className='btn'>{'>>'}</div>)
+                    {step === 2 &&
+                        <div className="form-group">
+                            <label htmlFor="">What are you interested in?</label>
+                            <input type="text" name='interests' value={formData.interests} onChange={e => handleChange(e)} />
+                        </div>
                     }
-                </div>
-            </form>
+                    {step === 3 &&
+                        <div className="form-group">
+                            <label htmlFor="">What goals are you focusing on?</label>
+                            <input type="text" name='goals' value={formData.goals} onChange={e => handleChange(e)} />
+                        </div>
+                    }
+                    <div className="buttons">
+                        {step !== 1 &&
+                            <Link to='#!' onClick={() => setStep(step - 1)} className='btn'>{'<<'}</Link>
+                        }
+                        {step === 3 ?
+                            (<button type='submit' className='btn'>Create</button>)
+                            :
+                            (<Link to='#!' onClick={() => setStep(step + 1)} className='btn'>{'>>'}</Link>)
+                        }
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

@@ -9,6 +9,7 @@ import Login from './components/auth/Login.component';
 import Boards from './components/pages/boards/Boards.component';
 import Aim from './components/pages/aim/Aim.component';
 import PrivateRoute from './components/routing/PrivateRoute.component';
+import EditProfile from './components/EditProfile.component';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -38,6 +39,7 @@ function App() {
             <Route exact path='/login' component={Login} />
             <PrivateRoute exact path='/aim' component={Aim} />
             <PrivateRoute exact path='/boards' component={Boards} />
+            <PrivateRoute exact path='/profile' component={EditProfile} />
           </Switch>
         </Fragment>
       </Router>

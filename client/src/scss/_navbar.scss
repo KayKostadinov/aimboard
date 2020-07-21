@@ -5,9 +5,11 @@
     padding: 1rem 4rem;
     background: $p-light;
 
+
     ul {
         @include flexCenter(space-between);
         li {
+            margin-right: 1em;
             a{
                 font-weight: 700;
                 font-size: larger;

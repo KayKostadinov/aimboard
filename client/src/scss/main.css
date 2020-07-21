@@ -67,6 +67,10 @@ h1, h2, h3, h4, h5, h6 {
           flex-direction: row;
 }
 
+.navbar ul li {
+  margin-right: 1em;
+}
+
 .navbar ul li a {
   font-weight: 700;
   font-size: larger;
@@ -173,8 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lan-card {
-  height: 50%;
-  width: 80%;
+  height: 50vh;
   justify-self: center;
   -ms-flex-item-align: center;
       align-self: center;
@@ -261,27 +264,30 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 7px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.4);
   padding: .5em 1em;
   font: inherit;
   font-weight: 600;
   outline: none;
   text-align: center;
+  -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+  -webkit-box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-  background-color: #fff;
+  background-color: white;
   cursor: pointer;
 }
 
 .btn:active {
-  padding: .5rem 2rem;
-  background-color: #929292;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
 }
 
 .buttons {
+  width: 50%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;

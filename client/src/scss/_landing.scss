@@ -28,8 +28,7 @@
 }
 
 .lan-card {
-    height: 50%;
-    width: 80%;
+    height: 50vh;
     justify-self: center;
     align-self: center;
     @include flexCenter(flex-start, column);
