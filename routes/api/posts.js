@@ -4,7 +4,6 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
-const Profile = require('../../models/Profile');
 
 // @route   POST api/posts
 // @desc    create a post
@@ -124,7 +123,7 @@ router.put('/like/:id', auth, async (req, res) => {
 })
 
 // @route   PUT api/posts/unlike/:id
-// @desc    like a post
+// @desc    unlike a post
 // @access  private
 
 router.put('/unlike/:id', auth, async (req, res) => {

@@ -60,8 +60,9 @@ router.post('/', auth, async (req, res) => {
     // save to DB
     try {
         let profile = await Profile.findOne({ user: req.user.id });
-
-        if (profile) { // Update
+        
+        // Update
+        if (profile) { 
             profile = await Profile.findOneAndUpdate(
                 { user: req.user.id },
                 { $set: profileFields },
