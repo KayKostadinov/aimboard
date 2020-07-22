@@ -11,7 +11,6 @@ import {
 } from './types';
 import { setAlert } from './alert';
 import setToken from '../utils/setAuthToken';
-import auth from '../reducers/auth';
 
 //register
 

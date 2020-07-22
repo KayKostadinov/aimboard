@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
 import ProfileSetup from '../aim/ProfileSetup.component';
+import AimTree from './AimTree.component';
 
 // display profile's goals
 // if no goals have been populated, display the setup page
@@ -14,7 +15,6 @@ const Aim = ({ getMyProfile, auth: { user }, profile: { profile, loading } }) =>
     }, []);
 
 
-
     return (
         loading && profile === null ? (
             <Fragment> Replace me with Loading </Fragment>
@@ -22,7 +22,7 @@ const Aim = ({ getMyProfile, auth: { user }, profile: { profile, loading } }) =>
                 <Fragment>
                     <h1> Welcome {user && user.name}</h1>
                     {profile !== null ?
-                        <Fragment> Render aim GUI</Fragment>
+                        <AimTree />
                         :
                         <ProfileSetup />
                     }

@@ -1,6 +1,5 @@
 import { SET_ALERT, REMOVE_ALERT } from './types';
 import { v4 as uuid } from 'uuid';
-import store from '../store';
 
 
 export const setAlert = (msg, alertType) => dispatch => {

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getMyProfile } from '../../actions/profile';
@@ -67,7 +67,7 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
                 {!loading && profile &&
                     <div className="user">
                         <h4>{userData.name}</h4>
-                        <img src={userData.avatar} alt="profile image" />
+                        <img src={userData.avatar} alt="profile" />
                     </div>
                 }
                 <div className="form-container">

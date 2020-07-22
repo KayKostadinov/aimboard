@@ -45,8 +45,8 @@ router.post('/', [auth, [check('title', 'Title is required').not().isEmpty()]], 
 
 router.get('/', auth, async (req, res)=> {
     try {
-        const aims = await Aim.find().sort({deadline: -1});
-        res.json(aims);
+        const aim = await Aim.find().sort({deadline: -1});
+        res.json(aim);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
@@ -115,7 +115,6 @@ router.post('/:id', auth, async(req, res)=>{
 
         if (children) aimFields.children = children;
         if (parent) aimFields.parent = parent;
-        console.log(aimFields);
         // save to DB
         if(aim){
             aim = await Aim.findOneAndUpdate(
