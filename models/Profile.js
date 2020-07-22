@@ -6,13 +6,16 @@ const ProfileSchema = new mongoose.Schema({
         ref: 'user'
     },
     about: {
-        type: String
+        type: String,
+        default: ''
     },
     goals: {
-        type: [String]
+        type: [String],
+        default: ''
     },
     interests: {
-        type: [String]
+        type: [String],
+        default: ''
     },
     social: {
         youtube: {
@@ -20,16 +23,20 @@ const ProfileSchema = new mongoose.Schema({
             default: ''
         },
         twitter: {
-            type: String
+            type: String,
+            default: ''
         },
         facebook: {
-            type: String
+            type: String,
+            default: ''
         },
         instagram: {
-            type: String
+            type: String,
+            default: ''
         },
         linkedin: {
-            type: String
+            type: String,
+            default: ''
         }
     },
     date: {

@@ -9,7 +9,7 @@ import Login from './components/auth/Login.component';
 import Boards from './components/pages/boards/Boards.component';
 import Aim from './components/pages/aim/Aim.component';
 import PrivateRoute from './components/routing/PrivateRoute.component';
-import EditProfile from './components/EditProfile.component';
+import EditProfile from './components/pages/EditProfile.component';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';

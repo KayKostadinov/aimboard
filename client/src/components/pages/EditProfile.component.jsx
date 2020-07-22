@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile, getMyProfile } from '../actions/profile';
-import Alert from './layout/Alert.component';
+import { createProfile, getMyProfile } from '../../actions/profile';
+import Alert from '../layout/Alert.component';
 
 // TODO: add form fields for social media links
 
