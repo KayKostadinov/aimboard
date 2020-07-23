@@ -5,13 +5,24 @@ import { getAims, createAim} from '../../../actions/aim';
 
 
 const AimTree = ({ getAims, createAim, aim: {aim, loading}}) => {
+    const [formData, setFormData] = useState({
+        title: '',
+        main: false,
+        complete: false,
+        children: [],
+        parent: '',
+        deadline: ''
+    })
+    
     useEffect(() => {
         getAims();
-    }, [])
-    
+
+    }, [loading])
+
+
 
     return (
-        !loading && <h1>asdsa</h1>
+        !loading && aim.map(x=> <h2>{x.title}</h2>)
     )
 
 }

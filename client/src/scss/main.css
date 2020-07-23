@@ -270,10 +270,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   outline: none;
   text-align: center;
-  -webkit-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
-  -webkit-box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
-          box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+  -webkit-box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {

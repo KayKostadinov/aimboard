@@ -25,12 +25,12 @@
     font-weight: 600;
     outline: none;
     text-align: center;
-    transition: all .15s ease-in-out;
-    box-shadow: 8px 8px 15px rgba($color: #000000, $alpha: 0.3);
+    transition: all .1s ease-in-out;
+    box-shadow: 6px 6px 10px rgba($color: #000000, $alpha: 0.2);
 }
 
 .btn:hover{
-    background-color: rgba($color: $p-light, $alpha: 1.0) ;
+    background-color: rgba($color: $p-light, $alpha: 1) ;
     cursor: pointer;
 }
 

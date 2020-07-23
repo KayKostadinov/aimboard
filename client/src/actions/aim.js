@@ -9,7 +9,7 @@ export const getAims = () => async dispatch => {
         const res = await axios.get('/api/aim');
         dispatch({
             type: GET_AIM,
-            payload: res.data[0]
+            payload: res.data
         })
 
     } catch (err) {
