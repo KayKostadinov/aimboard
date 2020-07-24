@@ -1,0 +1,30 @@
+.branch-container {
+    width: 100%;
+    .branch-group{
+        width: 80%;
+        display: flex;
+        padding: 1em;
+        .group-elements{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            margin: 1em;
+            border-bottom: 1px solid $p-dark;
+            i {
+                padding: .5em;
+                margin: 0 .5em;
+                font-size: 20px;
+                color: $pink;
+            }
+            li {
+                width: 100%;
+                text-align: center;
+                
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

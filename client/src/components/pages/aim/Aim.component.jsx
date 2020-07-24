@@ -6,8 +6,8 @@ import ProfileSetup from '../aim/ProfileSetup.component';
 import AimTree from './AimTree.component';
 
 // display profile's goals
-// if no goals have been populated, display the setup page
-// group by goals tree (requires DB edits)
+// if no profile has been created, display the profile setup page
+// group by goals tree
 
 const Aim = ({ getMyProfile, auth: { user }, profile: { profile, loading } }) => {
     useEffect(() => {

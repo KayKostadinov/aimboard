@@ -318,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .link {
-  color: #2687ad;
+  color: #007aff;
 }
 
 .link:hover {
@@ -413,5 +413,49 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-group input:focus {
   border: solid #929292 3px;
+}
+
+.branch-container {
+  width: 100%;
+}
+
+.branch-container .branch-group {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+}
+
+.branch-container .branch-group .group-elements {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 1em;
+  border-bottom: 1px solid #929292;
+}
+
+.branch-container .branch-group .group-elements i {
+  padding: .5em;
+  margin: 0 .5em;
+  font-size: 20px;
+  color: #ff2d55;
+}
+
+.branch-container .branch-group .group-elements li {
+  width: 100%;
+  text-align: center;
+}
+
+.branch-container .branch-group .group-elements li:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

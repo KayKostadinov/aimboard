@@ -2,14 +2,16 @@ import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getAims, createAim} from '../../../actions/aim';
+import AimBranch from './AimBranch.component';
 
+// display goals by hierarchy
+// goals CRUD
 
-const AimTree = ({ getAims, createAim, aim: {aim, loading}}) => {
+const AimTree = ({ getAims, createAim, aim: {aim, loading} }) => {
     const [formData, setFormData] = useState({
         title: '',
-        main: false,
+        level: 0,
         complete: false,
-        children: [],
         parent: '',
         deadline: ''
     })
@@ -22,7 +24,7 @@ const AimTree = ({ getAims, createAim, aim: {aim, loading}}) => {
 
 
     return (
-        !loading && aim.map(x=> <h2>{x.title}</h2>)
+        !loading && aim && <AimBranch aims={aim} form={formData}/>
     )
 
 }

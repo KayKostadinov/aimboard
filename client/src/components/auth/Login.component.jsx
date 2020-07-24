@@ -23,7 +23,7 @@ const Login = ({ login, isAuthenticated }) => {
     // redirect on login
     if (isAuthenticated) {
         return (
-            <Redirect to='/aim' />
+            <Redirect to='/profile' />
         )
     }
 

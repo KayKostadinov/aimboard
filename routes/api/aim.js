@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const {check, validationResult} = require('express-validator');
-const User = require('../../models/User');
 const Aim = require('../../models/Aim');
-const { route } = require('./posts');
 
 // @route   POST api/aim
 // @desc    create an aim
@@ -18,16 +16,14 @@ router.post('/', [auth, [check('title', 'Title is required').not().isEmpty()]], 
     }
 
     try {
-        const user = await User.findById(req.user.id).select('-password');
 
         const newAim = new Aim({
             user: req.user.id,
             title: req.body.title,
-            main: req.body.main,
+            level: req.body.level,
             deadline: req.body.deadline,
             complete: req.body.complete,
             parent: req.body.parent,
-            children: []
         })
 
         const aim = await newAim.save();
@@ -45,7 +41,7 @@ router.post('/', [auth, [check('title', 'Title is required').not().isEmpty()]], 
 
 router.get('/', auth, async (req, res)=> {
     try {
-        const aim = await Aim.find().sort({deadline: -1});
+        const aim = await Aim.find({user:req.user.id}).sort({deadline: -1});
         res.json(aim);
     } catch (err) {
         console.error(err.message);
@@ -92,6 +88,7 @@ router.post('/:id', auth, async(req, res)=>{
         if(!aim){
             return status(404).json({msg: 'Aim not found'});
         }
+        
 
         if(aim.user.toString() !== req.user.id){
             return res.status(401).json({msg: 'Not authorized'});
@@ -99,22 +96,20 @@ router.post('/:id', auth, async(req, res)=>{
 
         const {
             title,
-            main,
+            level,
             deadline,
             complete,
-            children,
             parent,
         } = req.body;
 
         let aimFields = {
             title,
-            main,
+            level,
             deadline,
-            complete
+            complete,
+            parent,
         };
 
-        if (children) aimFields.children = children;
-        if (parent) aimFields.parent = parent;
         // save to DB
         if(aim){
             aim = await Aim.findOneAndUpdate(

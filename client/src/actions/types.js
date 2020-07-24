@@ -12,3 +12,4 @@ export const PROFILE_ERR = 'PROFILE_ERR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const GET_AIM = 'GET_AIM';
 export const AIM_ERR = 'AIM_ERR';
+export const CLEAR_AIM = 'CLEAR_AIM';

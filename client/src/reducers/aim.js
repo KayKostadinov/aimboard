@@ -1,4 +1,4 @@
-import { GET_AIM, AIM_ERR } from '../actions/types';
+import { GET_AIM, AIM_ERR, CLEAR_AIM } from '../actions/types';
 
 const initialState = {
     aim: null,
@@ -20,6 +20,12 @@ export default function (state = initialState, action) {
             return{
                 ...state,
                 error: payload,
+                loading: false
+            }
+        case CLEAR_AIM:
+            return{
+                ...state,
+                aim: null,
                 loading: false
             }
         default: return state;

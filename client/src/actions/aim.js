@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_AIM, AIM_ERR} from './types';
+import { GET_AIM, AIM_ERR } from './types';
 
 // get aims for current profile
 

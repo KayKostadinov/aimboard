@@ -9,9 +9,9 @@ const AimSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    main: {
-        type: Boolean,
-        default: false
+    level: {
+        type: Number,
+        default: 0
     },
     complete: {
         type: Boolean,
@@ -26,7 +26,6 @@ const AimSchema = new mongoose.Schema({
         ref: 'aim',
         default: null
     },
-    children: []
 });
 
 module.exports = Aim = mongoose.model('aim', AimSchema);
