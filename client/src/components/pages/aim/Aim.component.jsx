@@ -12,7 +12,7 @@ import AimTree from './AimTree.component';
 const Aim = ({ getMyProfile, auth: { user }, profile: { profile, loading } }) => {
     useEffect(() => {
         getMyProfile();
-    }, []);
+    }, [getMyProfile]);
 
 
     return (

@@ -45,7 +45,7 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
                 name: profile.user.name
             })
         }
-    }, [loading]);
+    }, [loading, getMyProfile, profile]);
 
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });

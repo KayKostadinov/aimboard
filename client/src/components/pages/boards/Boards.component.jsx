@@ -10,7 +10,7 @@ const Boards = ({ getMyProfile, auth, profile }) => {
     useEffect(() => {
         getMyProfile();
 
-    }, []);
+    }, [getMyProfile]);
 
     return (
         <div className='container'>

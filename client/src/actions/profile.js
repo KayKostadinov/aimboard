@@ -75,7 +75,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
         dispatch(setAlert(edit ? 'Profile updated' : 'Profile created', 'success'));
 
         if (!edit) {
-            history.push('/aim');
+            history.push('/profile');
         }
     } catch (err) {
         const errors = err.response.data.errors;
@@ -95,7 +95,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 export const deleteProfile = () => async dispatch => {
     if (window.confirm('This actions cannot be undone. Proceed to delete all of your information?')) {
         try {
-            const res = await axios.delete('/api/profile');
+            await axios.delete('/api/profile');
 
             dispatch({ type: CLEAR_PROFILE });
             dispatch({ type: DELETE_ACC }); // implement this

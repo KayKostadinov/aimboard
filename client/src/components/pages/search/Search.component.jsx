@@ -10,7 +10,7 @@ import { getAllProfiles } from '../../../actions/profile';
 const Search = ({ getAllProfiles, profile: { profiles, loading } }) => {
     useEffect(() => {
         getAllProfiles();
-    }, [])
+    }, [loading, getAllProfiles])
 
     return (
         <div>

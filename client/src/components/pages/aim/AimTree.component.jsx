@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getAims, createAim} from '../../../actions/aim';
+import { getAims, createAim } from '../../../actions/aim';
 import AimBranch from './AimBranch.component';
 
 // display goals by hierarchy
 // goals CRUD
 
-const AimTree = ({ getAims, createAim, aim: {aim, loading} }) => {
+const AimTree = ({ getAims, createAim, aim: { aim, loading } }) => {
     const [formData, setFormData] = useState({
         title: '',
         level: 0,
@@ -15,16 +15,16 @@ const AimTree = ({ getAims, createAim, aim: {aim, loading} }) => {
         parent: '',
         deadline: ''
     })
-    
+
     useEffect(() => {
         getAims();
 
-    }, [loading])
+    }, [loading, getAims])
 
 
 
     return (
-        !loading && aim && <AimBranch aims={aim} form={formData}/>
+        !loading && aim && <AimBranch aims={aim} form={formData} />
     )
 
 }
@@ -39,4 +39,4 @@ const mapStateToProps = state => ({
     aim: state.aim,
 })
 
-export default connect(mapStateToProps, {getAims, createAim})(AimTree);
+export default connect(mapStateToProps, { getAims, createAim })(AimTree);
