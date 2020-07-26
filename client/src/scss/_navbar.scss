@@ -5,6 +5,11 @@
     padding: 1rem 4rem;
     background: $p-light;
 
+    .logo {
+        a {
+            color: $teal;
+        }
+    }
 
     ul {
         @include flexCenter(space-between);
@@ -58,3 +63,4 @@
     
     }
 }
+

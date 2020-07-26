@@ -15,7 +15,7 @@ export const getAims = () => async dispatch => {
     } catch (err) {
         dispatch({
             type: AIM_ERR,
-            payload: {msg: err.response.statusText, status: err.response.status}
+            payload: { msg: err.response.statusText, status: err.response.status }
         })
     }
 }
@@ -35,16 +35,18 @@ export const createAim = formData => async dispatch => {
         dispatch({
             type: GET_AIM,
             payload: res.data
-        });        
+        });
 
     } catch (err) {
         const errors = err.response.data.errors;
-        if(errors){
+        if (errors) {
             errors.forEach(x => dispatch(setAlert(x.msg, 'error')))
         }
         dispatch({
             type: AIM_ERR,
-            payload: {msg: err.response.statusText, status: err.response.status}
+            payload: { msg: err.response.statusText, status: err.response.status }
         })
     }
 }
+
+// update aim

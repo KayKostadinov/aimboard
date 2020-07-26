@@ -22,10 +22,6 @@ ul, li {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: black;
-}
-
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,6 +43,10 @@ h1, h2, h3, h4, h5, h6 {
   top: 0px;
   padding: 1rem 4rem;
   background: #fff;
+}
+
+.navbar .logo a {
+  color: #5ac8fa;
 }
 
 .navbar ul {
