@@ -39,8 +39,8 @@ function App() {
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/search' component={Search} />
+            <Route exact path='/boards' component={Boards} />
             <PrivateRoute exact path='/aim' component={Aim} />
-            <PrivateRoute exact path='/boards' component={Boards} />
             <PrivateRoute exact path='/profile' component={EditProfile} />
           </Switch>
         </Fragment>

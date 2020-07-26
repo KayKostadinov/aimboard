@@ -28,21 +28,22 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
 
     useEffect(() => {
         getMyProfile();
-        setFormData({
-            about: loading || !profile.about ? '' : profile.about,
-            interests: loading || !profile.interests ? '' : profile.interests.toString(),
-            social: {
-                youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
-                twitter: loading || !profile.social.twitter ? '' : profile.social.twitter,
-                facebook: loading || !profile.social.facebook ? '' : profile.social.facebook,
-                instagram: loading || !profile.social.instagram ? '' : profile.social.instagram,
-                linkedin: loading || !profile.social.linkedin ? '' : profile.social.linkedin,
-            },
-        })
+
         if (profile) {
             setUserData({
                 avatar: profile.user.avatar,
                 name: profile.user.name
+            })
+            setFormData({
+                about: loading || !profile.about ? '' : profile.about,
+                interests: loading || !profile.interests ? '' : profile.interests.toString(),
+                social: {
+                    youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
+                    twitter: loading || !profile.social.twitter ? '' : profile.social.twitter,
+                    facebook: loading || !profile.social.facebook ? '' : profile.social.facebook,
+                    instagram: loading || !profile.social.instagram ? '' : profile.social.instagram,
+                    linkedin: loading || !profile.social.linkedin ? '' : profile.social.linkedin,
+                },
             })
         }
     }, [loading, getMyProfile, profile]);

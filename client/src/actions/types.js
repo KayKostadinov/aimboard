@@ -16,3 +16,5 @@ export const DELETE_ACC = 'DELETE_ACC';
 export const GET_AIM = 'GET_AIM';
 export const AIM_ERR = 'AIM_ERR';
 export const CLEAR_AIM = 'CLEAR_AIM';
+export const GET_POSTS = 'GET_POSTS';
+export const POST_ERR = 'POST_ERR';
