@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { Fragment } from 'react';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
-    const loginBtns = (
-
-        <div className="profile">
-            <ul>
-                <li>
-                    <Link className="btn fade" to="/register">Sign Up</Link>
-                </li>
-                <li>
-                    <Link className="btn fade" to="/login">Login</Link>
-                </li>
-            </ul>
+    const publicBtns = (
+        <div>
+            <div className="public">
+                <ul>
+                    <li>
+                        <Link className="btn fade" to="/boards">Boards</Link>
+                    </li>
+                    <li>
+                        <Link className="btn fade" to="/search">Search</Link>
+                    </li>
+                </ul>
+            </div>
         </div>
     )
+
 
     const profileBtns = (
         <Fragment>
@@ -68,7 +69,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     </Link>
                 </h2>
             </div>
-            {!loading && (isAuthenticated ? profileBtns : loginBtns)}
+            {!loading && (isAuthenticated ? profileBtns : publicBtns)}
         </nav>
     )
 }

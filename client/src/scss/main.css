@@ -94,19 +94,19 @@ ul, li {
 }
 
 .navbar ul li ::-webkit-input-placeholder {
-  color: #929292;
+  color: #1c1c1e;
 }
 
 .navbar ul li :-ms-input-placeholder {
-  color: #929292;
+  color: #1c1c1e;
 }
 
 .navbar ul li ::-ms-input-placeholder {
-  color: #929292;
+  color: #1c1c1e;
 }
 
 .navbar ul li ::placeholder {
-  color: #929292;
+  color: #1c1c1e;
 }
 
 .search {
@@ -134,7 +134,7 @@ ul, li {
 
 .search i {
   padding: 0 .5em;
-  color: #929292;
+  color: #1c1c1e;
 }
 
 .search:focus-within {
@@ -412,7 +412,7 @@ ul, li {
 }
 
 .form-group input:focus {
-  border: solid #929292 3px;
+  border: solid #1c1c1e 3px;
 }
 
 .branch-container {
@@ -424,7 +424,7 @@ ul, li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1em;
+  padding: 0 1em;
 }
 
 .branch-container .branch-group .group-elements {
@@ -440,19 +440,45 @@ ul, li {
   -ms-flex-line-pack: center;
       align-content: center;
   margin: 1em;
-  border-bottom: 1px solid #929292;
+  padding: .3em 1em;
+}
+
+.branch-container .branch-group .group-elements:hover {
+  border: none;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: #1c1c1e;
+  color: #fff;
 }
 
 .branch-container .branch-group .group-elements i {
-  padding: .5em;
-  margin: 0 .5em;
+  padding: .2em .4em;
   font-size: 20px;
   color: #ff2d55;
+}
+
+.branch-container .branch-group .group-elements i .tooltip {
+  visibility: hidden;
+  width: auto;
+  border: none;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: rgba(255, 45, 85, 0.7);
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  padding: .4em;
+  z-index: 1;
+}
+
+.branch-container .branch-group .group-elements i:hover .tooltip {
+  visibility: visible;
 }
 
 .branch-container .branch-group .group-elements li {
   width: 100%;
   text-align: center;
+  margin: 0 1em;
 }
 
 .branch-container .branch-group .group-elements li:hover {

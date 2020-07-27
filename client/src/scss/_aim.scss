@@ -3,24 +3,42 @@
     .branch-group{
         width: 80%;
         display: flex;
-        padding: 1em;
+        padding: 0 1em;
         .group-elements{
             display: flex;
             justify-content: space-between;
             align-items: center;
             align-content: center;
             margin: 1em;
-            border-bottom: 1px solid $p-dark;
+            padding: .3em 1em;
+            &:hover {
+                @include roundedBorders();
+                background-color: $p-dark;
+                color: $p-light;
+            }
             i {
-                padding: .5em;
-                margin: 0 .5em;
+                padding: .2em .4em;
                 font-size: 20px;
                 color: $pink;
+                .tooltip{
+                    visibility: hidden;
+                    width: auto;
+                    @include roundedBorders();
+                    background-color: rgba($color: $pink, $alpha: .7);
+                    color: $p-light;
+                    position: absolute;
+                    text-align: center;
+                    padding: .4em;
+                    z-index: 1;
+                }
+                &:hover .tooltip {
+                    visibility: visible;
+                }
             }
             li {
                 width: 100%;
                 text-align: center;
-                
+                margin: 0 1em;
                 &:hover{
                     cursor: pointer;
                 }
