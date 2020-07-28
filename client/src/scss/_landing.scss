@@ -34,14 +34,12 @@
     @include flexCenter(flex-start, column);
     align-items: center;
 
-    background-color: rgba($color: white, $alpha: 0.2);
 }
 
 .sidebar {
     width: 100%;
     transform: translateY(-100%);
     transition: all .5s ease-in-out;
-    opacity: 0;
     backdrop-filter: blur(10px);
 }
 

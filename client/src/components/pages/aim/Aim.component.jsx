@@ -22,7 +22,6 @@ const Aim = ({ getMyProfile, getAims, auth: { user }, profile: { profile, loadin
             <Fragment> Replace me with Loading </Fragment>
         ) : (
                 <Fragment>
-                    <h1> Welcome {user && user.name}</h1>
                     {profile !== null && aim.aim ?
                         <AimTree aims={aim.aim} />
                         :

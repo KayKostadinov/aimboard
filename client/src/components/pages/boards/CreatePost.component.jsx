@@ -1,15 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const CreatePost = ({ profile: { profile } }) => {
+const CreatePost = ({ aim, profile: { profile }, newPost, writePost }) => {
     return (
-        <div>
-            {profile && <img src={profile.user.avatar} width='100' height='100' alt="#" />}
-            <p>Title</p>
-            <input type="text" />
-            <p>Text</p>
-            <input type="text" />
-        </div>
+        <form>
+            {profile && <img src={profile.user.avatar} className='avatar' width='50' />}
+            <input type="text" onChange={e => writePost({ text: e.target.value })} />
+            <button onClick={e => newPost(e)}>Post</button>
+        </form>
     )
 }
 
-export default CreatePost;
+CreatePost.propTypes = {
+    aim: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = state => ({
+    aim: state.aim,
+})
+
+export default connect(mapStateToProps, {})(CreatePost);

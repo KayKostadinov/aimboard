@@ -30,14 +30,14 @@ const AimTree = ({ createAim, updateAim, aims }) => {
         edit: false,
         delete: false
     })
+    console.log(aims)
     //
     return (
         <div className='branch-container' >
             <ul className='branch-group lvl-0'>
-                {aims && aims.map(aim => (aim.level === 0 && <Fragment>
-                    <div className='group-elements' key={`${aim.title}${aim.id}`}>
+                {aims && aims.map(aim => (aim.level === 0 &&
+                    <div className='group-elements' key={aim._id}>
                         <AimBranch
-                            key={aim._id}
                             id={aim._id}
                             title={aim.title}
                             handleClick={e => setParent({ lvl0: e.target.id, toggle: !parent.toggle })}
@@ -52,7 +52,6 @@ const AimTree = ({ createAim, updateAim, aims }) => {
                             <span className="tooltip">delete</span>
                         </i>
                     </div>
-                </Fragment>
                 ))}
             </ul>
             {parent.toggle &&
