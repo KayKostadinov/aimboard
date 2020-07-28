@@ -165,7 +165,6 @@ router.post('/comment/:id', [auth, [
         const newComment = {
             user: req.user.id,
             text: req.body.text,
-            aim: req.body.aim,
             avatar: user.avatar
         };
 

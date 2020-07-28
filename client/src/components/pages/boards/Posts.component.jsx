@@ -1,21 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addLike, removeLike } from '../../../actions/post';
+import { addLike, removeLike, deletePost } from '../../../actions/post';
+import Alert from '../../layout/Alert.component';
 
-const Posts = ({ addLike, removeLike, auth, post: { _id, text, aim, name, avatar, user, updoots, comments, date } }) => {
-    console.log()
+const Posts = ({ addLike, removeLike, deletePost, auth, post: { _id, text, aim, avatar, user, updoots, comments, date } }) => {
+    const [toggleComments, setToggle] = useState(false);
+
 
     return (
         <div className='post-container'>
+            <Alert />
             <div className="user">
                 <img src={avatar} className='avatar' width='30' />
             </div>
             <div className="post">
-                <p>{aim}</p>
+                {aim && <p>{aim.title}</p>}
                 <p>{text}</p>
                 <div className="stats">
-                    <p className='updoots'>
+                    <div className='updoots'>
                         <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
                         {updoots.length > 0 &&
                             <Fragment>
@@ -23,12 +26,16 @@ const Posts = ({ addLike, removeLike, auth, post: { _id, text, aim, name, avatar
                                 <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
                             </Fragment>
                         }
-                    </p>
-                    <p><i className='fas fa-share-alt' /></p>
-                    <p> <i className='far fa-calendar-alt' /> {new Date(date).toDateString()}</p>
+                    </div>
+                    <i className='fas fa-share-alt' />
+                    <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
+                    <i className='far fa-calendar-alt' /> {new Date(date).toDateString()}
+                    {auth.isAuthenticated && user === auth.user._id &&
+                        <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
+                    }
                 </div>
                 <div className="comments">
-                    {comments.map(
+                    {toggleComments && comments.map(
                         comment =>
                             <div
                                 key={comment._id}
@@ -62,11 +69,13 @@ const Posts = ({ addLike, removeLike, auth, post: { _id, text, aim, name, avatar
 Posts.propTypes = {
     post: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
-
+    addLike: PropTypes.func.isRequired,
+    removeLike: PropTypes.func.isRequired,
+    deletePost: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     auth: state.auth,
 })
 
-export default connect(mapStateToProps, { addLike, removeLike })(Posts);
+export default connect(mapStateToProps, { addLike, removeLike, deletePost })(Posts);

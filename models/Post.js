@@ -14,8 +14,13 @@ const PostSchema = new mongoose.Schema({
         type: String
     },
     aim: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'aim'
+        aim: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'aim'
+        },
+        title: {
+            type: String
+        }
     },
     updoots: [
         {

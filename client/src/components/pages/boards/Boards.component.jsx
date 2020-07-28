@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
@@ -10,31 +10,23 @@ import CreatePost from './CreatePost.component';
 // order by date
 
 const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated }, profile, post: { posts, loading } }) => {
-    const [postData, setPostData] = useState({ text: '' })
-    const [profileData, setProfileData] = useState({})
     useEffect(() => {
         getMyProfile();
         getPosts();
-        if (profile.profile) setProfileData({ profile: profile.profile })
+    }, [getMyProfile, getPosts, loading]);
 
-    }, [getMyProfile, getPosts, profile.loading]);
 
-    function newPost(e, postData) {
-        e.preventDefault();
-        console.log(postData, 'Implement new post redux')
-    }
-
-    return (!loading &&
-        <div className='container'>
-            {isAuthenticated && !profile.loading &&
-                <CreatePost
-                    profile={profileData}
-                    writePost={setPostData}
-                    newPost={e => newPost(e, postData)}
-                />}
-            <div>
-                {!loading && posts.map(post => <Posts key={post._id} post={post}></Posts>)}
-            </div>
+    return (!loading && !profile.loading &&
+        <div>
+            {isAuthenticated &&
+                <div className='create-post-form'>
+                    <img src={profile.profile.user.avatar} className='avatar' width='50' />
+                    <CreatePost />
+                </div>
+            }
+            < div className='boards-container' >
+                {posts.map(post => <Posts key={post._id} post={post}></Posts>)}
+            </div >
         </div>
     )
 }

@@ -30,7 +30,7 @@ const AimTree = ({ createAim, updateAim, aims }) => {
         edit: false,
         delete: false
     })
-    console.log(aims)
+
     //
     return (
         <div className='branch-container' >
