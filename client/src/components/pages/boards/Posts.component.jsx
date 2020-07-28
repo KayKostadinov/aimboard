@@ -1,35 +1,45 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addLike, removeLike } from '../../../actions/post';
 
-const Posts = ({ auth, post: { _id, text, aim, name, avatar, user, updoots, comments, date } }) => {
+const Posts = ({ addLike, removeLike, auth, post: { _id, text, aim, name, avatar, user, updoots, comments, date } }) => {
     console.log()
+
     return (
         <div className='post-container'>
             <div className="user">
-                <p>{name}</p>
                 <img src={avatar} className='avatar' width='30' />
             </div>
             <div className="post">
                 <p>{aim}</p>
                 <p>{text}</p>
                 <div className="stats">
-                    <p> {updoots.length} <i className='fas fa-heart' /></p>
+                    <p className='updoots'>
+                        <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
+                        {updoots.length > 0 &&
+                            <Fragment>
+                                {updoots.length}
+                                <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
+                            </Fragment>
+                        }
+                    </p>
                     <p><i className='fas fa-share-alt' /></p>
                     <p> <i className='far fa-calendar-alt' /> {new Date(date).toDateString()}</p>
                 </div>
                 <div className="comments">
                     {comments.map(
-                        comment => <div
-                            key={comment._id}
-                            className='comment-body'
-                        >
-                            <img src={comment.avatar} className='avatar' width='20' />
-                            <div className="content">
-                                <p>{comment.name} says:</p>
-                                <p>{comment.text}</p>
-                            </div>
-                        </div>)
+                        comment =>
+                            <div
+                                key={comment._id}
+                                className='comment-body'
+                            >
+                                <img src={comment.avatar} className='avatar' width='20' />
+                                <div className="content">
+                                    <p>{comment.name}:</p>
+                                    <p>{comment.text}</p>
+                                </div>
+                            </div>)
                     }
                     {auth.isAuthenticated ?
                         <div className="add-comment">
@@ -52,10 +62,11 @@ const Posts = ({ auth, post: { _id, text, aim, name, avatar, user, updoots, comm
 Posts.propTypes = {
     post: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
+
 }
 
 const mapStateToProps = state => ({
     auth: state.auth,
 })
 
-export default connect(mapStateToProps, {})(Posts);
+export default connect(mapStateToProps, { addLike, removeLike })(Posts);

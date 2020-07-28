@@ -23,16 +23,24 @@
     padding: .7em 0;
 
     input{
-        background-color: $p-light;
-        @include roundedBorders();
+        background-color: transparent;
         // border: solid $primary 1px;
         font: inherit;
         padding: .5rem 1rem;
         width: 300px;
         outline: none;
-        
+        overflow: hidden;
+        border: none;
+        border-bottom: 1px solid $dark;
+        transition: all .3s ease-in-out;
         &:focus{
-            background-color: $p-lighter;
+            @include roundedBorders();
+
+            border: none;
+            background-color: rgba($color: $p-light, $alpha: .5);
+        }
+        ::placeholder{
+            color: $darker;
         }
     }
 }

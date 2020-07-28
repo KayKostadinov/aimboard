@@ -17,4 +17,5 @@ export const GET_AIM = 'GET_AIM';
 export const AIM_ERR = 'AIM_ERR';
 export const CLEAR_AIM = 'CLEAR_AIM';
 export const GET_POSTS = 'GET_POSTS';
+export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const POST_ERR = 'POST_ERR';

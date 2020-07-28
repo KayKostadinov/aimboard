@@ -207,6 +207,7 @@ ul, li {
   transition: all .5s ease-in-out;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  background-color: rgba(242, 242, 247, 0.1);
 }
 
 .slide {
@@ -422,18 +423,40 @@ ul, li {
 }
 
 .form-group input {
-  background-color: #e5e5ea;
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
+  background-color: transparent;
   font: inherit;
   padding: .5rem 1rem;
   width: 300px;
   outline: none;
+  overflow: hidden;
+  border: none;
+  border-bottom: 1px solid #2c2c2e;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .form-group input:focus {
-  background-color: #f2f2f7;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  border: none;
+  background-color: rgba(229, 229, 234, 0.5);
+}
+
+.form-group input ::-webkit-input-placeholder {
+  color: #1c1c1e;
+}
+
+.form-group input :-ms-input-placeholder {
+  color: #1c1c1e;
+}
+
+.form-group input ::-ms-input-placeholder {
+  color: #1c1c1e;
+}
+
+.form-group input ::placeholder {
+  color: #1c1c1e;
 }
 
 .branch-container {

@@ -41,6 +41,7 @@
     transform: translateY(-100%);
     transition: all .5s ease-in-out;
     backdrop-filter: blur(10px);
+    background-color: rgba($color: $p-lighter, $alpha: .1);
 }
 
 .slide {
