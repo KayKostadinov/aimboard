@@ -39,8 +39,8 @@ const Landing = ({ isAuthenticated }) => {
                 <h1 className="txt-xl">Welcome to AimBoard</h1>
                 <p className='message'>Aim at your goals, inspire and be inspired! <br /> Join our community of dreamers!</p>
                 <div className="buttons">
-                    <Link name='register' className="btn slide-side" onClick={handleClick} to="#!">Sign Up</Link>
-                    <Link name='login' className="btn slide-side" onClick={handleClick} to="#!">Login</Link>
+                    <Link name='login' className="btn btn-regular slide-side" onClick={handleClick} to="#!">Login</Link>
+                    <Link name='register' className="btn btn-highlight slide-side" onClick={handleClick} to="#!">Sign Up</Link>
                 </div>
             </div>
             <div className={sidebarClass}>

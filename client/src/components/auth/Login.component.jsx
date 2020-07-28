@@ -52,9 +52,6 @@ const Login = ({ login, isAuthenticated }) => {
                 </div>
                 <Alert />
                 <input type="submit" className='btn submit' value='Login' />
-                <p className="tooltip">
-                    Don't have an account? <Link to='#!' name='register' className='link'>Register</Link>
-                </p>
             </form>
         </div>
     )

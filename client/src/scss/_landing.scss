@@ -1,6 +1,6 @@
 .landing {
     background-image: 
-        linear-gradient(rgba($p-light, 1), rgba(255, 145, 0, 0.7)),
+        linear-gradient(rgba($p-lighter, 1), rgba($orange, 0.7)),
         url('../img/arrows.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,6 +32,9 @@
     justify-self: center;
     align-self: center;
     @include flexCenter(flex-start, column);
+    align-items: center;
+
+    background-color: rgba($color: white, $alpha: 0.2);
 }
 
 .sidebar {
@@ -39,6 +42,7 @@
     transform: translateY(-100%);
     transition: all .5s ease-in-out;
     opacity: 0;
+    backdrop-filter: blur(10px);
 }
 
 .slide {

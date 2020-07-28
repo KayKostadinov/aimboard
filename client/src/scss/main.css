@@ -42,7 +42,7 @@ ul, li {
   position: sticky;
   top: 0px;
   padding: 1rem 4rem;
-  background: #fff;
+  background: #f2f2f7;
 }
 
 .navbar .logo a {
@@ -89,7 +89,7 @@ ul, li {
 .navbar ul li input:focus {
   -webkit-transition: width 1s ease-in-out;
   transition: width 1s ease-in-out;
-  background-color: #fff;
+  background-color: #e5e5ea;
   width: 100%;
 }
 
@@ -126,10 +126,10 @@ ul, li {
       -ms-flex-direction: row;
           flex-direction: row;
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   overflow: hidden;
-  background-color: #d1d1d1;
-  border: solid #fff 1px;
+  background-color: #d1d1d6;
+  border: solid #e5e5ea 1px;
 }
 
 .search i {
@@ -138,14 +138,14 @@ ul, li {
 }
 
 .search:focus-within {
-  background-color: #fff;
+  background-color: #e5e5ea;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .landing {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 145, 0, 0.7))), url("../img/arrows.jpg");
-  background-image: linear-gradient(white, rgba(255, 145, 0, 0.7)), url("../img/arrows.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
+  background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -196,6 +196,8 @@ ul, li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar {
@@ -205,6 +207,8 @@ ul, li {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
   opacity: 0;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .slide {
@@ -262,28 +266,42 @@ ul, li {
 
 .btn {
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.4);
   padding: .5em 1em;
-  font: inherit;
-  font-weight: 600;
+  font-size: inherit;
+  font-weight: 500;
   outline: none;
   text-align: center;
-  -webkit-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
-  -webkit-box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn:hover {
-  background-color: white;
   cursor: pointer;
 }
 
-.btn:active {
-  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
-          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+.btn-regular {
+  color: #2c2c2e;
+}
+
+.btn-regular:hover {
+  font-weight: 600;
+  color: #1c1c1e;
+}
+
+.btn-regular:active {
+  color: #2c2c2e;
+}
+
+.btn-highlight {
+  background-color: #007aff;
+  color: #e5e5ea;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.btn-highlight:hover {
+  background-color: #3395ff;
+}
+
+.btn-highlight:active {
+  background-color: #007aff;
 }
 
 .buttons {
@@ -357,7 +375,7 @@ ul, li {
   min-width: 350px;
   padding: 2rem;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: transparent;
 }
 
 .form {
@@ -397,14 +415,14 @@ ul, li {
           flex-direction: column;
   -ms-flex-item-align: center;
       align-self: center;
-  padding: .7em 1em;
+  padding: .7em 0;
 }
 
 .form-group input {
+  background-color: #e5e5ea;
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   overflow: hidden;
-  border: solid #d1d1d1 1px;
   font: inherit;
   padding: .5rem 1rem;
   width: 300px;
@@ -412,7 +430,7 @@ ul, li {
 }
 
 .form-group input:focus {
-  border: solid #1c1c1e 3px;
+  background-color: #f2f2f7;
 }
 
 .branch-container {
@@ -445,10 +463,10 @@ ul, li {
 
 .branch-container .branch-group .group-elements:hover {
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   overflow: hidden;
   background-color: #1c1c1e;
-  color: #fff;
+  color: #e5e5ea;
 }
 
 .branch-container .branch-group .group-elements i {
@@ -461,10 +479,10 @@ ul, li {
   visibility: hidden;
   width: auto;
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   overflow: hidden;
   background-color: rgba(255, 45, 85, 0.7);
-  color: #fff;
+  color: #e5e5ea;
   position: absolute;
   text-align: center;
   padding: .4em;

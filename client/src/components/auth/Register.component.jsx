@@ -82,9 +82,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                 </div>
                 <Alert />
                 <input type="submit" className='btn submit' value='Register' />
-                <p className="tooltip">
-                    Already have an account? <Link to='/login' className='link'>Sign In</Link>
-                </p>
             </form>
         </div>
     )
