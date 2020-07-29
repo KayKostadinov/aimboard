@@ -10,7 +10,6 @@ import Boards from './components/pages/boards/Boards.component';
 import Aim from './components/pages/aim/Aim.component';
 import PrivateRoute from './components/routing/PrivateRoute.component';
 import EditProfile from './components/pages/profile/EditProfile.component';
-import Search from './components/pages/search/Search.component';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -38,7 +37,6 @@ function App() {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/search' component={Search} />
             <Route exact path='/boards' component={Boards} />
             <PrivateRoute exact path='/aim' component={Aim} />
             <PrivateRoute exact path='/profile' component={EditProfile} />

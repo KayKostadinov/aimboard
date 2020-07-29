@@ -15,7 +15,6 @@ const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated }, profile, po
         getPosts();
     }, [getMyProfile, getPosts, loading]);
 
-
     return (!loading && !profile.loading &&
         <div>
             {isAuthenticated &&
@@ -24,9 +23,9 @@ const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated }, profile, po
                     <CreatePost />
                 </div>
             }
-            < div className='boards-container' >
+            <div className='boards-container' >
                 {posts.map(post => <Posts key={post._id} post={post}></Posts>)}
-            </div >
+            </div>
         </div>
     )
 }
