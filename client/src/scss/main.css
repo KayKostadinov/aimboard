@@ -547,9 +547,9 @@ ul, li {
   cursor: pointer;
 }
 
-.aim-form-container {
-  height: 100vh;
-  width: 100vw;
+.aim-form-container, .floating-post {
+  height: 30vh;
+  width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -560,9 +560,16 @@ ul, li {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 2em;
+  top: 33%;
+  left: 33%;
   z-index: 2;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-content: center;
 }
 /*# sourceMappingURL=main.css.map */

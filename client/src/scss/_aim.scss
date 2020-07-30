@@ -79,14 +79,18 @@
     }
 }
 
-.aim-form-container {
-    height: 100vh;
-    width: 100vw;
+.aim-form-container, .floating-post {
+    height: 30vh;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 2em;
+    top: 33%;
+    left: 33%;
     z-index: 2;
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

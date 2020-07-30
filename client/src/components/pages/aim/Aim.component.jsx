@@ -28,7 +28,7 @@ const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile
         id: ''
     });
 
-    if (createPost.toggle) {
+    if (createPost.toggle && aim) {
         getAim(createPost.id)
         postToggle({ ...createPost, id: aim._id })
     }
@@ -56,9 +56,20 @@ const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile
                     edit={edit}
                 />}
             {createPost.toggle &&
-                <CreatePost
-                    aim={aim}
-                />
+                <div className="floating-post">
+                    <CreatePost
+                        aimData={aim}
+                        aimId={createPost.id}
+                    />
+                    <button
+                        className='btn'
+                        onClick={e => {
+                            e.preventDefault();
+                            postToggle({
+                                toggle: false
+                            })
+                        }}>Close</button>
+                </div>
             }
         </Fragment>
     )

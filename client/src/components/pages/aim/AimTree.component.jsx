@@ -6,9 +6,8 @@ import { deleteAim } from '../../../actions/aim';
 // display goals by hierarchy
 // goals CRUD
 
-const AimTree = ({ deleteAim, aim, edit, setEdit, postToggle }) => {
+const AimTree = ({ deleteAim, aim, setEdit, postToggle }) => {
 
-    console.log(aim)
     return (aim &&
         <div className={`branch-group lvl${aim.level}`} >
             <div className='group-elements' >

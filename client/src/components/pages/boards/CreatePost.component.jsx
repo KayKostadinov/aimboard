@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addPost, getPosts } from '../../../actions/post';
+import { addPost } from '../../../actions/post';
 import { getAims } from '../../../actions/aim';
 
-const CreatePost = ({ addPost, getAims, aim: { aims, loading } }) => {
+const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId }) => {
 
     useEffect(() => {
         getAims();
-        getPosts();
+
     }, [getAims])
 
     const [postData, setPostData] = useState({
@@ -34,6 +34,7 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading } }) => {
                         title: e.target.value
                     }
                 })}>
+
                 <option value="null">Select aim...</option>
                 {!loading && aims.map(x =>
                     <option

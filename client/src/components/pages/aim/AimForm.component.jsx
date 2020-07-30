@@ -12,13 +12,11 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
         parent: edit.parent,
     })
 
-    console.log(edit)
     return (
         <div className="aim-form-container">
             <form
                 className='aim-form'
                 onSubmit={e => {
-                    e.preventDefault();
                     if (edit.id === 'new') {
                         setFormData({ ...formData, level: formData.level++ })
                         createAim(formData);
