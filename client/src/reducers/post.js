@@ -41,12 +41,12 @@ export default function (state = initialState, action) {
                 posts: state.posts.map(post => post._id === payload.id ? { ...post, updoots: payload.updoots } : post),
                 loading: false
             }
-        case UPDATE_LIKES:
-            return {
-                ...state,
-                posts: [...state.posts, payload],
-                loading: false
-            }
+        // case UPDATE_LIKES:
+        //     return {
+        //         ...state,
+        //         posts: [...state.posts, payload],
+        //         loading: false
+        //     }
         default: return state
     }
 }

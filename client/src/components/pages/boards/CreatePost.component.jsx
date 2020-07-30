@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addPost, getPosts } from '../../../actions/post';
 import { getAims } from '../../../actions/aim';
 
-const CreatePost = ({ addPost, getAims, aim: { aim, loading } }) => {
+const CreatePost = ({ addPost, getAims, aim: { aims, loading } }) => {
 
     useEffect(() => {
         getAims();
@@ -35,7 +35,7 @@ const CreatePost = ({ addPost, getAims, aim: { aim, loading } }) => {
                     }
                 })}>
                 <option value="null">Select aim...</option>
-                {!loading && aim.map(x =>
+                {!loading && aims.map(x =>
                     <option
                         key={x._id}
                         id={x._id}

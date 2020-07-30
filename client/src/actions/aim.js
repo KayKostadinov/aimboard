@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_AIM, AIM_ERR, CLEAR_AIM } from './types';
+import { GET_AIM, GET_AIMS, AIM_ERR, CLEAR_AIM, CREATE_AIM, UPDATE_AIM } from './types';
 
 // get aims for current profile
 
@@ -8,10 +8,28 @@ export const getAims = () => async dispatch => {
     try {
         const res = await axios.get('/api/aim');
         dispatch({
-            type: GET_AIM,
+            type: GET_AIMS,
             payload: res.data
         })
 
+    } catch (err) {
+        dispatch({
+            type: AIM_ERR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
+    }
+}
+
+// get a single aim
+
+export const getAim = id => async dispatch => {
+    try {
+
+        const res = await axios.get(`/api/aim/${id}`);
+        dispatch({
+            type: GET_AIM,
+            payload: res.data
+        })
     } catch (err) {
         dispatch({
             type: AIM_ERR,
@@ -33,7 +51,7 @@ export const createAim = formData => async dispatch => {
         const res = await axios.post('/api/aim', formData, config);
 
         dispatch({
-            type: GET_AIM,
+            type: CREATE_AIM,
             payload: res.data
         });
 
@@ -58,13 +76,15 @@ export const updateAim = (formData, aimId) => async dispatch => {
                 "Content-Type": "application/json"
             }
         }
-
+        console.log('here')
         const res = await axios.post(`/api/aim/${aimId}`, formData, config);
+        console.log('after')
 
         dispatch({
-            type: GET_AIM,
+            type: UPDATE_AIM,
             payload: res.data
         })
+
     } catch (err) {
         const errors = err.response.data.errors;
         if (errors) {
@@ -84,7 +104,8 @@ export const deleteAim = aimId => async dispatch => {
         await axios.delete(`/api/aim/${aimId}`);
 
         dispatch({
-            type: CLEAR_AIM
+            type: CLEAR_AIM,
+            payload: aimId
         })
 
     } catch (err) {

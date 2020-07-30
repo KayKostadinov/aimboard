@@ -458,15 +458,31 @@ ul, li {
   color: #1c1c1e;
 }
 
-.branch-container {
-  width: 100%;
+.lvl0 {
+  grid-area: first;
+}
+
+.lvl1 {
+  grid-area: second;
+}
+
+.lvl2 {
+  grid-area: third;
+}
+
+.lvl3 {
+  grid-area: fourth;
+}
+
+.lvl4 {
+  grid-area: last;
 }
 
 .branch-container .branch-group {
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  max-width: 30%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   padding: 0 1em;
 }
 
@@ -474,14 +490,13 @@ ul, li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
   margin: 1em;
   padding: .3em 1em;
 }
@@ -492,6 +507,10 @@ ul, li {
   overflow: hidden;
   background-color: #1c1c1e;
   color: #e5e5ea;
+}
+
+.branch-container .branch-group .group-elements .title {
+  text-align: center;
 }
 
 .branch-container .branch-group .group-elements i {
@@ -507,7 +526,7 @@ ul, li {
   border-radius: 20px;
   overflow: hidden;
   background-color: rgba(255, 45, 85, 0.7);
-  color: #e5e5ea;
+  color: #f2f2f7;
   position: absolute;
   text-align: center;
   padding: .4em;
@@ -526,5 +545,24 @@ ul, li {
 
 .branch-container .branch-group .group-elements li:hover {
   cursor: pointer;
+}
+
+.aim-form-container {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 2em;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 /*# sourceMappingURL=main.css.map */

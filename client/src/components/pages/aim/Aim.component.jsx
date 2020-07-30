@@ -1,40 +1,73 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
+import { getAims, getAim } from '../../../actions/aim';
 import ProfileSetup from '../aim/ProfileSetup.component';
 import AimTree from './AimTree.component';
-import { getAims } from '../../../actions/aim';
+import AimForm from './AimForm.component';
+import CreatePost from '../boards/CreatePost.component';
 
-// display profile's goals
-// if no profile has been created, display the profile setup page
-// group by goals tree
 
-const Aim = ({ getMyProfile, getAims, auth: { user }, profile: { profile, loading }, aim }) => {
+const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile: { profile, loading }, aim: { aim, aims, loading: loadAim } }) => {
     useEffect(() => {
         getMyProfile();
         getAims();
-    }, [getMyProfile, getAims]);
+    }, [getMyProfile, getAims, loadAim, loading]);
 
+    const [edit, setEdit] = useState({
+        toggle: false,
+        id: '',
+        title: '',
+        level: 0,
+        parent: '',
+        complete: ''
+    });
+    const [createPost, postToggle] = useState({
+        toggle: false,
+        id: ''
+    });
 
-    return (
-        loading && profile === null ? (
-            <Fragment> Replace me with Loading </Fragment>
-        ) : (
-                <Fragment>
-                    {profile !== null && aim.aim ?
-                        <AimTree aims={aim.aim} />
+    if (createPost.toggle) {
+        getAim(createPost.id)
+        postToggle({ ...createPost, id: aim._id })
+    }
+
+    return (!loading && !loadAim && isAuthenticated &&
+        <Fragment>
+            {loading && profile === null ? <Fragment> Replace me with Loading </Fragment> : (
+                <div className="branch-container">
+                    {profile !== null && aims ? aims.map(aim => (
+                        <AimTree
+                            key={aim._id}
+                            aim={aim}
+                            edit={edit}
+                            setEdit={setEdit}
+                            postToggle={postToggle}
+
+                        />))
                         :
-                        <ProfileSetup />
-                    }
-                </Fragment>
-            )
+                        <ProfileSetup />}
+                </div>
+            )}
+            {edit.toggle &&
+                <AimForm
+                    setEdit={setEdit}
+                    edit={edit}
+                />}
+            {createPost.toggle &&
+                <CreatePost
+                    aim={aim}
+                />
+            }
+        </Fragment>
     )
 }
 
 Aim.propTypes = {
     getMyProfile: PropTypes.func.isRequired,
     getAims: PropTypes.func.isRequired,
+    getAim: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     aim: PropTypes.object.isRequired,
@@ -46,4 +79,4 @@ const mapStateToProps = state => ({
     aim: state.aim
 })
 
-export default connect(mapStateToProps, { getMyProfile, getAims })(Aim);
+export default connect(mapStateToProps, { getMyProfile, getAims, getAim })(Aim);
