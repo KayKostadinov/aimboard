@@ -17,7 +17,7 @@ const Posts = ({
     return (
         <div className='post-container'>
             <div className="user">
-                <img src={avatar} className='avatar' width='30' />
+                <img src={avatar} className='avatar' alt='' width='30' />
             </div>
             <div className="post">
                 {aim && <p>{aim.title}</p>}
@@ -45,7 +45,7 @@ const Posts = ({
                                 key={comment._id}
                                 className='comment-body'
                             >
-                                <img src={comment.avatar} className='avatar' width='20' />
+                                <img src={comment.avatar} alt='' className='avatar' width='20' />
                                 <div className="content">
                                     <p>{comment.text}</p>
                                 </div>
@@ -53,7 +53,7 @@ const Posts = ({
                     }
                     {auth.isAuthenticated ?
                         <div className="add-comment">
-                            <img src={auth.user.avatar} className='avatar' width='20' />
+                            <img src={auth.user.avatar} alt='' className='avatar' width='20' />
                             <form className='add-comment-form' onSubmit={e => {
                                 e.preventDefault();
                                 addComment(commentForm, _id)

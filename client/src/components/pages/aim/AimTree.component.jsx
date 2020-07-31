@@ -16,17 +16,6 @@ const AimTree = ({ deleteAim, aim, setEdit, postToggle }) => {
                 </div>
                 <div>
                     <i
-                        className='fas fa-plus-circle'
-                        onClick={() => setEdit({
-                            toggle: true,
-                            id: 'new',
-                            title: '',
-                            complete: false
-                        })
-                        } >
-                        <span className="tooltip">add a stepping stone</span>
-                    </i>
-                    <i
                         className='fas fa-pen-square'
                         onClick={() => setEdit({
                             toggle: true,

@@ -2,18 +2,21 @@ import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
+import { getPosts } from '../../../actions/post';
 import { getAims, getAim } from '../../../actions/aim';
 import ProfileSetup from '../aim/ProfileSetup.component';
 import AimTree from './AimTree.component';
 import AimForm from './AimForm.component';
 import CreatePost from '../boards/CreatePost.component';
+import Posts from '../boards/Posts.component';
 
 
-const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile: { profile, loading }, aim: { aim, aims, loading: loadAim } }) => {
+const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: postLoading }, auth: { isAuthenticated }, profile: { profile, loading }, aim: { aim, aims, loading: loadAim } }) => {
     useEffect(() => {
         getMyProfile();
         getAims();
-    }, [getMyProfile, getAims, loadAim, loading]);
+        getPosts();
+    }, [getMyProfile, getAims, getPosts, loadAim, loading, postLoading]);
 
     const [edit, setEdit] = useState({
         toggle: false,
@@ -31,20 +34,45 @@ const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile
         postToggle({ ...createPost, id: aim._id })
     }
 
-
     return (!loading && !loadAim && isAuthenticated &&
         <Fragment>
             {loading && profile === null ? <Fragment> Replace me with Loading </Fragment> : (
-                <div className="branch-container">
-                    {profile !== null && aims ? aims.map(aim => (
-                        <AimTree
-                            key={aim._id}
-                            aim={aim}
-                            edit={edit}
-                            setEdit={setEdit}
-                            postToggle={postToggle}
+                <div className="aim-page">
+                    {profile !== null ?
+                        <div className='aim-page-grid'>
+                            <div className="branch-container">
+                                <div className='aim-heading'>
+                                    <p className='page-title'>Goals</p>
+                                    {profile.goals.map(goal => <p key={goal} className='goal'>{goal}</p>)}
+                                    <i
+                                        className='fas fa-plus-circle'
+                                        onClick={() => setEdit({
+                                            toggle: true,
+                                            id: 'new',
+                                            title: '',
+                                            complete: false
+                                        })
+                                        } >
+                                        <span className="info">Add a stepping stone</span>
+                                    </i>
+                                </div>
+                                <div>
+                                    {aims && aims.map(aim => (
+                                        <AimTree
+                                            key={aim._id}
+                                            aim={aim}
+                                            edit={edit}
+                                            setEdit={setEdit}
+                                            postToggle={postToggle}
 
-                        />))
+                                        />))}
+                                </div>
+                            </div>
+                            <div className="posts-container">
+                                <p className='page-title'>Progress</p>
+                                {posts && posts.map(post => <Posts key={post._id} post={post} />)}
+                            </div>
+                        </div>
                         :
                         <ProfileSetup />}
                 </div>
@@ -82,12 +110,15 @@ Aim.propTypes = {
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     aim: PropTypes.object.isRequired,
+    post: PropTypes.object.isRequired,
+    getPosts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
     auth: state.auth,
     profile: state.profile,
-    aim: state.aim
+    aim: state.aim,
+    post: state.post
 })
 
-export default connect(mapStateToProps, { getMyProfile, getAims, getAim })(Aim);
+export default connect(mapStateToProps, { getMyProfile, getAims, getAim, getPosts })(Aim);

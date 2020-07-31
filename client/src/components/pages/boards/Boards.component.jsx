@@ -21,7 +21,7 @@ const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated }, profile, po
         <div>
             {isAuthenticated &&
                 <div className='create-post-form'>
-                    <img src={profile.profile.user.avatar} className='avatar' width='50' />
+                    <img src={profile.profile.user.avatar} className='avatar' alt='' width='50' />
                     <CreatePost />
                 </div>
             }
