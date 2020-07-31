@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_POSTS, POST_ERR, UPDATE_LIKES, DELETE_POST, ADD_POST } from './types';
+import { GET_POSTS, POST_ERR, UPDATE_LIKES, DELETE_POST, ADD_POST, ADD_COMMENT } from './types';
 
 // get all posts
 export const getPosts = () => async dispatch => {
@@ -86,5 +86,24 @@ export const deletePost = id => async dispatch => {
             type: POST_ERR,
             payload: { msg: err.response.statusText, status: err.response.status }
         })
+    }
+}
+
+//add comment
+
+export const addComment = (commentForm, id) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        const res = await axios.post(`/api/posts/comment/${id}`, commentForm, config);
+        dispatch({
+            type: ADD_COMMENT,
+            payload: { id, comments: res.data }
+        })
+    } catch (err) {
+        console.log(err)
     }
 }

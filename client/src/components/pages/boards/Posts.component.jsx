@@ -1,17 +1,18 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addLike, removeLike, deletePost } from '../../../actions/post';
+import { addLike, removeLike, deletePost, addComment } from '../../../actions/post';
 
 const Posts = ({
     addLike,
+    addComment,
     removeLike,
     deletePost,
     auth,
     post: { _id, text, aim, avatar, user, updoots, comments, date }
 }) => {
     const [toggleComments, setToggle] = useState(false);
-    const [commentForm, setCommentForm] = useState('');
+    const [commentForm, setCommentForm] = useState({ text: '' });
 
     return (
         <div className='post-container'>
@@ -31,7 +32,6 @@ const Posts = ({
                             </Fragment>
                         }
                     </div>
-                    <i className='fas fa-share-alt' />
                     <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
                     <i className='far fa-calendar-alt' /> {new Date(date).toDateString()}
                     {auth.isAuthenticated && user === auth.user._id &&
@@ -47,7 +47,6 @@ const Posts = ({
                             >
                                 <img src={comment.avatar} className='avatar' width='20' />
                                 <div className="content">
-                                    <p>{comment.name}:</p>
                                     <p>{comment.text}</p>
                                 </div>
                             </div>)
@@ -55,9 +54,13 @@ const Posts = ({
                     {auth.isAuthenticated ?
                         <div className="add-comment">
                             <img src={auth.user.avatar} className='avatar' width='20' />
-                            <form className='add-comment-form'>
-                                <input type="text" value={commentForm} onChange={e => setCommentForm(e.target.value)} />
-                                <button onClick={e => e.preventDefault()} className='btn btn-regular'>
+                            <form className='add-comment-form' onSubmit={e => {
+                                e.preventDefault();
+                                addComment(commentForm, _id)
+                                setCommentForm({ text: '' })
+                            }}>
+                                <input type="text" value={commentForm.text} onChange={e => setCommentForm({ text: e.target.value })} />
+                                <button type='submit' className='btn btn-regular'>
                                     <i className='fas fa-arrow-circle-up' />
                                 </button>
                             </form>
@@ -76,10 +79,11 @@ Posts.propTypes = {
     addLike: PropTypes.func.isRequired,
     removeLike: PropTypes.func.isRequired,
     deletePost: PropTypes.func.isRequired,
+    addComment: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     auth: state.auth,
 })
 
-export default connect(mapStateToProps, { addLike, removeLike, deletePost })(Posts);
+export default connect(mapStateToProps, { addLike, removeLike, deletePost, addComment })(Posts);
