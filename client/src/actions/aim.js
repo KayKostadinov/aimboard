@@ -76,24 +76,23 @@ export const updateAim = (formData, aimId) => async dispatch => {
                 "Content-Type": "application/json"
             }
         }
-        console.log('here')
         const res = await axios.post(`/api/aim/${aimId}`, formData, config);
-        console.log('after')
-
+        console.log(res.data)
         dispatch({
             type: UPDATE_AIM,
             payload: res.data
         })
 
     } catch (err) {
-        const errors = err.response.data.errors;
-        if (errors) {
-            errors.forEach(x => dispatch(setAlert(x.msg, 'error')))
-        }
-        dispatch({
-            type: AIM_ERR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        })
+        console.log(err)
+        // const errors = err?.response?.data?.errors;
+        // if (errors) {
+        //     errors.forEach(x => dispatch(setAlert(x.msg, 'error')))
+        // }
+        // dispatch({
+        //     type: AIM_ERR,
+        //     payload: { msg: err.response.statusText, status: err.response.status }
+        // })
     }
 }
 

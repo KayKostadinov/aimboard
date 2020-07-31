@@ -2,15 +2,19 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../../actions/post';
-import Alert from '../../layout/Alert.component';
 
-const Posts = ({ addLike, removeLike, deletePost, auth, post: { _id, text, aim, avatar, user, updoots, comments, date } }) => {
+const Posts = ({
+    addLike,
+    removeLike,
+    deletePost,
+    auth,
+    post: { _id, text, aim, avatar, user, updoots, comments, date }
+}) => {
     const [toggleComments, setToggle] = useState(false);
-
+    const [commentForm, setCommentForm] = useState('');
 
     return (
         <div className='post-container'>
-            <Alert />
             <div className="user">
                 <img src={avatar} className='avatar' width='30' />
             </div>
@@ -52,7 +56,7 @@ const Posts = ({ addLike, removeLike, deletePost, auth, post: { _id, text, aim, 
                         <div className="add-comment">
                             <img src={auth.user.avatar} className='avatar' width='20' />
                             <form className='add-comment-form'>
-                                <input type="text" />
+                                <input type="text" value={commentForm} onChange={e => setCommentForm(e.target.value)} />
                                 <button onClick={e => e.preventDefault()} className='btn btn-regular'>
                                     <i className='fas fa-arrow-circle-up' />
                                 </button>

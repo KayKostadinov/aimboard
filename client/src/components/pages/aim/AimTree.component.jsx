@@ -21,8 +21,6 @@ const AimTree = ({ deleteAim, aim, setEdit, postToggle }) => {
                             toggle: true,
                             id: 'new',
                             title: '',
-                            level: aim.level,
-                            parent: aim._id,
                             complete: false
                         })
                         } >
@@ -34,8 +32,6 @@ const AimTree = ({ deleteAim, aim, setEdit, postToggle }) => {
                             toggle: true,
                             id: aim._id,
                             title: aim.title,
-                            level: aim.level,
-                            parent: aim.parent,
                             complete: aim.complete
                         })
                         } >

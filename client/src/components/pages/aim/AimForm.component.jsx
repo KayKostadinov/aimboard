@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updateAim, createAim } from '../../../actions/aim';
@@ -7,9 +7,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
 
     const [formData, setFormData] = useState({
         title: edit.title,
-        level: edit.level,
         complete: edit.complete,
-        parent: edit.parent,
     })
 
     return (
@@ -18,14 +16,14 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
                 className='aim-form'
                 onSubmit={e => {
                     if (edit.id === 'new') {
-                        setFormData({ ...formData, level: formData.level++ })
                         createAim(formData);
                     } else {
                         updateAim(formData, edit.id);
                     }
                     setEdit({
                         toggle: false,
-                        id: ''
+                        id: '',
+                        complete: ''
                     });
                 }}>
                 <div className="form-group">

@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
         case UPDATE_AIM:
             return {
                 ...state,
-                aims: state.aims.map(aim => aim._id === payload._id ? { aim: { payload } } : aim),
+                aims: state.aims.map(aim => aim._id === payload._id ? { ...aim, title: payload.title, complete: payload.complete } : aim),
                 loading: false
             }
         case AIM_ERR:

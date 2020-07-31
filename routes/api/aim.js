@@ -20,10 +20,8 @@ router.post('/', [auth, [check('title', 'Title is required').not().isEmpty()]], 
         const newAim = new Aim({
             user: req.user.id,
             title: req.body.title,
-            level: req.body.level,
             deadline: req.body.deadline,
             complete: req.body.complete,
-            parent: req.body.parent,
         })
 
         const aim = await newAim.save();
@@ -119,7 +117,6 @@ router.post('/:id', auth, async (req, res) => {
             level,
             deadline,
             complete,
-            parent,
         } = req.body;
 
         let aimFields = {
@@ -127,17 +124,17 @@ router.post('/:id', auth, async (req, res) => {
             level,
             deadline,
             complete,
-            parent,
         };
 
         // save to DB
         if (aim) {
             aim = await Aim.findOneAndUpdate(
-                { user: req.user.id },
+                { _id: req.params.id },
                 { $set: aimFields },
                 { new: true }
             )
         }
+        console.log(aim)
         res.json(aim);
 
     } catch (err) {

@@ -19,8 +19,6 @@ const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile
         toggle: false,
         id: '',
         title: '',
-        level: 0,
-        parent: '',
         complete: ''
     });
     const [createPost, postToggle] = useState({
@@ -32,6 +30,7 @@ const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile
         getAim(createPost.id)
         postToggle({ ...createPost, id: aim._id })
     }
+
 
     return (!loading && !loadAim && isAuthenticated &&
         <Fragment>
@@ -60,6 +59,7 @@ const Aim = ({ getMyProfile, getAims, getAim, auth: { isAuthenticated }, profile
                     <CreatePost
                         aimData={aim}
                         aimId={createPost.id}
+                        postToggle={postToggle}
                     />
                     <button
                         className='btn'

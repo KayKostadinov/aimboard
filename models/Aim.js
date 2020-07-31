@@ -9,10 +9,6 @@ const AimSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    level: {
-        type: Number,
-        default: 0
-    },
     complete: {
         type: Boolean,
         default: false
@@ -20,11 +16,6 @@ const AimSchema = new mongoose.Schema({
     deadline: {
         type: Date,
         default: Date.now
-    },
-    parent: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'aim',
-        default: null
     },
 });
 

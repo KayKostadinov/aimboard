@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addPost } from '../../../actions/post';
 import { getAims } from '../../../actions/aim';
 
-const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId }) => {
+const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggle }) => {
 
     useEffect(() => {
         getAims();
@@ -52,7 +52,7 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId }) => {
                 onChange={e => setPostData({ ...postData, text: e.target.value })}
                 required
             />
-            <button type='submit'>Post</button>
+            <button type='submit' onClick={() => postToggle && postToggle({ toggle: false })}>Post</button>
         </form>
     )
 }
