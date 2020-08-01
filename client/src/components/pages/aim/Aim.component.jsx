@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
@@ -11,7 +12,7 @@ import CreatePost from '../boards/CreatePost.component';
 import Posts from '../boards/Posts.component';
 
 
-const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: postLoading }, auth: { isAuthenticated }, profile: { profile, loading }, aim: { aim, aims, loading: loadAim } }) => {
+const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: postLoading }, auth: { isAuthenticated, user }, profile: { profile, loading }, aim: { aim, aims, loading: loadAim } }) => {
     useEffect(() => {
         getMyProfile();
         getAims();
@@ -43,20 +44,25 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                             <div className="branch-container">
                                 <div className='aim-heading'>
                                     <p className='page-title'>Goals</p>
-                                    {profile.goals.map(goal => <p key={goal} className='goal'>{goal}</p>)}
-                                    <i
-                                        className='fas fa-plus-circle'
-                                        onClick={() => setEdit({
-                                            toggle: true,
-                                            id: 'new',
-                                            title: '',
-                                            complete: false
-                                        })
-                                        } >
-                                        <span className="info">Add a stepping stone</span>
-                                    </i>
+                                    <div className='list-goals'>
+                                        {profile.goals.map(goal => <p key={goal} className='goal'>{goal}</p>)}
+                                    </div>
+                                    <div className="buttons">
+                                        <Link to='/profile' className='btn btn-regular' >edit in profile</Link>
+                                        <i
+                                            className='fas fa-plus-circle btn-big'
+                                            onClick={() => setEdit({
+                                                toggle: true,
+                                                id: 'new',
+                                                title: '',
+                                                complete: false
+                                            })
+                                            } >
+                                            <span className="info">Add a stepping stone</span>
+                                        </i>
+                                    </div>
                                 </div>
-                                <div>
+                                <div className='aim-content'>
                                     {aims && aims.map(aim => (
                                         <AimTree
                                             key={aim._id}
@@ -70,7 +76,7 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                             </div>
                             <div className="posts-container">
                                 <p className='page-title'>Progress</p>
-                                {posts && posts.map(post => <Posts key={post._id} post={post} />)}
+                                {posts && posts.map(post => post.user === user._id && <Posts key={post._id} post={post} />)}
                             </div>
                         </div>
                         :
@@ -102,6 +108,7 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
         </Fragment>
     )
 }
+
 
 Aim.propTypes = {
     getMyProfile: PropTypes.func.isRequired,

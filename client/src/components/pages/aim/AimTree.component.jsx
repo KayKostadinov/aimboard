@@ -9,30 +9,28 @@ import { deleteAim } from '../../../actions/aim';
 const AimTree = ({ deleteAim, aim, setEdit, postToggle }) => {
 
     return (aim &&
-        <div className={`branch-group lvl${aim.level}`} >
-            <div className='group-elements' >
-                <div className='title'>
-                    {aim.title}
-                </div>
-                <div>
-                    <i
-                        className='fas fa-pen-square'
-                        onClick={() => setEdit({
-                            toggle: true,
-                            id: aim._id,
-                            title: aim.title,
-                            complete: aim.complete
-                        })
-                        } >
-                        <span className="tooltip">edit</span>
-                    </i>
-                    <i className='fas fa-comment-alt' onClick={() => postToggle({ toggle: true, id: aim._id })}>
-                        <span className="tooltip">share your progress</span>
-                    </i>
-                    <i className='fas fa-times-circle' onClick={() => deleteAim(aim._id)}>
-                        <span className="tooltip">delete</span>
-                    </i>
-                </div>
+        <div className='group-elements' >
+            <div className='title'>
+                {aim.title}
+            </div>
+            <div>
+                <i
+                    className='fas fa-pen-square show-hover'
+                    onClick={() => setEdit({
+                        toggle: true,
+                        id: aim._id,
+                        title: aim.title,
+                        complete: aim.complete
+                    })
+                    } >
+                    <span className="tooltip">edit</span>
+                </i>
+                <i className='fas fa-comment-alt show-hover' onClick={() => postToggle({ toggle: true, id: aim._id })}>
+                    <span className="tooltip">share your progress</span>
+                </i>
+                <i className='fas fa-times-circle show-hover' onClick={() => deleteAim(aim._id)}>
+                    <span className="tooltip">delete</span>
+                </i>
             </div>
         </div>
     )
