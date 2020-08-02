@@ -11,9 +11,9 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
     })
 
     return (
-        <div className="aim-form-container">
+        <div className="form-container aim-form-container">
             <form
-                className='aim-form'
+                className='form aim-form'
                 onSubmit={e => {
                     if (edit.id === 'new') {
                         createAim(formData);
@@ -30,12 +30,13 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
                     <label>Name your Aim</label>
                     <input type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
                 </div>
-                <div className="form-group checkbox">
+                <div className=" checkbox">
                     <input type="checkbox"
+                        className='check'
                         name='complete'
                         checked={formData.complete}
                         onChange={e => setFormData({ ...formData, complete: e.target.checked })} />
-                    <label htmlFor='complete'>Complete?</label>
+                    <span>Complete?</span>
                 </div>
                 <div className="buttons">
                     <button type='button' className='btn' onClick={e => {

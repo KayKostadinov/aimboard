@@ -4,9 +4,9 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    height: 100vh;
+    width: 100%;
     min-width: 350px;
-    padding: 2rem;
+    padding: 2rem 1rem;
     text-align: center;
     background-color: transparent;
 }
@@ -24,31 +24,35 @@
 }
 
 .form{
-    @include flexCenter(center, column, flex-start);
-    height: 80%;
-    
-}
-
-.form-group {
-    @include flexCenter(space-between, column, center);
-    align-self: center;
-    padding: .7em 0;
-
-    input{
-        background-color: transparent;
-        @include roundedBorders();
-        font: inherit;
-        padding: .5rem 1rem;
-        width: 300px;
-        outline: none;
-        overflow: hidden;
-        border: 1px solid $gray;
-        transition: all .3s ease-in-out;
-        &:focus{
-            background-color: rgba($color: $p-lighter, $alpha: .8);
+    .form-group {
+        @include flexCenter(space-between, column, center);
+        padding: .7em 0;
+        input{
+            @include roundedBorders();
+            background-color: transparent;
+            font: inherit;
+            padding: .5rem 1rem;
+            width: 300px;
+            outline: none;
+            overflow: hidden;
+            border: 1px solid $gray;
+            transition: all .3s ease-in-out;
+            &:focus{
+                background-color: rgba($color: $white, $alpha: .8);
+            }
+            ::placeholder{
+                color: $darker;
+            }
         }
-        ::placeholder{
-            color: $darker;
+    }
+    .checkbox {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        span {
+            margin-right: 1em;
         }
     }
 }
+
