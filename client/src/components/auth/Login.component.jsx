@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 import Alert from '../layout/Alert.component';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, setClickable }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -17,6 +17,7 @@ const Login = ({ login, isAuthenticated }) => {
 
     const onSubmit = e => {
         e.preventDefault();
+        e.stopPropagation();
         login(email, password);
     }
 
@@ -50,6 +51,13 @@ const Login = ({ login, isAuthenticated }) => {
                         required
                     />
                 </div>
+                <p className='form-tooltip'>Don't have an account?
+                    <Link to='/' className='link-text' name='register' onClick={e => {
+                        e.preventDefault();
+                        setClickable({ slider: true, clicked: e.target.name }
+                        )
+                    }}> Register</Link>
+                </p>
                 <Alert />
                 <input type="submit" className='btn submit' value='Login' />
             </form>

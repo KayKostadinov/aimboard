@@ -37,7 +37,7 @@ const Landing = ({ isAuthenticated }) => {
         <div className={landingClass}>
             <div className="lan-card">
                 <h1 className="txt-xl">Welcome to AimBoard</h1>
-                <p className='message'>Aim at your goals, inspire and be inspired! <br /> Join our community of dreamers!</p>
+                <p className='message'>Aim at your goals and share your progress. <br /> Join our community of dreamers!</p>
                 <div className="buttons">
                     <Link name='login' className="btn btn-regular slide-side" onClick={handleClick} to="#!">Login</Link>
                     <Link name='register' className="btn btn-highlight slide-side" onClick={handleClick} to="#!">Sign Up</Link>
@@ -47,8 +47,8 @@ const Landing = ({ isAuthenticated }) => {
                 {
                     clickable.clicked ? (
                         clickable.clicked === 'login' ?
-                            <Login onClick={handleClick} /> :
-                            (clickable.clicked === 'register' ? <Register /> : null)
+                            <Login onClick={handleClick} setClickable={setClickable} /> :
+                            (clickable.clicked === 'register' ? <Register setClickable={setClickable} /> : null)
                     ) :
                         null
                 }

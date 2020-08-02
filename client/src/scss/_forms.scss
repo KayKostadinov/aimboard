@@ -11,6 +11,18 @@
     background-color: transparent;
 }
 
+.form-tooltip{
+    margin: 1em 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: $dark;
+    .link-text {
+        color: $blue;
+        font-weight: 500;
+    }
+}
+
 .form{
     @include flexCenter(center, column, flex-start);
     height: 80%;
@@ -24,20 +36,16 @@
 
     input{
         background-color: transparent;
-        // border: solid $primary 1px;
+        @include roundedBorders();
         font: inherit;
         padding: .5rem 1rem;
         width: 300px;
         outline: none;
         overflow: hidden;
-        border: none;
-        border-bottom: 1px solid $dark;
+        border: 1px solid $gray;
         transition: all .3s ease-in-out;
         &:focus{
-            @include roundedBorders();
-
-            border: none;
-            background-color: rgba($color: $p-light, $alpha: .5);
+            background-color: rgba($color: $p-lighter, $alpha: .8);
         }
         ::placeholder{
             color: $darker;

@@ -25,6 +25,7 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggl
             onSubmit={e => {
                 e.preventDefault();
                 addPost(postData);
+                postToggle && postToggle({ toggle: false })
             }}>
             <select value={postData.aim.title}
                 onChange={e => setPostData({
@@ -52,7 +53,7 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggl
                 onChange={e => setPostData({ ...postData, text: e.target.value })}
                 required
             />
-            <button type='submit' onClick={() => postToggle && postToggle({ toggle: false })}>Post</button>
+            <button type='submit' >Post</button>
         </form>
     )
 }

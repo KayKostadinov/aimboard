@@ -54,7 +54,6 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
 
     const handleSocialChange = e => {
         setFormData({ ...formData, social: { ...formData.social, [e.target.name]: e.target.value } });
-        console.log(formData)
     }
 
     const onSubmit = e => {

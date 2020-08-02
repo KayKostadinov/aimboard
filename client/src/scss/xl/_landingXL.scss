@@ -1,0 +1,65 @@
+.landing {
+    background-image: 
+        linear-gradient(rgba($p-lighter, 1), rgba($orange, 0.7)),
+        url('../img/arrows.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    transition: all .5s ease-in-out;
+
+    .message{
+        font-size: 20px;
+        padding: 2em 0 1em 0;
+        text-align: center;
+        font-weight: 400;
+    }
+}
+
+.landing-grid-one{
+    display: grid;
+    grid-template-columns: 1fr 0;
+}
+
+.landing-grid-two{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.lan-card {
+    height: 30vh;
+    min-height: 350px;
+    padding: 4em;
+    justify-self: center;
+    align-self: center;
+    @include flexCenter(flex-start, column);
+    @include roundedBorders();
+    align-items: center;
+    background-color: rgba($color: $p-lighter, $alpha: 0);
+    backdrop-filter: blur(0);
+    transition: all .5s ease-in-out;
+    &:hover{
+        background-color: rgba($color: $p-lighter, $alpha: 0.1);
+        backdrop-filter: blur(10px);
+    }
+}
+
+.sidebar {
+    width: 100%;
+    transform: translateY(-100%);
+    transition: all .5s ease-in-out;
+    backdrop-filter: blur(10px);
+    background-color: rgba($color: $p-lighter, $alpha: .1);
+}
+
+.slide {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.lan-card:active + .sidebar {
+    transform: translateY(0);
+    opacity: 1;
+}
+

@@ -59,7 +59,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     return (
         <nav className='navbar'>
-            <div className="logo">
+            <div className="logo hide-sm">
                 <h2>
                     <Link to="/">
                         <i className='fas fa-crosshairs' /> AimBoard

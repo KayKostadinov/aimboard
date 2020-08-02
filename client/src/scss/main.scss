@@ -1,9 +1,13 @@
 //setup
-@import './resets';
-@import './mixins';
 @import './variables';
+@import './mixins';
+@import './resets';
 
 // mobile
+@import './staticComponents';
+@import './landing';
+@import './forms';
+@import './navbar';
 
 // small tablets
 @media screen and (min-width: 620px){
@@ -11,9 +15,8 @@
 }
 // large tablets/ computers
 @media screen and (min-width: 960px){
-    @import './navbar';
-    @import './landing';
-    @import './_UIcomponents';
+    @import './xl/navbarXL';
+    @import './xl/landingXL';
     @import './forms';
     @import './aim';
 }

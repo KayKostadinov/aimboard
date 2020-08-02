@@ -7,16 +7,16 @@
 html, body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    height: 100%;
+    overflow-x: hidden;
+    background-color: $p-lighter;
 }
 
-a {
+body, a, p, ul, li {
     text-decoration: none;
     color: black;
 }
 
-ul, li {
-    text-decoration: none;
+li {
     list-style: none;
 }
 

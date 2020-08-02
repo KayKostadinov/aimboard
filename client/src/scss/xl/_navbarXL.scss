@@ -1,0 +1,66 @@
+.navbar {
+    @include flexCenter(space-between);
+    position: sticky;
+    top: 0px;
+    padding: .4rem 4rem;
+    background: $p-lighter;
+    z-index: 3;
+    .logo {
+        a {
+            color: $teal;
+        }
+    }
+
+    ul {
+        @include flexCenter(space-between);
+        li {
+            margin-right: 1em;
+            a{
+                font-weight: 700;
+                font-size: larger;
+            }
+            input{
+                width: 100px;
+                outline: none;
+                resize: none;
+                border: none;
+                background-color: transparent;
+                padding: .75em 1em;
+                font: inherit;
+                &:focus {
+                    transition: width 1s ease-in-out;
+                    background-color: $p-light;
+                    width: 100%;
+                }
+            }
+            ::placeholder{
+                color: $p-dark;
+            }
+            
+            
+        }
+    }
+}
+
+
+
+.search {
+    margin-left: 1em;
+    @include flexCenter(space-around);
+    @include roundedBorders();
+    background-color: $primary;
+    border: solid $p-light 1px;
+    i{
+        padding: 0 .5em;
+        color: $p-dark;
+    }
+
+    &:focus-within{
+        background-color: $p-light;
+        box-shadow: 0 0 5px rgba($color: #000000, $alpha: .4);
+    
+
+    
+    }
+}
+

@@ -1,0 +1,118 @@
+// buttons --------------------
+
+
+//container
+.buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+// styles
+.btn {
+    @include roundedBorders();
+    padding: .5em 1em;
+    font-size: inherit;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: none;
+}
+
+.btn-regular {
+    color: $dark;
+    transition: all .1s ease-in-out;
+
+    &:hover{
+        font-weight: 600;
+        color: $darker;
+    }
+    
+    &:active{
+        color: $dark;
+
+    }
+}
+
+.btn-highlight {
+    background-color: $blue;
+    color: $p-light;
+    transition: all .1s ease-in-out;
+
+    &:hover{
+        background-color: lighten($color: $blue, $amount: 10%) ;
+    }
+    &:active{
+        background-color: $blue;
+    }
+}
+
+.fabutton{
+    font-size: 24px;
+    background: none;
+    outline: none;
+    color: $red;
+}
+
+// partial/ base component styles
+.avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.info {
+    font-family: $primary-font;
+    margin: 0 .2em;
+}
+
+
+// hide components
+
+.hide-sm{
+    display: none;
+}
+
+
+// OLD ---------------------------------------------------------------------
+
+
+
+// migrate ========
+.container {
+    height: 100vh;
+    width: 100vw;
+    // background: linear-gradient(rgba($primary, 1), 20%, rgb(255, 255, 255));
+    padding: 1rem;
+}
+
+.landing-container{
+    height: 100vh;
+    width: 100vw;
+    @include flexCenter(flex-end, row, flex-start);
+}
+
+.tooltip{
+    margin: 2rem 0;
+    font-size: 16px;
+    align-self: center;
+}
+
+
+// ????????????????????????????? 
+
+.submit{
+    margin: 1rem 0;
+    align-self: center;
+}
+
+
+
+
+
+

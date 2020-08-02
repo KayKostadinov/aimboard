@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../actions/alert';
@@ -7,7 +7,7 @@ import { register } from '../../actions/auth';
 import Alert from '../layout/Alert.component';
 
 
-const Register = ({ setAlert, register, isAuthenticated }) => {
+const Register = ({ setAlert, register, isAuthenticated, setClickable }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -80,6 +80,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         required
                     />
                 </div>
+                <p className='form-tooltip'>Already have an account?
+                    <Link to='/' className='link-text' name='login' onClick={e => {
+                        e.preventDefault();
+                        setClickable({ slider: true, clicked: e.target.name }
+                        )
+                    }}> Login</Link>
+                </p>
                 <Alert />
                 <input type="submit" className='btn submit' value='Register' />
             </form>
