@@ -2,21 +2,48 @@
     @include flexCenter(space-around);
     position: sticky;
     top: 0px;
+    z-index: 3;
     padding: 1rem 2rem;
     background: $p-lighter;
-    z-index: 3;
-
-    ul {
+    border-bottom: 1px solid rgba($color: $gray, $alpha: 0.4);
+    .avatar{
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-size: 22px;
+    }
+    .nav-dropdown{
+        padding: .5em 1em;
+    }
+    .navigation {
         @include flexCenter(space-around);
-        li {
-            margin-right: .5em;
-            a{
+
+            a {
+                margin-right: .5em;
                 font-weight: 700;
                 font-size: large;
             }
             
         }
-    }
 }
 
 
+.burger {
+    position: absolute;
+    z-index: 1;
+    top: 4em;
+    right: 0;
+    padding: 2em 0 0 0;
+    background-color: transparent;
+    touch-action: none;
+    // pointer-events: none;
+    .hide {
+        display: none;
+    }
+    .show {
+        @include flexCenter($vertical: flex-end, $direction: row);
+        border-radius: unset;
+        padding: 1em;
+    }
+    
+}

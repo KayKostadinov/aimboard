@@ -46,7 +46,7 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
                 },
             })
         }
-    }, [loading, getMyProfile, profile]);
+    }, [loading]);
 
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,23 +63,23 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
 
     return (
         !loading && !profile ? null : (
-            <div className="container">
+            <div className="profile-container">
                 {!loading && profile &&
                     <div className="user">
+                        <img src={userData.avatar} alt="" className='avatar' />
                         <h4>{userData.name}</h4>
-                        <img src={userData.avatar} alt="profile" />
                     </div>
                 }
                 <div className="form-container">
                     <Alert />
                     <form className="form" onSubmit={e => onSubmit(e)}>
                         <div className="form-group">
-                            <label htmlFor="">About you</label>
-                            <input type="text" name='about' value={formData.about} onChange={e => handleChange(e)} />
+                            <label htmlFor="">About me</label>
+                            <textarea rows='3' name='about' value={formData.about} onChange={e => handleChange(e)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="">Your interests</label>
-                            <input type="text" name='interests' value={formData.interests} onChange={e => handleChange(e)} />
+                            <textarea rows='3' name='interests' value={formData.interests} onChange={e => handleChange(e)} />
                         </div>
                         <div>
                             <p>Social media</p>

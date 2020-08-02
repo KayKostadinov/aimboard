@@ -1,0 +1,12 @@
+.profile-container{
+    background: linear-gradient(rgba($p-lighter, 1), rgba($orange, 0.7));
+    @include flexCenter($direction: column);
+    .user{
+        @include flexCenter($direction: column);
+
+        .avatar {
+            width: 100px;
+            margin: 1em 0;
+        }
+    }
+}

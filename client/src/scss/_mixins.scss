@@ -1,4 +1,4 @@
-@mixin flexCenter ($spacing, $direction:row, $vertical:center ){
+@mixin flexCenter ($spacing:center, $direction:row, $vertical:center ){
     display: flex;
     align-items: $vertical;
     align-content: center;

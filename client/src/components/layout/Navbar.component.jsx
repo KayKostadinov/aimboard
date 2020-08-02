@@ -1,49 +1,62 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
+
+    const [menu, toggleMenu] = useState('hide');
+    const [graphic, toggleGraphic] = useState(false);
+
 
     const publicBtns = (
         <div>
-            <div className="public">
-                <ul>
-                    <li>
-                        <Link className="btn fade" to="/boards">Boards</Link>
-                    </li>
-                    <li>
-                        <Link className="btn fade" to="/">Login</Link>
-                    </li>
-                </ul>
+            <div className="navigation">
+                <Link className="btn fade" to="/boards">Boards</Link>
+                <Link className="btn fade" to="/">Login</Link>
             </div>
         </div>
     )
 
-
     const profileBtns = (
         <Fragment>
             <div className="navigation">
-                <ul>
-                    <li>
-                        <Link className="btn" to="/aim">Aim</Link>
-                    </li>
-                    <li>
-                        <Link className="btn" to="/boards">Boards</Link>
-                    </li>
-                </ul>
+                <Link className="btn" to="/aim">Aim</Link>
+                <Link className="btn" to="/boards">Boards</Link>
             </div>
-            <div className="profile">
-                <ul>
-                    <li>
-                        <Link className="btn fade" to="/profile">Profile</Link>
-                    </li>
-                    <li>
-                        <Link className="btn fade" to='#' onClick={handleLogout}>Log out</Link>
-                    </li>
-                </ul>
+            <div className="navigation nav-dropdown">
+                {user?.avatar && !graphic ?
+                    <img
+                        src={user.avatar}
+                        alt=""
+                        className='avatar'
+                        onClick={e => {
+                            e.preventDefault();
+                            toggleMenu('show');
+                            toggleGraphic(!graphic);
+                        }}
+                    /> :
+                    <i className='fas fa-times avatar'
+                        onClick={e => {
+                            e.preventDefault();
+                            toggleMenu('hide');
+                            toggleGraphic(!graphic);
+                        }}
+                    />
+                }
+                <div className={`burger ${menu}`}>
+                    <Link className={`btn ${menu}`} to="/profile" onClick={() => {
+                        toggleMenu('hide');
+                        toggleGraphic(!graphic);
+                    }}>Profile</Link>
+                    <Link className={`btn ${menu}`} to='#' onClick={e => {
+                        toggleMenu('hide');
+                        toggleGraphic(!graphic);
+                        handleLogout(e);
+                    }}>Log out</Link>
+                </div>
             </div>
         </Fragment>
     )

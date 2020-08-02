@@ -27,12 +27,15 @@
     .form-group {
         @include flexCenter(space-between, column, center);
         padding: .7em 0;
-        input{
+        textarea{
+            resize: none;
+        }
+        input, textarea{
             @include roundedBorders();
-            background-color: transparent;
+            background-color: rgba($color: $p-light, $alpha: 0.2);
             font: inherit;
             padding: .5rem 1rem;
-            width: 300px;
+            width: 90vw;
             outline: none;
             overflow: hidden;
             border: 1px solid $gray;
