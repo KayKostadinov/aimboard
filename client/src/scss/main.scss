@@ -4,20 +4,17 @@
 @import './resets';
 
 // mobile
+
 @import './staticComponents';
 @import './landing';
 @import './forms';
 @import './navbar';
 @import './profile';
+@import './boards';
 
-// small tablets
-@media screen and (min-width: 620px){
-    
-}
 // tablets/ computers
-@media screen and (min-width: 960px){
+@media screen and (min-width: 620px){
     @import './xl/navbarXL';
     @import './xl/landingXL';
-    @import './forms';
     @import './aim';
 }

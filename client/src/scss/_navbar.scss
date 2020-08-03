@@ -3,7 +3,7 @@
     position: sticky;
     top: 0px;
     z-index: 3;
-    padding: 1rem 2rem;
+    padding: 0.2rem 2rem;
     background: $p-lighter;
     border-bottom: 1px solid rgba($color: $gray, $alpha: 0.4);
     .avatar{
@@ -27,6 +27,9 @@
         }
 }
 
+.hide-sm{
+    display: none;
+}
 
 .burger {
     position: absolute;
@@ -44,6 +47,14 @@
         @include flexCenter($vertical: flex-end, $direction: row);
         border-radius: unset;
         padding: 1em;
+        background: rgba($p-lighter, .1);
+        backdrop-filter: blur(30px);
+        &:first-child{
+            border-radius: 20px 20px 0 0;
+        }
+        &:last-child{
+            border-radius: 0 0 20px 20px;
+        }
     }
     
 }

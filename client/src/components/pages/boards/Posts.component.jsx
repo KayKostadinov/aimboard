@@ -17,23 +17,25 @@ const Posts = ({
     return (
         <div className='post-container'>
             <div className="user">
-                <img src={avatar} className='avatar' alt='' width='30' />
+                <img src={avatar} className='avatar' alt='' />
             </div>
             <div className="post">
-                {aim && <p>{aim.title}</p>}
-                <p>{text}</p>
+                {aim && <p className='aim-title'>Aim: {aim.title}</p>}
+                <p className='text'>{text}</p>
                 <div className="stats">
                     <div className='updoots'>
                         <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
                         {updoots.length > 0 &&
                             <Fragment>
-                                {updoots.length}
+                                {` ${updoots.length} `}
                                 <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
                             </Fragment>
                         }
                     </div>
                     <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
-                    <i className='far fa-calendar-alt' /> {new Date(date).toDateString()}
+                    <i className='far fa-calendar-alt'>
+                        <p>{`  ${new Date(date).toDateString()}`}</p>
+                    </i>
                     {auth.isAuthenticated && user === auth.user._id &&
                         <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
                     }
@@ -60,7 +62,7 @@ const Posts = ({
                                 setCommentForm({ text: '' })
                             }}>
                                 <input type="text" value={commentForm.text} onChange={e => setCommentForm({ text: e.target.value })} />
-                                <button type='submit' className='btn btn-regular'>
+                                <button type='submit' className='btn btn-highlight'>
                                     <i className='fas fa-arrow-circle-up' />
                                 </button>
                             </form>

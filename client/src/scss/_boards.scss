@@ -1,0 +1,119 @@
+.boards-page {
+    background: $p-lighter;
+    @include flexCenter($direction: column);
+    padding-top: 1em;
+    .create-post-form{
+        padding: 1em;
+        width: 100%;
+        background-color: $white;
+        @include roundedBorders();
+    }
+    .boards-container{
+        margin-top: 1em;
+        width: 100%;
+        .post-container{
+            display: flex;
+            margin: 1em 0;
+            width: 100%;
+            background-color: $white;
+            @include roundedBorders();
+            .user {
+                padding: 1em;
+                .avatar{
+                    width: 50px;
+                }
+            }
+            .post {
+                @include flexCenter($direction:column);
+                width: 100%;
+                
+                .text{
+                    width: 80%;
+                    @include roundedBorders();
+                    border: 2px solid $blue;
+                    padding: 1em;
+                }
+                .aim-title{
+                    margin: .5em;
+                    width: 80%;
+                    background-color: $green;
+                    text-align: center;
+                    @include roundedBorders();
+                }
+                .stats {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 1em;
+                    width: 80%;
+                    .fa, .fas, .far{
+                        font-size: 1.2em;
+                    }
+                
+                    p{
+                        color: $gray;
+                        text-align: center;
+                        font-size: .7em;
+                        margin-left: .2em;
+                    }
+                    .fa-heart{
+                        color: $pink;
+                    }
+                    .far.fa-heart{
+                        color: $blue;
+                    }
+                    .fa-comment-dots{
+                        color: $teal;
+                    }
+                    .fa-calendar-alt{
+                        color: $gray;
+                        display: flex;
+                        align-items: center;
+                    }
+                    .fa-times-circle{
+                        color: $dark;
+                        &:hover{
+                            color: $red;
+                        }
+                    }
+                }
+            }
+            .comments {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                .comment-body{
+                    width: 100%;
+                    border-bottom: 1px solid $gray;
+                    display: flex;
+                    align-items: center;
+                    margin: 0.2em 0;
+                    .avatar{
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 1em;
+                    }
+                    .content{
+                        padding: .2em;
+                    }
+                }
+                .add-comment{
+                    margin: 1em 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .avatar {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    .btn, .btn-highlight{
+                        margin: 0 1em;
+                        padding: .25em .5em ;
+                        text-align: center;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
