@@ -19,27 +19,30 @@ const Posts = ({
             <div className="user">
                 <img src={avatar} className='avatar' alt='' />
             </div>
-            <div className="post">
-                {aim && <p className='aim-title'>Aim: {aim.title}</p>}
-                <p className='text'>{text}</p>
-                <div className="stats">
-                    <div className='updoots'>
-                        <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
-                        {updoots.length > 0 &&
-                            <Fragment>
-                                {` ${updoots.length} `}
-                                <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
-                            </Fragment>
+            <div className="vertical-container">
+                <div className="post">
+                    {aim && <p className='aim-title'>Aim: {aim.title}</p>}
+                    <p className='text'>{text}</p>
+                    <div className="stats">
+                        <div className='updoots'>
+                            <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
+                            {updoots.length > 0 &&
+                                <Fragment>
+                                    {` ${updoots.length} `}
+                                    <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
+                                </Fragment>
+                            }
+                        </div>
+                        <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
+                        <i className='far fa-calendar-alt'>
+                            <p>{new Date(date).toDateString()}</p>
+                        </i>
+                        {auth.isAuthenticated && user === auth.user._id &&
+                            <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
                         }
                     </div>
-                    <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
-                    <i className='far fa-calendar-alt'>
-                        <p>{`  ${new Date(date).toDateString()}`}</p>
-                    </i>
-                    {auth.isAuthenticated && user === auth.user._id &&
-                        <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
-                    }
                 </div>
+
                 <div className="comments">
                     {toggleComments && comments.map(
                         comment =>
@@ -67,7 +70,7 @@ const Posts = ({
                                 </button>
                             </form>
                         </div>
-                        : <p>You need to be logged in to add comments</p>
+                        : <p className='tip'>You need to be logged in to add comments</p>
                     }
                 </div>
             </div>

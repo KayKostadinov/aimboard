@@ -22,38 +22,42 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggl
 
     return (
         <form
+            className='post-form'
             onSubmit={e => {
                 e.preventDefault();
                 addPost(postData);
                 postToggle && postToggle({ toggle: false })
             }}>
-            <select value={postData.aim.title}
-                onChange={e => setPostData({
-                    ...postData,
-                    aim: {
-                        aim: e.target[e.target.selectedIndex].id,
-                        title: e.target.value
-                    }
-                })}>
 
-                <option value="null">Select aim...</option>
-                {!loading && aims.map(x =>
-                    <option
-                        key={x._id}
-                        id={x._id}
-                        value={x.title}
-                    >{x.title}</option>)
-                }
-            </select>
             <textarea
                 name="text"
-                cols='30'
-                rows='5'
+                rows='3'
                 value={postData.text}
                 onChange={e => setPostData({ ...postData, text: e.target.value })}
                 required
             />
-            <button type='submit' >Post</button>
+            <div className="select">
+                <select
+                    value={postData.aim.title}
+                    onChange={e => setPostData({
+                        ...postData,
+                        aim: {
+                            aim: e.target[e.target.selectedIndex].id,
+                            title: e.target.value
+                        }
+                    })}>
+
+                    <option value="null">Select aim...</option>
+                    {!loading && aims.map(x =>
+                        <option
+                            key={x._id}
+                            id={x._id}
+                            value={x.title}
+                        >{x.title}</option>)
+                    }
+                </select>
+                <button type='submit' className='btn btn-highlight' >Post</button>
+            </div>
         </form>
     )
 }

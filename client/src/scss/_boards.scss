@@ -1,37 +1,65 @@
 .boards-page {
     background: $p-lighter;
     @include flexCenter($direction: column);
-    padding-top: 1em;
+    padding: 1em;
     .create-post-form{
         padding: 1em;
         width: 100%;
         background-color: $white;
         @include roundedBorders();
+        @include flexCenter(space-between, row, flex-start);
+        .avatar {
+        }
+        .post-form{
+            textarea{
+                @include roundedBorders();
+                background-color: rgba($color: $p-light, $alpha: 0.2);
+                font: inherit;
+                padding: .5rem 1rem;
+                outline: none;
+                width: 100%;
+                border: 1px solid $gray;
+                transition: all .3s ease-in-out;
+                &:focus{
+                    background-color: rgba($color: $white, $alpha: .8);
+                }
+                ::placeholder{
+                    color: $darker;
+                }
+            }
+            .select{
+                @include flexCenter(space-between)
+            }
+
+        }
+
     }
-    .boards-container{
+    .boards-container, .posts-container{
         margin-top: 1em;
         width: 100%;
+
         .post-container{
             display: flex;
             margin: 1em 0;
             width: 100%;
             background-color: $white;
             @include roundedBorders();
+            .select{
+                width: 100%;
+            }
             .user {
-                padding: 1em;
+                padding: 1em 0 0 1em;
                 .avatar{
                     width: 50px;
                 }
             }
             .post {
-                @include flexCenter($direction:column);
+                @include flexCenter(flex-start, column);
                 width: 100%;
-                
                 .text{
                     width: 80%;
-                    @include roundedBorders();
-                    border: 2px solid $blue;
                     padding: 1em;
+                    border-bottom: 1px solid $gray;
                 }
                 .aim-title{
                     margin: .5em;
@@ -41,9 +69,11 @@
                     @include roundedBorders();
                 }
                 .stats {
+                    border-bottom: 1px solid $gray;
+
                     display: flex;
                     justify-content: space-between;
-                    margin: 1em;
+                    padding: .5em 0;
                     width: 80%;
                     .fa, .fas, .far{
                         font-size: 1.2em;
@@ -82,9 +112,15 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
+                padding: 0.5em 0;
+                .tip{
+                    color: $gray;
+                    font-size: 10px;
+                    text-align: center;
+                }
                 .comment-body{
                     width: 100%;
-                    border-bottom: 1px solid $gray;
+                    
                     display: flex;
                     align-items: center;
                     margin: 0.2em 0;
@@ -94,12 +130,14 @@
                         margin: 0 1em;
                     }
                     .content{
-                        padding: .2em;
+                        @include roundedBorders();
+                        background-color: $p-light;
+                        padding: .3em .5em;
                     }
                 }
                 .add-comment{
                     margin: 1em 0;
-                    width: 100%;
+                    width: 90vw;
                     display: flex;
                     justify-content: space-between;
                     .avatar {
@@ -112,8 +150,27 @@
                         text-align: center;
                         color: white;
                     }
+                    .add-comment-form {
+                        @include flexCenter(space-between, row, center);
+                    }
+                    input{
+                        @include roundedBorders();
+                        @include flexCenter(space-between);
+                        background-color: rgba($color: $p-light, $alpha: 0.2);
+                        font: inherit;
+                        padding: .5rem 1rem;
+                        margin: 0 .5em;
+                        outline: none;
+                        border: 1px solid $gray;
+                        transition: all .3s ease-in-out;
+                        &:focus{
+                            background-color: rgba($color: $white, $alpha: .8);
+                        }
+                        ::placeholder{
+                            color: $darker;
+                    }
                 }
             }
         }
     }
-}
+}}
