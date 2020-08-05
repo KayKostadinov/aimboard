@@ -19,61 +19,55 @@ const Posts = ({
             <div className="user">
                 <img src={avatar} className='avatar' alt='' />
             </div>
-            <div className="vertical-container">
-                <div className="post">
-                    {aim && <p className='aim-title'>Aim: {aim.title}</p>}
-                    <p className='text'>{text}</p>
-                    <div className="stats">
-                        <div className='updoots'>
-                            <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
-                            {updoots.length > 0 &&
-                                <Fragment>
-                                    {` ${updoots.length} `}
-                                    <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
-                                </Fragment>
-                            }
-                        </div>
-                        <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
-                        <i className='far fa-calendar-alt'>
-                            <p>{new Date(date).toDateString()}</p>
-                        </i>
-                        {auth.isAuthenticated && user === auth.user._id &&
-                            <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
-                        }
-                    </div>
-                </div>
-
-                <div className="comments">
-                    {toggleComments && comments.map(
-                        comment =>
-                            <div
-                                key={comment._id}
-                                className='comment-body'
-                            >
-                                <img src={comment.avatar} alt='' className='avatar' width='20' />
-                                <div className="content">
-                                    <p>{comment.text}</p>
-                                </div>
-                            </div>)
-                    }
-                    {auth.isAuthenticated ?
-                        <div className="add-comment">
-                            <img src={auth.user.avatar} alt='' className='avatar' width='20' />
-                            <form className='add-comment-form' onSubmit={e => {
-                                e.preventDefault();
-                                addComment(commentForm, _id)
-                                setCommentForm({ text: '' })
-                            }}>
-                                <input type="text" value={commentForm.text} onChange={e => setCommentForm({ text: e.target.value })} />
-                                <button type='submit' className='btn btn-highlight'>
-                                    <i className='fas fa-arrow-circle-up' />
-                                </button>
-                            </form>
-                        </div>
-                        : <p className='tip'>You need to be logged in to add comments</p>
+            {aim && <p className='aim-title'>{aim.title}</p>}
+            <p className='text'>{text}</p>
+            <div className="stats">
+                <div className='updoots'>
+                    <i className='fas fa-heart' onClick={e => addLike(_id)} style={{ cursor: 'pointer' }} />
+                    {updoots.length > 0 &&
+                        <Fragment>
+                            {` ${updoots.length} `}
+                            <i className='far fa-heart' onClick={e => removeLike(_id)} style={{ cursor: 'pointer' }} />
+                        </Fragment>
                     }
                 </div>
+                <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
+                <i className='far fa-calendar-alt'>
+                    <p>{new Date(date).toDateString()}</p>
+                </i>
+                {auth.isAuthenticated && user === auth.user._id &&
+                    <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
+                }
             </div>
+
+            <div className="comments">
+                {toggleComments && comments.map(
+                    comment =>
+                        <div
+                            key={comment._id}
+                            className='comment-body'
+                        >
+                            <img src={comment.avatar} alt='' className='avatar' width='20' />
+                            <div className="content">
+                                <p>{comment.text}</p>
+                            </div>
+                        </div>)
+                }
+            </div>
+            {auth.isAuthenticated ?
+                <form className='add-comment' onSubmit={e => {
+                    e.preventDefault();
+                    addComment(commentForm, _id)
+                    setCommentForm({ text: '' })
+                }}>
+                    <img src={auth.user.avatar} alt='' className='avatar' width='20' />
+                    <input type="text" value={commentForm.text} onChange={e => setCommentForm({ text: e.target.value })} />
+                    <button type='submit' className='btn btn-highlight'>
+                        <i className='fas fa-arrow-circle-up' />
+                    </button>
+                </form>
+                : <p className='tip'>You need to be logged in to add comments</p>
+            }
         </div>
     )
 }

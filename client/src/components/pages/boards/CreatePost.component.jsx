@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addPost } from '../../../actions/post';
 import { getAims } from '../../../actions/aim';
 
-const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggle }) => {
+const CreatePost = ({ addPost, getAims, aim: { aims, loading }, img, postToggle }) => {
 
     useEffect(() => {
         getAims();
@@ -19,7 +19,6 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggl
         }
     })
 
-
     return (
         <form
             className='post-form'
@@ -28,7 +27,7 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggl
                 addPost(postData);
                 postToggle && postToggle({ toggle: false })
             }}>
-
+            <img src={img} alt="" className='avatar' />
             <textarea
                 name="text"
                 rows='3'
@@ -36,28 +35,27 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, aimId, postToggl
                 onChange={e => setPostData({ ...postData, text: e.target.value })}
                 required
             />
-            <div className="select">
-                <select
-                    value={postData.aim.title}
-                    onChange={e => setPostData({
-                        ...postData,
-                        aim: {
-                            aim: e.target[e.target.selectedIndex].id,
-                            title: e.target.value
-                        }
-                    })}>
-
-                    <option value="null">Select aim...</option>
-                    {!loading && aims.map(x =>
-                        <option
-                            key={x._id}
-                            id={x._id}
-                            value={x.title}
-                        >{x.title}</option>)
+            <select
+                className="select"
+                value={postData.aim.title}
+                onChange={e => setPostData({
+                    ...postData,
+                    aim: {
+                        aim: e.target[e.target.selectedIndex].id,
+                        title: e.target.value
                     }
-                </select>
-                <button type='submit' className='btn btn-highlight' >Post</button>
-            </div>
+                })}>
+
+                <option value="null">Select aim...</option>
+                {!loading && aims.map(x =>
+                    <option
+                        key={x._id}
+                        id={x._id}
+                        value={x.title}
+                    >{x.title}</option>)
+                }
+            </select>
+            <button type='submit' className='btn btn-highlight' >Post</button>
         </form>
     )
 }
