@@ -625,6 +625,19 @@ li {
   overflow: hidden;
 }
 
+.boards-page .boards-container .post-container .tip {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/ 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  padding: 1em;
+  color: #8e8e93;
+  font-size: 10px;
+  text-align: center;
+}
+
 .boards-page .boards-container .post-container .user {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -801,6 +814,7 @@ li {
   margin: 0 .5em;
   outline: none;
   border: 1px solid #8e8e93;
+  width: 80%;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
@@ -844,12 +858,6 @@ li {
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
-}
-
-.boards-page .boards-container .post-container .comments .tip {
-  color: #8e8e93;
-  font-size: 10px;
-  text-align: center;
 }
 
 .boards-page .boards-container .post-container .comments .comment-body {
