@@ -11,7 +11,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
     })
 
     return (
-        <div className="form-container aim-form-container">
+        <div className="aim-form-container">
             <form
                 className='form aim-form'
                 onSubmit={e => {

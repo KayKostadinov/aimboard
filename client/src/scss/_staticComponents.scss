@@ -22,10 +22,11 @@
     text-decoration: none;
     cursor: pointer;
     text-transform: uppercase;
-    background-color: none;
+    background-color: $white;
 }
 
 .btn-regular {
+    background-color: transparent;
     color: $dark;
     transition: all .1s ease-in-out;
 
