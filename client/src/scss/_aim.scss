@@ -8,196 +8,13 @@
 
 .aim-page-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1em;
-}
-
-.posts-container {
-    // overflow: scroll;
-    // height: 100vh;
-    // width: 100%;
-    // display: flex;
-    // flex-direction: column;
-    // justify-items: center;
-    // align-items: center;
-    // width: 100%;
-    display: grid;
-    grid-auto-rows: auto;
-    width: 100%;
-    transition: all 0.2s ease-in-out;
-    padding: 1em 0;
-    .post-container{
-        padding: .5em 1em;
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        grid-template-rows: repeat(5, auto);
-        margin: 1em 0;
-        background-color: $white;
-        @include roundedBorders();
-        .tip{
-            grid-row: 4/ 5;
-            grid-column: 1 / 3;
-            padding: 1em;
-            color: $gray;
-            font-size: 10px;
-            text-align: center;
-        }
-        .user {
-            grid-row: 1 / 2;
-            grid-column: 1 / 2;
-            align-self: center;
-            justify-self: center;
-            .avatar{
-                width: 50px;
-            }
-        }
-
-        .text{
-            grid-row: 2 / 3;
-            grid-column: 1 / 3;
-            justify-self: center;
-            align-self: center;
-            padding: 1em;
-            width: 100%;
-            border-bottom: 1px solid $gray;
-        }
-
-        .aim-title{
-            grid-row: 1 / 2;
-            justify-self: center;
-            align-self: center;
-            background-color: $green;
-            color: white;
-            text-align: center;
-            padding: 0.2em 1em;
-            width: 80%;
-            @include roundedBorders();
-        }
-
-        .stats {
-            grid-row: 3 / 4;
-            grid-column: 1 / 3;
-            border-bottom: 1px solid $gray;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: .5em 0;
-            .fa, .fas, .far{
-                font-size: 1.2em;
-            }
-        
-            p{
-                color: $gray;
-                text-align: center;
-                font-size: .7em;
-                margin-left: .2em;
-            }
-            .fa-heart{
-                color: $pink;
-            }
-            .far.fa-heart{
-                color: $blue;
-            }
-            .fa-comment-dots{
-                color: $teal;
-            }
-            .fa-calendar-alt{
-                color: $gray;
-                display: flex;
-                align-items: center;
-            }
-            .fa-times-circle{
-                color: $dark;
-                &:hover{
-                    color: $red;
-                }
-            }
-        }
-    
-
-        .add-comment{
-            margin: 1em 0;
-            grid-column: 1 / 3;
-            grid-row: 5 / 6;
-            align-self: center;
-            justify-self: center;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            .avatar {
-                grid-row: 2/ 3;
-                grid-column: 1 / 2;
-                width: 30px;
-                height: 30px;
-            }
-            .btn, .btn-highlight{
-                padding: .5em 1em ;
-                text-align: center;
-                color: white;
-            }
-
-
-            input{
-                @include roundedBorders();
-                @include flexCenter(space-between);
-                background-color: rgba($color: $p-light, $alpha: 0.2);
-                font: inherit;
-                padding: .5rem 1rem;
-                margin: 0 .5em;
-                outline: none;
-                border: 1px solid $gray;
-                width: 80%;
-                transition: all .3s ease-in-out;
-                &:focus{
-                    background-color: rgba($color: $white, $alpha: .8);
-                }
-                ::placeholder{
-                    color: $darker;
-                }
-            }
-            
-        }
-
-        .comments {
-            background-color: $p-light;
-            @include roundedBorders();
-            padding: 0 0.5em;
-            margin-top: 1em;
-            width: 100%;
-            grid-row: 4 / 5;
-            grid-column: 1 / 3;
-            align-self: center;
-            justify-self: center;
-            
-            .comment-body{
-                display: flex;
-                align-items: center;
-                align-content: center;
-                margin: 0.5em 0;
-                overflow-wrap: break-word;
-                &:not(:last-child){
-                    border-bottom: 2px solid $white;
-                }
-                .avatar{
-                    width: 30px;
-                    height: 30px;
-                    margin: 0.5em 1em;
-                }
-                .content{
-                    width: 80%;
-                    padding: .3em .5em;
-                    word-wrap: break-word;
-
-                }
-            }
-        }
-
-        }
-        .select{
-            width: 100%;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    .hide-sm{
+        display: none;
     }
 }
+
 
 
 
@@ -241,14 +58,10 @@
         grid-auto-rows: 100px;
         grid-gap: 1em;
         .group-elements{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 1em;
+            @include flexCenter(space-between, column, center);
             @include roundedBorders();
-
-            background-color: rgba($color: $p-lighter, $alpha: 0.4);
-            backdrop-filter: blur(10px);
+            background-color: $white;
 
             .show-hover {
                 visibility: hidden;
@@ -277,7 +90,7 @@
                     visibility: hidden;
                     width: auto;
                     @include roundedBorders();
-                    background-color: rgba($color: $pink, $alpha: .7);
+                    background-color: $pink;
                     color: $p-lighter;
                     position: absolute;
                     text-align: center;
@@ -302,28 +115,72 @@
 
 }
 .aim-form-container, .floating-post {
-    padding: 4em;
-    width: 50vw;
-    height: 50vh;
+    width: 100vw;
+    height: 300px;
+    padding: 1em;
     @include roundedBorders();
+    @include flexCenter($direction: column-reverse);
+    align-items: space-around;
+    justify-content: space-around;
     position: absolute;
-    @include flexCenter();
     .aim-form{
-        width: 300px;
-        height: 80%;
+        width: 100%;
+        height: 300px;
         @include flexCenter(center, column, center);
+        input{
+            max-width: 80%;
+        }
     }
     
-    .form-group{
-        input{
-            width: 200px;
+    .post-form{
+        height: 80%;
+        display: grid;
+        gap: 1em;
+        .avatar {
+            display: none;
+        }
+
+        .select{
+            align-self: center;
+            background-color: $green;
+            color: white;
+            padding: .5em 2em;
+            font: inherit;
+            border: none;
+            outline: none;
+            @include roundedBorders();
+            text-align: center;
+        }
+
+        .btn {
+            align-self: center;
+
+        }
+        textarea{
+            grid-row: 1 / 2;
+            grid-column: 1 / 3;
+            @include roundedBorders();
+            padding: 1em;
+            resize: none;
+            overflow: scroll;
+            background-color: rgba($color: $p-light, $alpha: 0.5);
+            font: inherit;
+            outline: none;
+            width: 100%;
+            border: 1px solid $gray;
+            transition: all .3s ease-in-out;
+            &:focus{
+                background-color: rgba($color: $white, $alpha: .8);
+            }
+            ::placeholder{
+                color: $darker;
+            }
         }
     }
     
     top: 25%;
-    left: 25%;
+    left: 0;
     z-index: 2;
-    background-color: rgba($color: $dark, $alpha: .2);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
 
 }

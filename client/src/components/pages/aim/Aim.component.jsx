@@ -43,7 +43,7 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                         <div className='aim-page-grid'>
                             <div className="branch-container">
                                 <div className='aim-heading'>
-                                    <p className='page-title'>Goals</p>
+                                    <h3 className='page-title'>Goals</h3>
                                     <div className='list-goals'>
                                         {profile.goals.map(goal => <p key={goal} className='goal'>{goal}</p>)}
                                     </div>
@@ -74,8 +74,7 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                                         />))}
                                 </div>
                             </div>
-                            <div className="posts-container">
-                                <p className='page-title'>Progress</p>
+                            <div className="posts-container hide-sm">
                                 {posts && posts.map(post => post.user === user._id && <Posts key={post._id} post={post} />)}
                             </div>
                         </div>

@@ -1,0 +1,318 @@
+
+.aim-page {
+    width: 100vw;
+    padding: 1em;
+    background-color: transparent;
+}
+
+.aim-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    .hide-sm{
+        display: block;
+    }
+}
+
+.posts-container {
+    display: grid;
+    grid-auto-rows: auto;
+    justify-self: center;
+    transition: all 0.2s ease-in-out;
+    padding: 1em 0;
+    .post-container{
+        max-width: 500px;
+        padding: .5em 1em;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: repeat(5, auto);
+        margin: 1em 0;
+        background-color: $white;
+        @include roundedBorders();
+        .tip{
+            grid-row: 4/ 5;
+            grid-column: 1 / 3;
+            padding: 1em;
+            color: $gray;
+            font-size: 10px;
+            text-align: center;
+        }
+        .user {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            align-self: center;
+            justify-self: center;
+            .avatar{
+                width: 50px;
+            }
+        }
+
+        .text{
+            grid-row: 2 / 3;
+            grid-column: 1 / 3;
+            justify-self: center;
+            align-self: center;
+            padding: 1em;
+            width: 100%;
+            border-bottom: 1px solid $gray;
+        }
+
+        .aim-title{
+            grid-row: 1 / 2;
+            justify-self: center;
+            align-self: center;
+            background-color: $green;
+            color: white;
+            text-align: center;
+            padding: 0.2em 1em;
+            width: 80%;
+            @include roundedBorders();
+        }
+
+        .stats {
+            grid-row: 3 / 4;
+            grid-column: 1 / 3;
+            border-bottom: 1px solid $gray;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: .5em 0;
+            .fa, .fas, .far{
+                font-size: 1.2em;
+            }
+        
+            p{
+                color: $gray;
+                text-align: center;
+                font-size: .7em;
+                margin-left: .2em;
+            }
+            .fa-heart{
+                color: $pink;
+            }
+            .far.fa-heart{
+                color: $blue;
+            }
+            .fa-comment-dots{
+                color: $teal;
+            }
+            .fa-calendar-alt{
+                color: $gray;
+                display: flex;
+                align-items: center;
+            }
+            .fa-times-circle{
+                color: $dark;
+                &:hover{
+                    color: $red;
+                }
+            }
+        }
+    
+
+        .add-comment{
+            margin: 1em 0;
+            grid-column: 1 / 3;
+            grid-row: 5 / 6;
+            align-self: center;
+            justify-self: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            .avatar {
+                grid-row: 2/ 3;
+                grid-column: 1 / 2;
+                width: 30px;
+                height: 30px;
+            }
+            .btn, .btn-highlight{
+                padding: .5em 1em ;
+                text-align: center;
+                color: white;
+            }
+
+
+            input{
+                @include roundedBorders();
+                @include flexCenter(space-between);
+                background-color: rgba($color: $p-light, $alpha: 0.2);
+                font: inherit;
+                padding: .5rem 1rem;
+                margin: 0 .5em;
+                outline: none;
+                border: 1px solid $gray;
+                width: 80%;
+                transition: all .3s ease-in-out;
+                &:focus{
+                    background-color: rgba($color: $white, $alpha: .8);
+                }
+                ::placeholder{
+                    color: $darker;
+                }
+            }
+            
+        }
+
+        .comments {
+            background-color: $p-light;
+            @include roundedBorders();
+            padding: 0 0.5em;
+            margin-top: 1em;
+            width: 100%;
+            grid-row: 4 / 5;
+            grid-column: 1 / 3;
+            align-self: center;
+            justify-self: center;
+            
+            .comment-body{
+                display: flex;
+                align-items: center;
+                align-content: center;
+                margin: 0.5em 0;
+                overflow-wrap: break-word;
+                &:not(:last-child){
+                    border-bottom: 2px solid $white;
+                }
+                .avatar{
+                    width: 30px;
+                    height: 30px;
+                    margin: 0.5em 1em;
+                }
+                .content{
+                    width: 80%;
+                    padding: .3em .5em;
+                    word-wrap: break-word;
+
+                }
+            }
+        }
+
+        }
+        .select{
+            width: 100%;
+    }
+}
+
+
+.page-title{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.branch-container {
+    width: 100%;
+    display: grid;
+    grid-auto-rows: auto 1fr;
+    row-gap: 1em;
+    padding: 2em 0;
+    .aim-heading {
+        background-color: $white;
+        backdrop-filter: blur(10px);
+        @include roundedBorders();
+        padding: 1em;
+        width: 100%;
+        text-align: center;
+        .list-goals {
+            display: flex;
+            margin: .5em 0;
+            .goal {
+                background-color: $orange;
+                padding: .2em .5em;
+                margin: 0 .2em;
+                color: white;
+                @include roundedBorders();
+                
+            }
+        }
+    }
+
+    .aim-content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 100px;
+        grid-gap: 1em;
+        .group-elements{
+            padding: 1em;
+            @include flexCenter(space-between, column, center);
+            @include roundedBorders();
+            background-color: $white;
+
+            .show-hover {
+                visibility: hidden;
+            }
+            &:hover {
+                @include roundedBorders();
+                overflow: visible;
+
+                background-color: $p-dark;
+                color: $p-light;
+                .show-hover {
+                    visibility: visible;
+                    
+                }
+            }
+            
+            .title {
+                text-align: center;
+
+            }
+            i {
+                padding: .2em .4em;
+                font-size: 20px;
+                color: $pink;
+                .tooltip{
+                    visibility: hidden;
+                    width: auto;
+                    @include roundedBorders();
+                    background-color: $pink;
+                    color: $p-lighter;
+                    position: absolute;
+                    text-align: center;
+                    font-family: Roboto;
+                    padding: .4em;
+                    z-index: 3;
+                }
+                &:hover .tooltip {
+                    visibility: visible;
+                }
+            }
+            li {
+                width: 100%;
+                text-align: center;
+                margin: 0 1em;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}
+.aim-form-container, .floating-post {
+    padding: 4em;
+    width: 50vw;
+    height: 50vh;
+    @include roundedBorders();
+    position: absolute;
+    @include flexCenter();
+    .aim-form{
+        width: 300px;
+        height: 80%;
+        @include flexCenter(center, column, center);
+    }
+    
+    .form-group{
+        input{
+            width: 200px;
+        }
+    }
+    
+    top: 25%;
+    left: 25%;
+    z-index: 2;
+    background-color: rgba($color: $dark, $alpha: .2);
+    backdrop-filter: blur(20px);
+
+}

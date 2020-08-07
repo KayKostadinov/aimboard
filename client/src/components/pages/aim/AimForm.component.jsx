@@ -28,7 +28,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
                 }}>
                 <div className="form-group">
                     <label>Name your Aim</label>
-                    <input type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
+                    <input type="text" className='input-text' value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
                 </div>
                 <div className=" checkbox">
                     <input type="checkbox"
