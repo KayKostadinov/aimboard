@@ -1,0 +1,28 @@
+.alert{
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 1em;
+    @include roundedBorders();
+    color: $white;
+    animation: fadein 3s;
+}
+
+.error{
+    background-color: $pink;
+}
+
+.success{
+    background-color: $green;
+}
+
+@keyframes fadein {
+    0%      { opacity: 0; bottom: 0px; }
+    20%     { opacity: 1; bottom: 50px; }
+    80%     { opacity: 1; bottom: 50px; }
+    100%    { opacity: 0; bottom: 0px; }
+}

@@ -1285,6 +1285,69 @@ li {
           flex-direction: row;
 }
 
+.alert {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 1em;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  color: white;
+  -webkit-animation: fadein 3s;
+          animation: fadein 3s;
+}
+
+.error {
+  background-color: #ff2d55;
+}
+
+.success {
+  background-color: #34c759;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+    bottom: 0px;
+  }
+  20% {
+    opacity: 1;
+    bottom: 50px;
+  }
+  80% {
+    opacity: 1;
+    bottom: 50px;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0px;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    bottom: 0px;
+  }
+  20% {
+    opacity: 1;
+    bottom: 50px;
+  }
+  80% {
+    opacity: 1;
+    bottom: 50px;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0px;
+  }
+}
+
 @media screen and (min-width: 620px) {
   .navbar {
     display: -webkit-box;
