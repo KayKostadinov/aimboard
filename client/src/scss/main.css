@@ -1184,6 +1184,11 @@ li {
   background-position: center;
 }
 
+.profile-setup h2 {
+  text-align: center;
+  margin-top: 2em;
+}
+
 .profile-setup .form-container {
   height: 100%;
   width: 100%;
@@ -1212,6 +1217,13 @@ li {
 
 .profile-setup .form-container .form .form-group {
   margin: 1em 0;
+}
+
+.profile-setup .form-container .form .form-group label {
+  padding: .5em 1em;
+  font-weight: 500;
+  font-size: 18px;
+  color: #2c2c2e;
 }
 
 .profile-setup .form-container .form .buttons {
@@ -1906,13 +1918,6 @@ li {
     max-width: 500px;
   }
   .profile-setup {
-    height: 100vh;
-    width: 100vw;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
-    background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1942,8 +1947,6 @@ li {
     border: none;
     border-radius: 20px;
     overflow: hidden;
-    -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
   }
   .profile-setup .form-container .form {
     height: 100%;
@@ -1951,15 +1954,6 @@ li {
   }
   .profile-setup .form-container .form .form-group {
     width: 100%;
-  }
-  .profile-setup .form-container .form .form-group label {
-    padding: .5em 1em;
-    font-weight: 500;
-    font-size: 18px;
-    color: #2c2c2e;
-    border: none;
-    border-radius: 20px;
-    overflow: hidden;
   }
   .profile-setup .form-container .form .form-group textarea {
     margin: 1em 0;
@@ -1969,24 +1963,9 @@ li {
   }
   .profile-setup .form-container .form .buttons {
     margin: 0.5em;
-    width: 100%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
   }
 }
 /*# sourceMappingURL=main.css.map */
