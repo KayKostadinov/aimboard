@@ -12,6 +12,7 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
     const [formData, setFormData] = useState({
         about: '',
         interests: '',
+        goals: '',
         social: {
             youtube: '',
             twitter: '',
@@ -36,7 +37,8 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
             })
             setFormData({
                 about: loading || !profile.about ? '' : profile.about,
-                interests: loading || !profile.interests ? '' : profile.interests.toString(),
+                interests: loading || !profile.interests ? '' : profile.interests,
+                goals: loading || !profile.goals ? '' : profile.goals,
                 social: {
                     youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
                     twitter: loading || !profile.social.twitter ? '' : profile.social.twitter,
@@ -47,6 +49,7 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
             })
         }
     }, [loading]);
+
 
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -62,45 +65,52 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
     }
 
     return (
-        !loading && !profile ? null : (
+        loading && !profile ? null : (
             <div className="profile-container">
-                {!loading && profile &&
-                    <div className="user">
-                        <img src={userData.avatar} alt="" className='avatar' />
-                        <h4>{userData.name}</h4>
-                    </div>
-                }
                 <div className="form-container">
                     <Alert />
                     <form className="form" onSubmit={e => onSubmit(e)}>
-                        <div className="form-group">
-                            <label htmlFor="">About me</label>
-                            <textarea rows='3' name='about' value={formData.about} onChange={e => handleChange(e)} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="">Your interests</label>
-                            <textarea rows='3' name='interests' value={formData.interests} onChange={e => handleChange(e)} />
-                        </div>
-                        <div>
-                            <p>Social media</p>
+                        {!loading && profile &&
+                            <div className="user">
+                                <img src={userData.avatar} alt="" className='avatar' />
+                                <h4>{userData.name}</h4>
+                            </div>
+                        }
+                        <div className="about">
+                            <h3>About</h3>
                             <div className="form-group">
-                                <label htmlFor="">YouTube</label>
+                                <label htmlFor="">About me</label>
+                                <textarea rows='3' name='about' value={formData.about} onChange={e => handleChange(e)} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Interests</label>
+                                <textarea rows='3' name='interests' value={formData.interests} onChange={e => handleChange(e)} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Goals</label>
+                                <textarea rows='3' name='goals' value={formData.goals} onChange={e => handleChange(e)} />
+                            </div>
+                        </div>
+                        <div className='social-media'>
+                            <h3>Social media</h3>
+                            <div className="form-group">
+                                <i className='fab fa-youtube' />
                                 <input type="text" name='youtube' value={formData.social.youtube} onChange={e => handleSocialChange(e)} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="">Twitter</label>
+                                <i className='fab fa-twitter' />
                                 <input type="text" name='twitter' value={formData.social.twitter} onChange={e => handleSocialChange(e)} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="">Facebook</label>
+                                <i className='fab fa-facebook-square' />
                                 <input type="text" name='facebook' value={formData.social.facebook} onChange={e => handleSocialChange(e)} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="">Instagram</label>
+                                <i className='fab fa-instagram' />
                                 <input type="text" name='instagram' value={formData.social.instagram} onChange={e => handleSocialChange(e)} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="">LinkedIn</label>
+                                <i className='fab fa-linkedin' />
                                 <input type="text" name='linkedin' value={formData.social.linkedin} onChange={e => handleSocialChange(e)} />
                             </div>
                         </div>

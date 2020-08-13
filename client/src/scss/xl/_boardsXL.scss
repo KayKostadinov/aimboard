@@ -1,4 +1,7 @@
 .boards-page {
+    background: linear-gradient(90deg, rgba($teal , .2) 0%, rgba($orange, .2) 100%);
+    padding-top: 5em;
+
     .create-post-form, .boards-container{
         justify-self: center;
         max-width: 500px;

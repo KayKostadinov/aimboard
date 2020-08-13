@@ -1,9 +1,10 @@
 .navbar {
     @include flexCenter(space-between);
-    position: sticky;
+    position: absolute;
+    width: 100vw;
     top: 0px;
     padding: .4rem 4rem;
-    background: $p-lighter;
+    background: transparent;
     z-index: 3;
     border: none;
     .logo {
@@ -43,7 +44,9 @@
     }
 }
 
-
+.hide-sm{
+    display: block;
+}
 
 .search {
     margin-left: 1em;
