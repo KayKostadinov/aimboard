@@ -88,7 +88,7 @@ const Register = ({ setAlert, register, isAuthenticated, setClickable }) => {
                     }}> Login</Link>
                 </p>
                 <Alert />
-                <input type="submit" className='btn submit' value='Register' />
+                <input type="submit" className='btn btn-highlight' value='Register' />
             </form>
         </div>
     )

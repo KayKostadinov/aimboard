@@ -59,7 +59,7 @@ const Login = ({ login, isAuthenticated, setClickable }) => {
                     }}> Register</Link>
                 </p>
                 <Alert />
-                <input type="submit" className='btn submit' value='Login' />
+                <input type="submit" className='btn btn-highlight' value='Login' />
             </form>
         </div>
     )

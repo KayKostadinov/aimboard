@@ -45,12 +45,11 @@ const Landing = ({ isAuthenticated }) => {
             </div>
             <div className={sidebarClass}>
                 {
-                    clickable.clicked ? (
+                    clickable.clicked && (
                         clickable.clicked === 'login' ?
                             <Login onClick={handleClick} setClickable={setClickable} /> :
                             (clickable.clicked === 'register' ? <Register setClickable={setClickable} /> : null)
-                    ) :
-                        null
+                    )
                 }
             </div>
         </div>
