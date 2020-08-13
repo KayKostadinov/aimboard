@@ -114,7 +114,7 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
                                 <input type="text" name='linkedin' value={formData.social.linkedin} onChange={e => handleSocialChange(e)} />
                             </div>
                         </div>
-                        <button type='submit' className='btn'>Update</button>
+                        <button type='submit' className='btn btn-highlight'>Update</button>
                     </form>
                 </div>
             </div>

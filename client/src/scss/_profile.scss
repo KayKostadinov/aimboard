@@ -1,6 +1,28 @@
 .profile-container{
     background: linear-gradient(rgba($p-lighter, 1), rgba($orange, 0.7));
     @include flexCenter($direction: column);
+
+    .form {
+        label{
+            margin: .5em;
+            font-weight: 500;
+        }
+    }
+    .about{
+        margin: 1em 0;
+    }
+    .social-media{
+        .form-group{
+            @include flexCenter($direction: row);
+            input {
+                width: 100%;
+            }
+            .fab {
+                margin: 0 1em 0 0;
+                font-size: 1.5em;
+            }
+        }
+    }
     .user{
         @include flexCenter($direction: column);
 
