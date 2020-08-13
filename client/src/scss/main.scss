@@ -4,14 +4,14 @@
 @import './resets';
 
 // mobile
-
 @import './staticComponents';
-@import './landing';
 @import './forms';
+@import './landing';
 @import './navbar';
 @import './profile';
 @import './boards';
 @import './aim';
+@import './profileSetup';
 
 // tablets/ computers
 @media screen and (min-width: 620px){
@@ -19,4 +19,5 @@
     @import './xl/landingXL';
     @import './xl/aimXL';
     @import './xl/boardsXL';
+    @import './xl/profileSetupXL';
 }

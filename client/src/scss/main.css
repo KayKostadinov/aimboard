@@ -143,82 +143,6 @@ li {
       align-self: center;
 }
 
-.landing {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
-  background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-  display: -ms-grid;
-  display: grid;
-}
-
-.lan-card {
-  width: 100%;
-  height: 30%;
-  -ms-flex-item-align: center;
-      align-self: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.lan-card h1 {
-  text-align: center;
-  width: 100%;
-}
-
-.lan-card .message {
-  font-size: 18px;
-  padding: 2em 0 1em 0;
-  text-align: center;
-  font-weight: 400;
-}
-
-.sidebar {
-  position: absolute;
-  height: 100%;
-  padding-top: 4em;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transform: translateY(-150%);
-          transform: translateY(-150%);
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-  opacity: 0;
-  -webkit-backdrop-filter: blur(50px);
-          backdrop-filter: blur(50px);
-  background-color: rgba(242, 242, 247, 0.2);
-  z-index: 2;
-}
-
-.slide {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  opacity: 1;
-}
-
 .form-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -328,6 +252,82 @@ li {
 
 .form .checkbox span {
   margin-right: 1em;
+}
+
+.landing {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
+  background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  display: -ms-grid;
+  display: grid;
+}
+
+.lan-card {
+  width: 100%;
+  height: 30%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.lan-card h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.lan-card .message {
+  font-size: 18px;
+  padding: 2em 0 1em 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.sidebar {
+  position: absolute;
+  height: 100%;
+  padding-top: 4em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(-150%);
+          transform: translateY(-150%);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  opacity: 0;
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  background-color: rgba(242, 242, 247, 0.2);
+  z-index: 2;
+}
+
+.slide {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
 }
 
 .navbar {
@@ -896,7 +896,6 @@ li {
 
 .aim-page {
   width: 100vw;
-  padding: 1em;
   background: #e5e5ea;
 }
 
@@ -1175,6 +1174,64 @@ li {
   color: #1c1c1e;
 }
 
+.profile-setup {
+  height: 100vh;
+  width: 100vw;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
+  background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-setup .form-container {
+  height: 100%;
+  width: 100%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.profile-setup .form-container .form {
+  height: 50%;
+}
+
+.profile-setup .form-container .form .form-group {
+  margin: 1em 0;
+}
+
+.profile-setup .form-container .form .buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 @media screen and (min-width: 620px) {
   .navbar {
     display: -webkit-box;
@@ -1399,7 +1456,6 @@ li {
   }
   .aim-page {
     width: 100vw;
-    padding: 1em;
     background-color: transparent;
   }
   .aim-page-grid {
@@ -1848,6 +1904,89 @@ li {
     -ms-grid-column-align: center;
         justify-self: center;
     max-width: 500px;
+  }
+  .profile-setup {
+    height: 100vh;
+    width: 100vw;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
+    background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .profile-setup h2 {
+    margin-bottom: 2em;
+    color: #2c2c2e;
+  }
+  .profile-setup .form-container {
+    background-color: rgba(242, 242, 247, 0.2);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 50%;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+  }
+  .profile-setup .form-container .form {
+    height: 100%;
+    width: 100%;
+  }
+  .profile-setup .form-container .form .form-group {
+    width: 100%;
+  }
+  .profile-setup .form-container .form .form-group label {
+    padding: .5em 1em;
+    font-weight: 500;
+    font-size: 18px;
+    color: #2c2c2e;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .profile-setup .form-container .form .form-group textarea {
+    margin: 1em 0;
+  }
+  .profile-setup .form-container .form input, .profile-setup .form-container .form textarea {
+    width: 90%;
+  }
+  .profile-setup .form-container .form .buttons {
+    margin: 0.5em;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link as button, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../../actions/profile';
@@ -33,35 +33,43 @@ const ProfileSetup = ({ createProfile, history }) => {
     }
 
     return (
-        <div className="container">
+        <div className="profile-setup">
+            <h2>Let's set up your profile!</h2>
             <div className="form-container">
                 <form className="form" onSubmit={e => onSubmit(e)}>
                     {step === 1 &&
                         <div className="form-group">
                             <label htmlFor="">Say something about yourself</label>
-                            <input type="text" name='about' value={formData.about} onChange={e => handleChange(e)} />
+                            <textarea autoFocus='true' type="text" name='about' required value={formData.about} onChange={e => handleChange(e)} />
                         </div>
                     }
                     {step === 2 &&
                         <div className="form-group">
-                            <label htmlFor="">What are you interested in?</label>
-                            <input type="text" name='interests' value={formData.interests} onChange={e => handleChange(e)} />
+                            <label htmlFor="">What are your interests?</label>
+                            <textarea autoFocus='true' type="text" name='interests' required value={formData.interests} onChange={e => handleChange(e)} />
                         </div>
                     }
                     {step === 3 &&
                         <div className="form-group">
-                            <label htmlFor="">What goals are you focusing on?</label>
-                            <input type="text" name='goals' value={formData.goals} onChange={e => handleChange(e)} />
+                            <label htmlFor="">List a few of your goals</label>
+                            <textarea autoFocus='true' type="text" name='goals' required value={formData.goals} onChange={e => handleChange(e)} />
                         </div>
                     }
                     <div className="buttons">
                         {step !== 1 &&
-                            <Link to='#!' onClick={() => setStep(step - 1)} className='btn'>{'<<'}</Link>
+                            <button onClick={e => {
+                                e.preventDefault();
+                                setStep(step - 1)
+                            }}
+                                className='btn btn-highlight'>{'<<'}</button>
                         }
                         {step === 3 ?
-                            (<button type='submit' className='btn'>Create</button>)
+                            (<button type='submit' className='btn btn-highlight'>Create</button>)
                             :
-                            (<Link to='#!' onClick={() => setStep(step + 1)} className='btn'>{'>>'}</Link>)
+                            (<button onClick={e => {
+                                e.preventDefault();
+                                setStep(step + 1)
+                            }} className='btn btn-highlight'>{'>>'}</button>)
                         }
                     </div>
                 </form>
