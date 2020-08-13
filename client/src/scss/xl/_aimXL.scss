@@ -1,11 +1,12 @@
 
 .aim-page {
-    width: 100vw;
     padding-top: 2em;
-    background-color: transparent;
+    background: linear-gradient(90deg, rgba($teal , .2) 0%, rgba($orange, .2) 100%);
+
 }
 
 .aim-page-grid {
+    height: 100%;
     padding: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr;

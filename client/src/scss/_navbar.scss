@@ -3,58 +3,28 @@
     position: sticky;
     top: 0px;
     z-index: 3;
-    padding: 0.2rem 2rem;
     background: $p-lighter;
     border-bottom: 1px solid rgba($color: $gray, $alpha: 0.4);
-    .avatar{
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        font-size: 22px;
-    }
-    .nav-dropdown{
-        padding: .5em 1em;
-    }
-    .navigation {
-        @include flexCenter(space-around);
 
-            a {
-                margin-right: .5em;
-                font-weight: 700;
-                font-size: large;
-            }
-            
+    .navigation {
+        @include flexCenter(space-between);
+        width: 100%;
+        .nav {
+            margin: 0 .5em;
+            font-weight: 700;
+            font-size: 25px;
+            color: $orange;
+        }   
+        .btn {
+            background: transparent;
         }
+    }
+
+    .two {
+        @include flexCenter(space-around);
+    }
 }
 
 .hide-sm{
     display: none;
-}
-
-.burger {
-    position: absolute;
-    z-index: 1;
-    top: 4em;
-    right: 0;
-    padding: 2em 0 0 0;
-    background-color: transparent;
-    touch-action: none;
-    // pointer-events: none;
-    .hide {
-        display: none;
-    }
-    .show {
-        @include flexCenter($vertical: flex-end, $direction: row);
-        border-radius: unset;
-        padding: 1em;
-        background: rgba($p-lighter, .1);
-        backdrop-filter: blur(30px);
-        &:first-child{
-            border-radius: 20px 20px 0 0;
-        }
-        &:last-child{
-            border-radius: 0 0 20px 20px;
-        }
-    }
-    
 }

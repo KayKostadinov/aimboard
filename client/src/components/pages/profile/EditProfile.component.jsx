@@ -37,8 +37,8 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
             })
             setFormData({
                 about: loading || !profile.about ? '' : profile.about,
-                interests: loading || !profile.interests ? '' : profile.interests,
-                goals: loading || !profile.goals ? '' : profile.goals,
+                interests: loading || !profile.interests ? '' : profile.interests.toString(),
+                goals: loading || !profile.goals ? '' : profile.goals.toString(),
                 social: {
                     youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
                     twitter: loading || !profile.social.twitter ? '' : profile.social.twitter,

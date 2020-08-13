@@ -1,70 +1,47 @@
 .navbar {
+    width: 100vw;
     @include flexCenter(space-between);
     position: absolute;
-    width: 100vw;
     top: 0px;
-    padding: .4rem 4rem;
+    padding: .4rem 2rem;
     background: transparent;
     z-index: 3;
     border: none;
+
+    .navigation{
+        width: 70%;
+        @include flexCenter(space-between);
+        .btn {
+            padding: .2em .5em;
+            &:hover {
+                background-color: $teal;
+                h3{
+                    color: $white;
+                }
+            }
+        }
+        .nav {
+            font-weight: 700;
+            h3 {
+                font-size: large;
+                color: $darker;
+            }
+        }
+    
+        i {
+            display: none;
+        }
+    }
+
     .logo {
         a {
             color: $teal;
         }
     }
 
-    ul {
-        @include flexCenter(space-between);
-        li {
-            margin-right: 1em;
-            a{
-                font-weight: 700;
-                font-size: larger;
-            }
-            input{
-                width: 100px;
-                outline: none;
-                resize: none;
-                border: none;
-                background-color: transparent;
-                padding: .75em 1em;
-                font: inherit;
-                &:focus {
-                    transition: width 1s ease-in-out;
-                    background-color: $p-light;
-                    width: 100%;
-                }
-            }
-            ::placeholder{
-                color: $p-dark;
-            }
-            
-            
-        }
-    }
+    
 }
 
 .hide-sm{
     display: block;
 }
-
-.search {
-    margin-left: 1em;
-    @include flexCenter(space-around);
-    @include roundedBorders();
-    background-color: $primary;
-    border: solid $p-light 1px;
-    i{
-        padding: 0 .5em;
-        color: $p-dark;
-    }
-
-    &:focus-within{
-        background-color: $p-light;
-        box-shadow: 0 0 5px rgba($color: #000000, $alpha: .4);
-    
-
-    
-    }
-}
-
