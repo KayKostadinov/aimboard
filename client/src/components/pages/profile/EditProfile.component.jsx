@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile, getMyProfile } from '../../../actions/profile';
+import { createProfile, getMyProfile, deleteProfile } from '../../../actions/profile';
 import Alert from '../../layout/Alert.component';
 
 // TODO: add form fields for social media links
 
-const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading }, history }) => {
+const EditProfile = ({ createProfile, getMyProfile, deleteProfile, profile: { profile, loading }, history }) => {
     const [formData, setFormData] = useState({
         about: '',
         interests: '',
@@ -37,8 +37,8 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
             })
             setFormData({
                 about: loading || !profile.about ? '' : profile.about,
-                interests: loading || !profile.interests ? '' : profile.interests.toString(),
-                goals: loading || !profile.goals ? '' : profile.goals.toString(),
+                interests: loading || !profile.interests ? '' : profile.interests.join(', '),
+                goals: loading || !profile.goals ? '' : profile.goals.join(', '),
                 social: {
                     youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
                     twitter: loading || !profile.social.twitter ? '' : profile.social.twitter,
@@ -62,6 +62,12 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
     const onSubmit = e => {
         e.preventDefault();
         createProfile(formData, history, true);
+    }
+
+    const handleDelete = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        deleteProfile();
     }
 
     return (
@@ -114,7 +120,10 @@ const EditProfile = ({ createProfile, getMyProfile, profile: { profile, loading 
                                 <input type="text" name='linkedin' value={formData.social.linkedin} onChange={e => handleSocialChange(e)} />
                             </div>
                         </div>
-                        <button type='submit' className='btn btn-highlight'>Update</button>
+                        <div className="buttons">
+                            <button type='button' onClick={e => handleDelete(e)} className='btn btn-danger'>Delete Profile</button>
+                            <button type='submit' className='btn btn-highlight'>Update</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -126,10 +135,11 @@ EditProfile.propTypes = {
     createProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     getMyProfile: PropTypes.func.isRequired,
+    deleteProfile: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     profile: state.profile,
 })
 
-export default connect(mapStateToProps, { createProfile, getMyProfile })(withRouter(EditProfile));
+export default connect(mapStateToProps, { createProfile, getMyProfile, deleteProfile })(withRouter(EditProfile));

@@ -9,6 +9,7 @@ dist
 coverage/
 .nyc_output/
 yarn.lock
+config/default.json
 
 .env.local
 .env.development.local

@@ -8,21 +8,21 @@
     text-align: center;
     padding: 1em;
     @include roundedBorders();
-    color: $white;
+    color: white;
     animation: fadein 3s;
 }
 
 .error{
-    background-color: $pink;
+    background-color: rgba($pink, .5);
 }
 
 .success{
-    background-color: $green;
+    background-color: rgba($green, .5);
 }
 
 @keyframes fadein {
-    0%      { opacity: 0; bottom: 0px; }
-    20%     { opacity: 1; bottom: 50px; }
-    80%     { opacity: 1; bottom: 50px; }
-    100%    { opacity: 0; bottom: 0px; }
+    0%      { opacity: 0; top: 0px; }
+    20%     { opacity: 1; top: 50px; }
+    80%     { opacity: 1; top: 50px; }
+    100%    { opacity: 0; top: 0px; }
 }

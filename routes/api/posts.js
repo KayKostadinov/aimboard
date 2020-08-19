@@ -43,6 +43,7 @@ router.post('/', [auth, [
 router.get('/', async (req, res) => {
     try {
         const posts = await Post.find().sort({ date: -1 });
+        posts.comments
         res.json(posts);
     } catch (err) {
         console.error(err.message);
@@ -168,7 +169,7 @@ router.post('/comment/:id', [auth, [
             avatar: user.avatar
         };
 
-        post.comments.unshift(newComment);
+        post.comments.push(newComment);
 
         await post.save();
         res.json(post.comments);

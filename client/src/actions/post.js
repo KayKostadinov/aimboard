@@ -33,6 +33,7 @@ export const addPost = formData => async dispatch => {
         })
         dispatch(setAlert('Posted!', 'success'));
     } catch (err) {
+        dispatch(setAlert('Please select an Aim', 'error'))
         dispatch({
             type: POST_ERR,
             payload: { msg: err.response.statusText, status: err.response.status }

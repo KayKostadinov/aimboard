@@ -1,32 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../../actions/post';
-import { getAims } from '../../../actions/aim';
+import Alert from '../../layout/Alert.component';
 
-const CreatePost = ({ addPost, getAims, aim: { aims, loading }, img, postToggle }) => {
-
-    useEffect(() => {
-        getAims();
-
-    }, [getAims])
-
-    const [postData, setPostData] = useState({
-        text: '',
-        aim: {
-            aim: '',
-            title: ''
-        }
-    })
-
+const CreatePost = ({ addPost, img, postToggle, aims, postData, setPostData, aimId, aimTitle }) => {
     return (
         <form
             className='post-form'
             onSubmit={e => {
                 e.preventDefault();
+
                 addPost(postData);
                 postToggle && postToggle({ toggle: false })
             }}>
+            <Alert />
             <img src={img} alt="" className='avatar' />
             <textarea
                 name="text"
@@ -45,9 +33,12 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, img, postToggle 
                         title: e.target.value
                     }
                 })}>
-
-                <option value="null">Select aim...</option>
-                {!loading && aims.map(x =>
+                {aimId ?
+                    <option value={aimTitle} id={aimId}>{aimTitle}</option>
+                    :
+                    <option value="null">Select aim...</option>
+                }
+                {aims && aims.map(x =>
                     <option
                         key={x._id}
                         id={x._id}
@@ -62,12 +53,8 @@ const CreatePost = ({ addPost, getAims, aim: { aims, loading }, img, postToggle 
 
 CreatePost.propTypes = {
     addPost: PropTypes.func.isRequired,
-    getAims: PropTypes.func.isRequired,
-    aim: PropTypes.object.isRequired,
+
 }
 
-const mapStateToProps = state => ({
-    aim: state.aim,
-})
 
-export default connect(mapStateToProps, { addPost, getAims })(CreatePost);
+export default connect(null, { addPost })(CreatePost);

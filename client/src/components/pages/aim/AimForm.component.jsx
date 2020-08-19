@@ -15,6 +15,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
             <form
                 className='form aim-form'
                 onSubmit={e => {
+                    e.preventDefault();
                     if (edit.id === 'new') {
                         createAim(formData);
                     } else {
@@ -30,7 +31,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
                     <label>Name your Aim</label>
                     <input type="text" className='input-text' value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
                 </div>
-                <div className=" checkbox">
+                <div className="checkbox">
                     <input type="checkbox"
                         className='check'
                         name='complete'
@@ -47,7 +48,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
                         })
                     }}>
                         Cancel</button>
-                    <button className='btn' type='submit'>Save</button>
+                    <button className='btn btn-highlight' type='submit'>Save</button>
                 </div>
             </form>
         </div>

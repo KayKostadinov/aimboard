@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://kay:kayisadmin@devcluster-zae8t.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "thisIsExtremelySecretive"
+}

@@ -1,5 +1,5 @@
 .profile-container{
-    background: linear-gradient(rgba($p-lighter, 1), rgba($orange, 0.7));
+    background: linear-gradient(rgba($p-light, .1) 0%, rgba($orange, 0.2) 30%);
     @include flexCenter($direction: column);
 
     .form {
@@ -7,9 +7,16 @@
             margin: .5em;
             font-weight: 500;
         }
+        .buttons{
+            width: 100%;
+            @include flexCenter(space-around);
+        }
     }
     .about{
         margin: 1em 0;
+        textarea{
+            overflow: scroll;
+        }
     }
     .social-media{
         .form-group{

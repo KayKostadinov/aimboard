@@ -25,13 +25,8 @@ export default function (state = initialState, action) {
                 error: payload,
                 loading: false
             }
-        case CLEAR_PROFILE:
-            return {
-                ...state,
-                profile: null,
-                loading: false
-            }
         case DELETE_ACC:
+        case CLEAR_PROFILE:
             return {
                 ...state,
                 profile: null,

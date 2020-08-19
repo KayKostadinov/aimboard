@@ -11,8 +11,8 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
     const publicBtns = (
         <div className="navigation two">
-            <Link className="btn fade" to="/boards">Boards</Link>
-            <Link className="btn fade" to="/">Login</Link>
+            <Link className="btn nav" to="/boards"><h3>Boards</h3></Link>
+            <Link className="btn nav" to="/"><h3>Login</h3></Link>
         </div>
     )
 

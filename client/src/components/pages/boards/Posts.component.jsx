@@ -13,7 +13,6 @@ const Posts = ({
 }) => {
     const [toggleComments, setToggle] = useState(false);
     const [commentForm, setCommentForm] = useState({ text: '' });
-
     return (
         <div className='post-container'>
             <div className="user">
@@ -31,7 +30,10 @@ const Posts = ({
                         </Fragment>
                     }
                 </div>
-                <i className='fas fa-comment-dots' onClick={() => setToggle(!toggleComments)} />
+                <div className="comment-count" onClick={() => setToggle(!toggleComments)}>
+                    {comments.length > 0 && `${comments.length} `}
+                    <i className='fas fa-comment-dots' />
+                </div>
                 <i className='far fa-calendar-alt'>
                     <p>{new Date(date).toDateString()}</p>
                 </i>

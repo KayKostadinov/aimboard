@@ -2,7 +2,7 @@
 .aim-page {
     width: 100vw;
     padding: 1em;
-    background: $p-light;
+    background: linear-gradient(rgba($p-light, .1) 0%, rgba($green, 0.2) 30%);
 
 }
 
@@ -28,7 +28,6 @@
 
     .aim-heading {
         background-color: $white;
-        backdrop-filter: blur(10px);
         @include roundedBorders();
         padding: 1em;
         width: 100%;
@@ -40,11 +39,15 @@
         
         .list-goals {
             display: flex;
+            flex-wrap: wrap;
             margin: .5em 0;
+
             .goal {
+                min-width: fit-content;
+
                 background-color: $orange;
                 padding: .2em .5em;
-                margin: 0 .2em;
+                margin: .2em;
                 color: white;
                 @include roundedBorders();
                 
@@ -62,7 +65,12 @@
             @include flexCenter(space-between, column, center);
             @include roundedBorders();
             background-color: $white;
-
+            .fa-pen-square{
+                color: $orange;
+            }
+            .fa-comment-alt{
+                color: $teal;
+            }
             .show-hover {
                 visibility: hidden;
             }
@@ -114,73 +122,78 @@
     }
 
 }
-.aim-form-container, .floating-post {
+.popup{
+    backdrop-filter: blur(20px);
+    height: 100vh;
     width: 100vw;
-    height: 300px;
-    padding: 1em;
-    @include roundedBorders();
-    @include flexCenter($direction: column-reverse);
-    align-items: space-around;
-    justify-content: space-around;
-    position: absolute;
-    .aim-form{
-        width: 100%;
-        height: 300px;
-        @include flexCenter(center, column, center);
-        input{
-            max-width: 80%;
-        }
-    }
-    
-    .post-form{
-        height: 80%;
-        display: grid;
-        gap: 1em;
-        .avatar {
-            display: none;
-        }
-
-        .select{
-            align-self: center;
-            background-color: $green;
-            color: white;
-            padding: .5em 2em;
-            font: inherit;
-            border: none;
-            outline: none;
-            @include roundedBorders();
-            text-align: center;
-        }
-
-        .btn {
-            align-self: center;
-
-        }
-        textarea{
-            grid-row: 1 / 2;
-            grid-column: 1 / 3;
-            @include roundedBorders();
-            padding: 1em;
-            resize: none;
-            overflow: scroll;
-            background-color: rgba($color: $p-light, $alpha: 0.5);
-            font: inherit;
-            outline: none;
-            width: 100%;
-            border: 1px solid $gray;
-            transition: all .3s ease-in-out;
-            &:focus{
-                background-color: rgba($color: $white, $alpha: .8);
-            }
-            ::placeholder{
-                color: $darker;
-            }
-        }
-    }
-    
-    top: 25%;
+    top: 2em;
     left: 0;
     z-index: 2;
-    backdrop-filter: blur(10px);
-
+    position: absolute;
+    @include flexCenter();
+    .aim-form-container, .floating-post {
+        width: 100vw;
+        height: 300px;
+        padding: 1em;
+        
+        
+        @include flexCenter($direction: column);
+        @include roundedBorders();
+        align-items: space-around;
+        justify-content: space-around;
+        .aim-form{
+            width: 100%;
+            height: 300px;
+            @include flexCenter(center, column, center);
+            input{
+                max-width: 80%;
+            }
+        }
+        
+        .post-form{
+            height: 80%;
+            display: grid;
+            gap: 1em;
+            .avatar {
+                display: none;
+            }
+    
+            .select{
+                align-self: center;
+                background-color: $green;
+                color: white;
+                padding: .5em 2em;
+                font: inherit;
+                border: none;
+                outline: none;
+                @include roundedBorders();
+                text-align: center;
+            }
+    
+            .btn {
+                align-self: center;
+    
+            }
+            textarea{
+                grid-row: 1 / 2;
+                grid-column: 1 / 3;
+                @include roundedBorders();
+                padding: 1em;
+                resize: none;
+                overflow: scroll;
+                background-color: rgba($color: $p-light, $alpha: 0.5);
+                font: inherit;
+                outline: none;
+                width: 100%;
+                border: 1px solid $gray;
+                transition: all .3s ease-in-out;
+                &:focus{
+                    background-color: rgba($color: $white, $alpha: .8);
+                }
+                ::placeholder{
+                    color: $darker;
+                }
+            }
+        }
+    }
 }

@@ -28,6 +28,17 @@
     background-color: $white;
 }
 
+.btn-danger{
+    color: $gray;
+    background-color: transparent;
+
+    &:hover{
+        color: $darker;
+        font-weight: 600;
+        background-color: $pink;
+    }
+}
+
 .btn-regular {
     background-color: transparent;
     color: $dark;

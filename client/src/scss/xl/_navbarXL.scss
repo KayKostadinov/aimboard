@@ -9,14 +9,17 @@
     border: none;
 
     .navigation{
-        width: 70%;
-        @include flexCenter(space-between);
+        width: fit-content;
+        @include flexCenter(space-around);
         .btn {
             padding: .2em .5em;
+            border-radius: 0;
+            border-bottom: 3px solid rgba($color: #000000, $alpha: 0);
+            transition: all .3s ease-in-out;
             &:hover {
-                background-color: $teal;
+                border-bottom: 3px solid $teal;
                 h3{
-                    color: $white;
+                    color: $orange;
                 }
             }
         }

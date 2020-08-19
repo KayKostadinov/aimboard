@@ -1,5 +1,5 @@
 .boards-page {
-    background: $p-light;
+    background: linear-gradient(rgba($p-light , .1) 0%, rgba($teal, .2) 30%);
     display: grid;
     grid-auto-rows: auto;
     width: 100vw;
@@ -131,6 +131,11 @@
                 .fa, .fas, .far{
                     font-size: 1.2em;
                 }
+
+                .comment-count{
+                    cursor: pointer;
+                    text-align: center;
+                }
             
                 p{
                     color: $gray;
@@ -206,7 +211,8 @@
             }
 
             .comments {
-                background-color: $p-light;
+                background-color: rgba($teal, .1);
+                font-size: 14px;
                 @include roundedBorders();
                 padding: 0 0.5em;
                 margin-top: 1em;

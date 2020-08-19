@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from './alert';
-import { GET_PROFILE, PROFILE_ERR, CLEAR_PROFILE, DELETE_ACC, GET_PROFILES } from './types';
+import { GET_PROFILE, PROFILE_ERR, CLEAR_PROFILE, DELETE_ACC, GET_PROFILES, LOGOUT } from './types';
 
 // get current profile
 
@@ -98,8 +98,9 @@ export const deleteProfile = () => async dispatch => {
             await axios.delete('/api/profile');
 
             dispatch({ type: CLEAR_PROFILE });
-            dispatch({ type: DELETE_ACC }); // implement this
-            dispatch(setAlert('Account has been permanently deleted'));
+            dispatch({ type: DELETE_ACC });
+            dispatch({ type: LOGOUT })
+            dispatch(setAlert('Account has been permanently deleted'), 'error');
         } catch (err) {
             dispatch({
                 type: PROFILE_ERR,

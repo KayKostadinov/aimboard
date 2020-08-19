@@ -1,8 +1,8 @@
 
 .aim-page {
     padding-top: 2em;
-    background: linear-gradient(90deg, rgba($teal , .2) 0%, rgba($orange, .2) 100%);
-
+    height: 100%;
+    min-height: 100vh;
 }
 
 .aim-page-grid {
@@ -17,13 +17,15 @@
 }
 
 .posts-container {
+    align-self: center;
+    justify-self: stretch;
     display: grid;
     grid-auto-rows: auto;
-    justify-self: center;
     transition: all 0.2s ease-in-out;
-    padding: 1em 0;
+    padding-top: 1em;
     .post-container{
-        max-width: 500px;
+        align-self: center;
+        justify-self: center;
         padding: .5em 1em;
         display: grid;
         grid-template-columns: 1fr 3fr;
@@ -108,7 +110,7 @@
             .fa-times-circle{
                 color: $dark;
                 &:hover{
-                    color: $red;
+                    color: $orange;
                 }
             }
         }
@@ -159,7 +161,9 @@
         }
 
         .comments {
-            background-color: $p-light;
+            background-color: rgba($teal, .1);
+            font-size: 14px;
+
             @include roundedBorders();
             padding: 0 0.5em;
             margin-top: 1em;
@@ -199,12 +203,6 @@
 }
 
 
-.page-title{
-    text-transform: uppercase;
-    text-align: center;
-}
-
-
 .branch-container {
     width: 100%;
     display: grid;
@@ -212,24 +210,15 @@
     row-gap: 1em;
     padding: 2em 0;
     .aim-heading {
-        background-color: $white;
-        backdrop-filter: blur(10px);
-        @include roundedBorders();
-        padding: 1em;
-        width: 100%;
-        text-align: center;
-        .list-goals {
-            display: flex;
-            margin: .5em 0;
-            .goal {
-                background-color: $orange;
-                padding: .2em .5em;
-                margin: 0 .2em;
-                color: white;
-                @include roundedBorders();
-                
-            }
+
+        .btn-regular{
+            text-transform: lowercase;
         }
+        .fas{
+            cursor: pointer;
+            color: $green;
+        }
+
     }
 
     .aim-content{
@@ -260,17 +249,16 @@
             
             .title {
                 text-align: center;
-
             }
+            
             i {
                 padding: .2em .4em;
                 font-size: 20px;
-                color: $pink;
                 .tooltip{
                     visibility: hidden;
                     width: auto;
                     @include roundedBorders();
-                    background-color: $pink;
+                    background-color: $gray;
                     color: $p-lighter;
                     position: absolute;
                     text-align: center;
@@ -294,29 +282,45 @@
     }
 
 }
-.aim-form-container, .floating-post {
-    padding: 4em;
-    width: 50vw;
-    height: 50vh;
-    @include roundedBorders();
+
+.popup{
+    width: 100vw;
+    height: 100%;
     position: absolute;
-    @include flexCenter();
-    .aim-form{
-        width: 300px;
-        height: 80%;
-        @include flexCenter(center, column, center);
-    }
+    top:0;
+    left: 0;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+
+    .aim-form-container, .floating-post {
+        @include flexCenter(space-around, column);
+        backdrop-filter: none;
+        .aim-form{
+            background: none;
+            min-width: 300px;
+            max-width: 500px;
+            height: 80%;
+            @include flexCenter(center, column, center);
     
-    .form-group{
-        input{
-            width: 200px;
+        }
+    
+        .post-form{
+            background: none;
+
+            max-width: 500px;
+            height: fit-content;
+            margin: 1em 0;
+    
+        }
+    
+        .checkbox{
+            margin: 1em 0;
+        }
+        
+        .form-group{
+            input{
+                width: 200px;
+            }
         }
     }
-    
-    top: 25%;
-    left: 25%;
-    z-index: 2;
-    background-color: rgba($color: $dark, $alpha: .2);
-    backdrop-filter: blur(20px);
-
 }
