@@ -19,16 +19,28 @@ const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated, user }, profi
         getAims();
     }, [getMyProfile, getPosts, getAims, loading, aimLoading]);
 
+    const [openCreatePost, setCreate] = useState(false)
+
+
 
     return (!loading && !profile.loading &&
         <div className='boards-page'>
             {isAuthenticated && user &&
                 <div className='create-post-form'>
-                    <CreatePost
-                        img={profile.profile.user.avatar}
-                        name={user.name}
-                        aims={aims}
-                    />
+                    <div className="create">
+                        <div className='img'>
+                            <img src={profile.profile.user.avatar} alt="" />
+                        </div>
+                        <textarea onClick={() => setCreate(!openCreatePost)} placeholder='Share your progress...'></textarea>
+                    </div>
+                    {openCreatePost &&
+                        <CreatePost
+                            img={profile.profile.user.avatar}
+                            name={user.name}
+                            aims={aims}
+                            setCreate={setCreate}
+                        />
+                    }
                 </div>
             }
             <div className='boards-container' >

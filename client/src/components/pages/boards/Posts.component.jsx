@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost, addComment } from '../../../actions/post';
-import moment from 'moment';
 
 const Posts = ({
     addLike,
@@ -33,7 +32,7 @@ const Posts = ({
             <div className="user">
                 <img src={avatar} className='avatar' alt='' />
             </div>
-            {aim && <p className='aim-title'>{name} <i className='fas fa-chevron-circle-right'></i> {aim.title}</p>}
+            {aim && <div className='aim-title'>{name} <i className='fas fa-chevron-circle-right'></i> <p>{aim.title}</p></div>}
             {date &&
                 <i className='far fa-clock' >
                     <p>{getTimeSincePost()}</p>
