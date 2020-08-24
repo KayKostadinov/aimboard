@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../../actions/post';
 import Alert from '../../layout/Alert.component';
 
-const CreatePost = ({ addPost, img, postToggle, aims, postData, setPostData, aimId, aimTitle }) => {
+const CreatePost = ({ addPost, img, postToggle, aims, aimId, aimTitle, name }) => {
+
+    const [postData, setPostData] = useState({
+        text: '',
+        name: name,
+        aim: {
+            aim: '',
+            title: ''
+        }
+    })
+
     return (
         <form
             className='post-form'

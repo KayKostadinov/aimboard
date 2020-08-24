@@ -642,7 +642,7 @@ li {
   padding: 1em;
   resize: none;
   overflow: scroll;
-  background-color: rgba(229, 229, 234, 0.5);
+  background-color: #3a3a3c;
   font: inherit;
   outline: none;
   width: 100%;
@@ -652,7 +652,7 @@ li {
 }
 
 .create-post-form .post-form textarea:focus {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #8e8e93;
 }
 
 .create-post-form .post-form textarea::-webkit-input-placeholder {
@@ -675,10 +675,10 @@ li {
   padding: 1em;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 3fr;
-      grid-template-columns: 1fr 3fr;
-  -ms-grid-rows: (auto)[5];
-      grid-template-rows: repeat(5, auto);
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+  -ms-grid-rows: (auto)[6];
+      grid-template-rows: repeat(6, auto);
   background-color: #2c2c2e;
   border: none;
   border-radius: 20px;
@@ -686,12 +686,12 @@ li {
 }
 
 .post-container .tip {
-  -ms-grid-row: 4;
+  -ms-grid-row: 5;
   -ms-grid-row-span: 1;
-  grid-row: 4/ 5;
+  grid-row: 5/ 6;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / 3;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
   padding: 1em;
   color: #8e8e93;
   font-size: 10px;
@@ -700,8 +700,8 @@ li {
 
 .post-container .user {
   -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1 / 2;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1 / 2;
@@ -717,12 +717,12 @@ li {
 }
 
 .post-container .text {
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-row-span: 1;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / 3;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
   -ms-grid-column-align: start;
       justify-self: start;
   -ms-flex-item-align: center;
@@ -737,28 +737,30 @@ li {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1 / 2;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  background-color: #34c759;
-  color: white;
-  text-align: center;
-  padding: 0.2em 1em;
-  width: 80%;
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
+  color: #f2f2f7;
+  padding: 0 1em;
+}
+
+.post-container .aim-title i {
+  padding: 0 0.5em;
+  color: #34c759;
 }
 
 .post-container .stats {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-row-span: 1;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / 3;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
   border-bottom: 1px solid #636366;
   width: 100%;
   display: -webkit-box;
@@ -797,7 +799,14 @@ li {
   color: #5ac8fa;
 }
 
-.post-container .stats .fa-calendar-alt {
+.post-container .fa-clock {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  padding: 0 1em;
   color: #8e8e93;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -807,21 +816,39 @@ li {
           align-items: center;
 }
 
-.post-container .stats .fa-times-circle {
-  color: #2c2c2e;
+.post-container .fa-clock p {
+  font-family: Roboto, sans-serif;
+  font-size: 0.8em;
+  margin: 0 0.5em;
 }
 
-.post-container .stats .fa-times-circle:hover {
+.post-container .fa-times-circle {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  color: #1c1c1e;
+  font-size: 1.4em;
+}
+
+.post-container .fa-times-circle:hover {
   color: #ff3b30;
 }
 
 .post-container .add-comment {
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / 3;
-  -ms-grid-row: 5;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+  -ms-grid-row: 6;
   -ms-grid-row-span: 1;
-  grid-row: 5 / 6;
+  grid-row: 6 / 7;
   -ms-flex-item-align: center;
       align-self: center;
   justify-self: center;
@@ -872,7 +899,7 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: rgba(229, 229, 234, 0.2);
+  background-color: #3a3a3c;
   font: inherit;
   padding: .5rem 1rem;
   margin: 0 .5em;
@@ -884,7 +911,7 @@ li {
 }
 
 .post-container .add-comment input:focus {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #8e8e93;
 }
 
 .post-container .add-comment input ::-webkit-input-placeholder {
@@ -907,17 +934,17 @@ li {
   font-size: 0.9em;
   margin: 1em 0;
   width: 100%;
-  -ms-grid-row: 4;
+  -ms-grid-row: 5;
   -ms-grid-row-span: 1;
-  grid-row: 4 / 5;
+  grid-row: 5 / 6;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / 3;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
 }
 
 .post-container .comments .comment-body {
@@ -936,17 +963,22 @@ li {
 .post-container .comments .comment-body .avatar {
   width: 30px;
   height: 30px;
-  margin: 0 1em;
+  margin: 1em;
 }
 
 .post-container .comments .comment-body .content {
   padding: 1em;
-  width: 80%;
+  width: 100%;
   word-wrap: break-word;
   border: none;
   border-radius: 20px;
   overflow: hidden;
   background-color: #3a3a3c;
+}
+
+.post-container .comments .comment-body .content h5 {
+  color: #ff9500;
+  font-size: 1em;
 }
 
 .aim-page {

@@ -19,11 +19,12 @@ router.post('/', [auth, [
     }
     try {
         const user = await User.findById(req.user.id).select('-password');
-
+        console.log(req.user)
         const newPost = new Post({
             user: req.user.id,
             text: req.body.text,
             aim: req.body.aim,
+            name: req.body.name,
             avatar: user.avatar
         });
 
@@ -166,6 +167,7 @@ router.post('/comment/:id', [auth, [
         const newComment = {
             user: req.user.id,
             text: req.body.text,
+            name: req.body.name,
             avatar: user.avatar
         };
 

@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost, addComment } from '../../../actions/post';
+import moment from 'moment';
 
 const Posts = ({
     addLike,
@@ -9,16 +10,38 @@ const Posts = ({
     removeLike,
     deletePost,
     auth,
-    post: { _id, text, aim, avatar, user, updoots, comments, date }
+    username,
+    post: { _id, text, aim, avatar, name, user, updoots, comments, date }
 }) => {
     const [toggleComments, setToggle] = useState(false);
-    const [commentForm, setCommentForm] = useState({ text: '' });
+    const [commentForm, setCommentForm] = useState({ text: '', name: username });
+
+    const getTimeSincePost = () => {
+        const sinceMinutes = parseInt((new Date() - Date.parse(date)) / 1000 / 60)
+        if (sinceMinutes > 60) {
+            if (sinceMinutes > 60 * 24) {
+                return `${parseInt(sinceMinutes / 60 / 24)} d ago`
+            }
+            return `${parseInt(sinceMinutes / 60)} h ago`
+        }
+        return `${sinceMinutes} m ago`
+    }
+
+
     return (
         <div className='post-container'>
             <div className="user">
                 <img src={avatar} className='avatar' alt='' />
             </div>
-            {aim && <p className='aim-title'>{aim.title}</p>}
+            {aim && <p className='aim-title'>{name} <i className='fas fa-chevron-circle-right'></i> {aim.title}</p>}
+            {date &&
+                <i className='far fa-clock' >
+                    <p>{getTimeSincePost()}</p>
+                </i>
+            }
+            {auth.isAuthenticated && user === auth.user._id &&
+                <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
+            }
             <p className='text'>{text}</p>
             <div className="stats">
                 <div className='updoots'>
@@ -34,12 +57,6 @@ const Posts = ({
                     {comments.length > 0 && `${comments.length} `}
                     <i className='fas fa-comment-dots' />
                 </div>
-                <i className='far fa-calendar-alt'>
-                    <p>{new Date(date).toDateString()}</p>
-                </i>
-                {auth.isAuthenticated && user === auth.user._id &&
-                    <i className='fas fa-times-circle' onClick={e => deletePost(_id)} />
-                }
             </div>
 
             <div className="comments">
@@ -49,8 +66,12 @@ const Posts = ({
                             key={comment._id}
                             className='comment-body'
                         >
-                            <img src={comment.avatar} alt='' className='avatar' width='20' />
+                            <div>
+                                <img src={comment.avatar} alt='' className='avatar' width='20' />
+                            </div>
                             <div className="content">
+                                <h5>{comment.name}</h5>
+                                <br />
                                 <p>{comment.text}</p>
                             </div>
                         </div>)
@@ -60,10 +81,10 @@ const Posts = ({
                 <form className='add-comment' onSubmit={e => {
                     e.preventDefault();
                     addComment(commentForm, _id)
-                    setCommentForm({ text: '' })
+                    setCommentForm({ ...commentForm, text: '' })
                 }}>
                     <img src={auth.user.avatar} alt='' className='avatar' width='20' />
-                    <input type="text" value={commentForm.text} onChange={e => setCommentForm({ text: e.target.value })} />
+                    <input type="text" value={commentForm.text} onChange={e => setCommentForm({ ...commentForm, text: e.target.value })} />
                     <button type='submit' className='btn btn-highlight'>
                         <i className='fas fa-arrow-circle-up' />
                     </button>

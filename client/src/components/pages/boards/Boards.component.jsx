@@ -12,35 +12,27 @@ import { getAims } from '../../../actions/aim';
 // fetch data from db
 // order by date
 
-const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated }, profile, getAims, aim: { aims, loading: aimLoading }, post: { posts, loading } }) => {
+const Boards = ({ getMyProfile, getPosts, auth: { isAuthenticated, user }, profile, getAims, aim: { aims, loading: aimLoading }, post: { posts, loading } }) => {
     useEffect(() => {
         getMyProfile();
         getPosts();
         getAims();
     }, [getMyProfile, getPosts, getAims, loading, aimLoading]);
 
-    const [postData, setPostData] = useState({
-        text: '',
-        aim: {
-            aim: '',
-            title: ''
-        }
-    })
 
     return (!loading && !profile.loading &&
         <div className='boards-page'>
-            {isAuthenticated &&
+            {isAuthenticated && user &&
                 <div className='create-post-form'>
                     <CreatePost
                         img={profile.profile.user.avatar}
+                        name={user.name}
                         aims={aims}
-                        postData={postData}
-                        setPostData={setPostData}
                     />
                 </div>
             }
             <div className='boards-container' >
-                {posts.map(post => <Posts key={post._id} post={post}></Posts>)}
+                {posts.map(post => <Posts key={post._id} post={post} username={post.name}></Posts>)}
             </div>
             <Alert />
         </div>
