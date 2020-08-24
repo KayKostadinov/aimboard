@@ -40,13 +40,13 @@
 }
 
 .btn-regular {
-    background-color: transparent;
-    color: $dark;
+    background: none;
+    color: $p-light;
     transition: all .1s ease-in-out;
 
     &:hover{
         font-weight: 600;
-        color: $darker;
+        color: $p-lighter;
     }
     
     &:active{

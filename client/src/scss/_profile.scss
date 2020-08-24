@@ -1,5 +1,5 @@
 .profile-container{
-    background: linear-gradient(rgba($p-light, .1) 0%, rgba($orange, 0.2) 30%);
+    background: $darker;
     @include flexCenter($direction: column);
 
     .form {

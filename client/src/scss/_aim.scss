@@ -2,7 +2,7 @@
 .aim-page {
     width: 100vw;
     padding: 1em;
-    background: linear-gradient(rgba($p-light, .1) 0%, rgba($green, 0.2) 30%);
+    background: $darker;
 
 }
 
@@ -27,7 +27,7 @@
     row-gap: 1em;
 
     .aim-heading {
-        background-color: $white;
+        background-color: $dark;
         @include roundedBorders();
         padding: 1em;
         width: 100%;
@@ -64,7 +64,7 @@
             padding: 1em;
             @include flexCenter(space-between, column, center);
             @include roundedBorders();
-            background-color: $white;
+            background-color: $dark;
             .fa-pen-square{
                 color: $orange;
             }
@@ -78,7 +78,7 @@
                 @include roundedBorders();
                 overflow: visible;
 
-                background-color: $p-dark;
+                background-color: $dark;
                 color: $p-light;
                 .show-hover {
                     visibility: visible;

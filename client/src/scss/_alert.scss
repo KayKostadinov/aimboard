@@ -1,8 +1,8 @@
 .alert{
-    position: absolute;
+    position: fixed;
     opacity: 0;
-    left: 0;
-    right: 0;
+    left: 20%;
+    right: 20%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -13,16 +13,16 @@
 }
 
 .error{
-    background-color: rgba($pink, .5);
+    background-color: rgba($pink, 1);
 }
 
 .success{
-    background-color: rgba($green, .5);
+    background-color: rgba($green, 1);
 }
 
 @keyframes fadein {
-    0%      { opacity: 0; top: 0px; }
-    20%     { opacity: 1; top: 50px; }
-    80%     { opacity: 1; top: 50px; }
-    100%    { opacity: 0; top: 0px; }
+    0%      { opacity: 0; top: 0; }
+    20%     { opacity: 1; top: 4em; }
+    80%     { opacity: 1; top: 4em; }
+    100%    { opacity: 0; top: 0; }
 }

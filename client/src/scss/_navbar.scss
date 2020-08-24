@@ -3,8 +3,9 @@
     position: sticky;
     top: 0px;
     z-index: 3;
-    background: $p-lighter;
-    border-bottom: 1px solid rgba($color: $gray, $alpha: 0.4);
+    background: $darker;
+    // border-bottom: 1px solid rgba($color: $gray, $alpha: 0.4);
+    box-shadow: 0px 2px 5px black;
 
     .navigation {
         @include flexCenter(space-between);

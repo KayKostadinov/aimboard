@@ -8,15 +8,19 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     overflow-x: hidden;
-    background-color: $p-lighter;
+    background-color: $darker;
 }
 
 body, a, p, ul, li {
     text-decoration: none;
-    color: black;
+    color: $p-lighter;
     font: inherit;
 }
 
 li {
     list-style: none;
+}
+
+.fa, .fab, .fas {
+    text-align: center;
 }
