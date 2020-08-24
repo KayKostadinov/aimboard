@@ -3,13 +3,11 @@
     width: 100vw;
     padding: 1em;
     background: $darker;
-
 }
 
 .aim-page-grid {
     display: grid;
     grid-template-columns: 1fr;
-    height: 100vh;
     .hide-sm{
         display: none;
     }

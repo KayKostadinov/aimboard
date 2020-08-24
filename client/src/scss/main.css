@@ -538,6 +538,7 @@ li {
   display: -ms-grid;
   display: grid;
   grid-auto-rows: auto;
+  gap: 1em;
   width: 100vw;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -546,6 +547,9 @@ li {
 
 .boards-page .boards-container {
   width: 100%;
+  display: -ms-grid;
+  display: grid;
+  gap: 1em;
 }
 
 .boards-page .select {
@@ -675,7 +679,6 @@ li {
       grid-template-columns: 1fr 3fr;
   -ms-grid-rows: (auto)[5];
       grid-template-rows: repeat(5, auto);
-  margin: 1em 0;
   background-color: #2c2c2e;
   border: none;
   border-radius: 20px;
@@ -957,7 +960,6 @@ li {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  height: 100vh;
 }
 
 .aim-page-grid .hide-sm {
@@ -1408,7 +1410,7 @@ li {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    padding: .4rem 2rem;
+    padding: .4em 2em;
   }
   .navbar .navigation {
     width: -webkit-fit-content;
@@ -1431,8 +1433,7 @@ li {
   }
   .navbar .navigation .btn {
     padding: .2em .5em;
-    border-radius: 0;
-    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    border-radius: unset;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
   }
@@ -1542,13 +1543,10 @@ li {
     opacity: 1;
   }
   .aim-page {
-    padding-top: 2em;
     height: 100%;
-    min-height: 100vh;
   }
   .aim-page-grid {
     height: 100%;
-    padding: 1em;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
@@ -1557,19 +1555,15 @@ li {
             column-gap: 1em;
   }
   .aim-page-grid .hide-sm {
-    display: block;
+    display: inherit;
   }
   .posts-container {
-    -ms-grid-row-align: center;
-        align-self: center;
-    -ms-grid-column-align: stretch;
-        justify-self: stretch;
+    align-self: flex-start;
     display: -ms-grid;
     display: grid;
-    grid-auto-rows: auto;
+    gap: 1em;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    padding-top: 1em;
   }
   .posts-container .select {
     width: 100%;
@@ -1580,7 +1574,6 @@ li {
     display: grid;
     grid-auto-rows: auto 1fr;
     row-gap: 1em;
-    padding: 2em 0;
   }
   .branch-container .aim-heading .btn-regular {
     text-transform: lowercase;

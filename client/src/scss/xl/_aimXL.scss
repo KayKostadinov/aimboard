@@ -1,28 +1,23 @@
 
 .aim-page {
-    padding-top: 2em;
     height: 100%;
-    min-height: 100vh;
 }
 
 .aim-page-grid {
     height: 100%;
-    padding: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1em;
     .hide-sm{
-        display: block;
+        display: inherit;
     }
 }
 
 .posts-container {
-    align-self: center;
-    justify-self: stretch;
+    align-self: flex-start;
     display: grid;
-    grid-auto-rows: auto;
+    gap: 1em;    
     transition: all 0.2s ease-in-out;
-    padding-top: 1em;
 
     .select{
         width: 100%;
@@ -35,7 +30,6 @@
     display: grid;
     grid-auto-rows: auto 1fr;
     row-gap: 1em;
-    padding: 2em 0;
     .aim-heading {
 
         .btn-regular{

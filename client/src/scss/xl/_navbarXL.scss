@@ -1,14 +1,13 @@
 .navbar {
     @include flexCenter(space-between);
-    padding: .4rem 2rem;
+    padding: .4em 2em;
 
     .navigation{
         width: fit-content;
         @include flexCenter(space-around);
         .btn {
             padding: .2em .5em;
-            border-radius: 0;
-            border-bottom: 3px solid rgba($color: #000000, $alpha: 0);
+            border-radius: unset;
             transition: all .3s ease-in-out;
             &:hover {
                 h3{
