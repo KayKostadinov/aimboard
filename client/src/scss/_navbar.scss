@@ -5,17 +5,20 @@
     z-index: 3;
     background: $darker;
     box-shadow: 0px 2px 5px black;
+    padding: 0 2em;
 
     .navigation {
         @include flexCenter(space-between);
         width: 100%;
         .nav {
-            font-weight: 700;
-            font-size: 2em;
+            font-size: 1.2em;
             color: $orange;
         }   
         .btn {
-            background: transparent;
+            background: none;
+        }
+        i{
+            font-size: 1.7em;
         }
     }
 

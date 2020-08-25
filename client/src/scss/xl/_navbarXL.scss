@@ -9,17 +9,14 @@
             padding: .2em .5em;
             border-radius: unset;
             transition: all .3s ease-in-out;
+            h3 {
+                font-size: 1em;
+                color: $p-lighter;
+            }
             &:hover {
                 h3{
                     color: $orange;
                 }
-            }
-        }
-        .nav {
-            font-weight: 700;
-            h3 {
-                font-size: large;
-                color: $p-lighter;
             }
         }
     

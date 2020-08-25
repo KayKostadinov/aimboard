@@ -1,4 +1,8 @@
 .landing {
+    background-image: linear-gradient(rgba($darker, 1), rgba($darker, 0), rgba($darker, 1)), url('../img/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     transition: all .5s ease-in-out;
     h1{
         text-align: left;
@@ -12,12 +16,12 @@
 
 .landing-grid-one{
     display: grid;
-    grid-template-columns: 1fr 0;
+    grid-template-columns: 4fr 2fr;
 }
 
 .landing-grid-two{
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 4fr 2fr;
 }
 
 .lan-card {
@@ -27,7 +31,13 @@
     padding: 4em;
     justify-self: start;
     align-self: center;
-    @include roundedBorders();
+
+    .buttons{
+        .btn{
+            justify-self: start !important;
+
+        }
+    }
 }
 
 .sidebar {
@@ -36,7 +46,6 @@
     transform: translateY(-100%);
     transition: all .5s ease-in-out;
     @include flexCenter($direction: column);
-    background-color: rgba($p-light, 0.1);
     .form{
         padding: 0 2em;
         width: 90%;
