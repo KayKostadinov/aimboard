@@ -7,7 +7,6 @@
 
 html, body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
   overflow-x: hidden;
   background-color: #1c1c1e;
 }
@@ -318,6 +317,7 @@ i, .fa, .fab, .fas {
   overflow: hidden;
   background-color: rgba(229, 229, 234, 0.2);
   font: inherit;
+  color: #3a3a3c;
   padding: .5rem 1rem;
   width: 90vw;
   outline: none;
@@ -329,6 +329,7 @@ i, .fa, .fab, .fas {
 
 .form .form-group input:focus, .form .form-group textarea:focus {
   background-color: rgba(255, 255, 255, 0.8);
+  color: #1c1c1e;
 }
 
 .form .form-group input ::-webkit-input-placeholder, .form .form-group textarea ::-webkit-input-placeholder {
@@ -494,7 +495,6 @@ i, .fa, .fab, .fas {
 }
 
 .navbar .navigation .nav {
-  margin: 0 .5em;
   font-weight: 700;
   font-size: 2em;
   color: #ff9500;
@@ -724,7 +724,7 @@ i, .fa, .fab, .fas {
 
 .post-form-container .select-aim .aim {
   padding: 0.5em 1em;
-  margin: 0 0.5em;
+  margin: 0.5em;
   background-color: #3a3a3c;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -1428,10 +1428,66 @@ i, .fa, .fab, .fas {
 .branch-container .aim-content {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 100px;
+  grid-auto-rows: 4em;
   grid-gap: 1em;
+}
+
+.branch-container .aim-content .add-form {
+  padding: 0 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #3a3a3c;
+}
+
+.branch-container .aim-content .add-form input {
+  color: #e5e5ea;
+  width: 90%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font: inherit;
+  font-size: 1.1em;
+  height: 2em;
+}
+
+.branch-container .aim-content .add-form input::-webkit-input-placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .add-form input:-ms-input-placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .add-form input::-ms-input-placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .add-form input::placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .add-form .btn {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  background-color: unset;
+  color: #34c759;
 }
 
 .branch-container .aim-content .group-elements {
@@ -1447,59 +1503,41 @@ i, .fa, .fab, .fas {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   border: none;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #2c2c2e;
-}
-
-.branch-container .aim-content .group-elements .fa-pen-square {
-  color: #ff9500;
-}
-
-.branch-container .aim-content .group-elements .fa-comment-alt {
-  color: #5ac8fa;
-}
-
-.branch-container .aim-content .group-elements .show-hover {
-  visibility: hidden;
-}
-
-.branch-container .aim-content .group-elements:hover {
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
-  overflow: visible;
   background-color: #2c2c2e;
   color: #e5e5ea;
 }
 
-.branch-container .aim-content .group-elements:hover .show-hover {
-  visibility: visible;
+.branch-container .aim-content .group-elements .icons {
+  min-width: 100px;
+  max-width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.branch-container .aim-content .group-elements .title {
-  text-align: center;
-}
-
-.branch-container .aim-content .group-elements i {
-  padding: .2em .4em;
-  font-size: 20px;
+.branch-container .aim-content .group-elements .icons .icon {
+  font-size: 1.5em;
   color: #ff2d55;
 }
 
-.branch-container .aim-content .group-elements i .tooltip {
+.branch-container .aim-content .group-elements .icons .icon .tooltip {
   visibility: hidden;
   width: auto;
   border: none;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #ff2d55;
-  color: #f2f2f7;
+  background-color: #ffcc00;
+  color: #2c2c2e;
   position: absolute;
   text-align: center;
   font-family: Roboto;
@@ -1507,8 +1545,12 @@ i, .fa, .fab, .fas {
   z-index: 3;
 }
 
-.branch-container .aim-content .group-elements i:hover .tooltip {
-  visibility: visible;
+.branch-container .aim-content .group-elements .icons .fa-pen-square {
+  color: #ff9500;
+}
+
+.branch-container .aim-content .group-elements .icons .fa-comment-alt {
+  color: #5ac8fa;
 }
 
 .branch-container .aim-content .group-elements li {
@@ -1517,86 +1559,39 @@ i, .fa, .fab, .fas {
   margin: 0 1em;
 }
 
-.branch-container .aim-content .group-elements li:hover {
-  cursor: pointer;
-}
-
-.popup {
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-  height: 100vh;
-  width: 100vw;
-  top: 2em;
+.aim-form-container {
+  position: fixed;
+  top: 0;
   left: 0;
-  z-index: 2;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.popup .aim-form-container, .popup .floating-post {
+  display: -ms-grid;
+  display: grid;
+  gap: 1em;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   width: 100vw;
-  height: 300px;
+  height: 100vh;
+  -webkit-animation: blur .2s forwards;
+          animation: blur .2s forwards;
   padding: 1em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
-  -webkit-box-align: space-around;
-      -ms-flex-align: space-around;
-          align-items: space-around;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
-.popup .aim-form-container .aim-form, .popup .floating-post .aim-form {
-  width: 100%;
-  height: 300px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.aim-form-container .aim-form {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/ 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/ 3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-.popup .aim-form-container .aim-form input, .popup .floating-post .aim-form input {
+.aim-form-container .aim-form input {
   max-width: 80%;
 }
 
@@ -1795,70 +1790,8 @@ body {
   .branch-container .aim-heading .fas {
     cursor: pointer;
   }
-  .branch-container .aim-content {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 100px;
-    grid-gap: 1em;
-  }
-  .branch-container .aim-content .group-elements {
-    padding: 1em;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    border: none;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: #2c2c2e;
-  }
-  .branch-container .aim-content .group-elements .show-hover {
-    visibility: hidden;
-  }
-  .branch-container .aim-content .group-elements:hover .show-hover {
-    visibility: visible;
-  }
-  .branch-container .aim-content .group-elements .title {
-    text-align: center;
-  }
-  .branch-container .aim-content .group-elements i {
-    padding: .2em .4em;
-    font-size: 20px;
-  }
-  .branch-container .aim-content .group-elements i .tooltip {
-    visibility: hidden;
-    width: auto;
-    border: none;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: #8e8e93;
-    color: #f2f2f7;
-    position: absolute;
-    text-align: center;
-    font-family: Roboto;
-    padding: .4em;
-    z-index: 3;
-  }
   .branch-container .aim-content .group-elements i:hover .tooltip {
     visibility: visible;
-  }
-  .branch-container .aim-content .group-elements li {
-    width: 100%;
-    text-align: center;
-    margin: 0 1em;
   }
   .branch-container .aim-content .group-elements li:hover {
     cursor: pointer;
@@ -2120,8 +2053,8 @@ body {
     gap: 1em;
     -ms-grid-rows: (auto)[3];
         grid-template-rows: repeat(3, auto);
-    -ms-grid-columns: (auto)[3];
-        grid-template-columns: repeat(3, auto);
+    -ms-grid-columns: auto 500px auto;
+        grid-template-columns: auto 500px auto;
   }
   .post-form-container .select-aim {
     -ms-grid-column: 2;

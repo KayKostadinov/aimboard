@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
         case CREATE_AIM:
             return {
                 ...state,
-                aims: [...state.aims, payload],
+                aims: [payload, ...state.aims],
                 loading: false
             }
         case GET_AIM:

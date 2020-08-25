@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
 import { getPosts } from '../../../actions/post';
-import { getAims } from '../../../actions/aim';
+import { getAims, createAim } from '../../../actions/aim';
 import ProfileSetup from '../aim/ProfileSetup.component';
 import AimTree from './AimTree.component';
 import AimForm from './AimForm.component';
@@ -12,7 +12,7 @@ import CreatePost from '../boards/CreatePost.component';
 import Posts from '../boards/Posts.component';
 
 
-const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: postLoading }, auth: { isAuthenticated, user }, profile: { profile, loading }, aim: { aims, loading: loadAim } }) => {
+const Aim = ({ getMyProfile, getAims, getPosts, createAim, post: { posts, loading: postLoading }, auth: { isAuthenticated, user }, profile: { profile, loading }, aim: { aims, loading: loadAim } }) => {
     useEffect(() => {
         getMyProfile();
         getAims();
@@ -23,8 +23,10 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
         toggle: false,
         id: '',
         title: '',
-        complete: ''
     });
+
+    const [createAimForm, setAim] = useState({ title: '' })
+
     const [createPost, postToggle] = useState({
         id: '',
         title: ''
@@ -41,6 +43,13 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
     })
 
     const [openCreatePost, setCreate] = useState(false);
+
+    const formSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        createAim(createAimForm);
+        setAim({ title: '' })
+    }
 
     return (!loading && !loadAim && isAuthenticated &&
         <Fragment>
@@ -70,6 +79,17 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                                     </div>
                                 </div>
                                 <div className='aim-content'>
+                                    <form className='add-form' onSubmit={e => formSubmit(e)}>
+                                        <input
+                                            placeholder='new Aim'
+                                            required
+                                            value={createAimForm.title}
+                                            onChange={e => setAim({ title: e.target.value })}
+                                        />
+                                        <button type='submit' className='btn'>
+                                            <i className='fas fa-plus-circle'></i>
+                                        </button>
+                                    </form>
                                     {aims && aims.map(aim => (
                                         <AimTree
                                             key={aim._id}
@@ -103,19 +123,12 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                     createPost={createPost}
                 />
             }
-            {edit.toggle || createPost.toggle ?
-                <div className="popup">
-                    {edit.toggle &&
-                        <AimForm
-                            setEdit={setEdit}
-                            edit={edit}
-                        />}
-                    {createPost.toggle &&
-                        <div className="floating-post">
-
-                        </div>
-                    }
-                </div> : null}
+            {edit.toggle &&
+                <AimForm
+                    setEdit={setEdit}
+                    edit={edit}
+                />
+            }
         </Fragment>
     )
 }
@@ -124,6 +137,7 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
 Aim.propTypes = {
     getMyProfile: PropTypes.func.isRequired,
     getAims: PropTypes.func.isRequired,
+    createAim: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     aim: PropTypes.object.isRequired,
@@ -138,4 +152,4 @@ const mapStateToProps = state => ({
     post: state.post
 })
 
-export default connect(mapStateToProps, { getMyProfile, getAims, getPosts })(Aim);
+export default connect(mapStateToProps, { getMyProfile, getAims, createAim, getPosts })(Aim);

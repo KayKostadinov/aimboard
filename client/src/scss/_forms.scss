@@ -34,6 +34,7 @@
             @include roundedBorders();
             background-color: rgba($color: $p-light, $alpha: 0.2);
             font: inherit;
+            color: $midway;
             padding: .5rem 1rem;
             width: 90vw;
             outline: none;
@@ -42,6 +43,7 @@
             transition: all .3s ease-in-out;
             &:focus{
                 background-color: rgba($color: $white, $alpha: .8);
+                color: $darker;
             }
             ::placeholder{
                 color: $darker;

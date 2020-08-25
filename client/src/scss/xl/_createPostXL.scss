@@ -1,7 +1,7 @@
 .post-form-container{
     gap: 1em;
     grid-template-rows: repeat(3, auto);
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: auto 500px auto;
 
     .select-aim{
         grid-column: 2 / 3;

@@ -42,62 +42,18 @@
     }
 
     .aim-content{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 100px;
-        grid-gap: 1em;
         .group-elements{
-            padding: 1em;
-            @include flexCenter(space-between, column, center);
-            @include roundedBorders();
-            background-color: $dark;
-
-            .show-hover {
-                visibility: hidden;
+            i:hover .tooltip {
+                visibility: visible;
             }
-            &:hover {
-
-                .show-hover {
-                    visibility: visible;
-                    
-                }
-            }
-            
-            .title {
-                text-align: center;
-            }
-            
-            i {
-                padding: .2em .4em;
-                font-size: 20px;
-                .tooltip{
-                    visibility: hidden;
-                    width: auto;
-                    @include roundedBorders();
-                    background-color: $gray;
-                    color: $p-lighter;
-                    position: absolute;
-                    text-align: center;
-                    font-family: Roboto;
-                    padding: .4em;
-                    z-index: 3;
-                }
-                &:hover .tooltip {
-                    visibility: visible;
-                }
-            }
-            li {
-                width: 100%;
-                text-align: center;
-                margin: 0 1em;
-                &:hover{
-                    cursor: pointer;
-                }
+            li:hover{
+                cursor: pointer;
             }
         }
     }
-
 }
+
+
 
 .popup{
     width: 100vw;

@@ -114,15 +114,11 @@ router.post('/:id', auth, async (req, res) => {
 
         const {
             title,
-            level,
-            deadline,
             complete,
         } = req.body;
 
         let aimFields = {
             title,
-            level,
-            deadline,
             complete,
         };
 
@@ -134,7 +130,6 @@ router.post('/:id', auth, async (req, res) => {
                 { new: true }
             )
         }
-        console.log(aim)
         res.json(aim);
 
     } catch (err) {

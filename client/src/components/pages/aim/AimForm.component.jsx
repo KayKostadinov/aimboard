@@ -7,11 +7,16 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
 
     const [formData, setFormData] = useState({
         title: edit.title,
-        complete: edit.complete,
     })
 
+    const closeWindow = e => {
+        if (e.target.className === 'aim-form-container') {
+            setEdit({ ...edit, toggle: false })
+        }
+    }
+
     return (
-        <div className="aim-form-container">
+        <div className="aim-form-container" onClick={e => closeWindow(e)}>
             <form
                 className='form aim-form'
                 onSubmit={e => {
@@ -31,25 +36,7 @@ const AimForm = ({ updateAim, createAim, edit, setEdit }) => {
                     <label>Name your Aim</label>
                     <input type="text" className='input-text' value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
                 </div>
-                <div className="checkbox">
-                    <input type="checkbox"
-                        className='check'
-                        name='complete'
-                        checked={formData.complete}
-                        onChange={e => setFormData({ ...formData, complete: e.target.checked })} />
-                    <span>Complete?</span>
-                </div>
-                <div className="buttons">
-                    <button type='button' className='btn' onClick={e => {
-                        e.preventDefault();
-                        setEdit({
-                            toggle: false,
-                            id: ''
-                        })
-                    }}>
-                        Cancel</button>
-                    <button className='btn btn-highlight' type='submit'>Save</button>
-                </div>
+                <button className='btn btn-highlight' type='submit'>Save</button>
             </form>
         </div>
     )
