@@ -30,6 +30,10 @@
         padding: 1em;
         width: 100%;
         text-align: center;
+
+        .fas {
+            color: $green;
+        }
     
         .page-title{
             text-transform: uppercase;
@@ -145,52 +149,6 @@
             @include flexCenter(center, column, center);
             input{
                 max-width: 80%;
-            }
-        }
-        
-        .post-form{
-            height: 80%;
-            display: grid;
-            gap: 1em;
-            .avatar {
-                display: none;
-            }
-    
-            .select{
-                align-self: center;
-                background-color: $green;
-                color: white;
-                padding: .5em 2em;
-                font: inherit;
-                border: none;
-                outline: none;
-                @include roundedBorders();
-                text-align: center;
-            }
-    
-            .btn {
-                align-self: center;
-    
-            }
-            textarea{
-                grid-row: 1 / 2;
-                grid-column: 1 / 3;
-                @include roundedBorders();
-                padding: 1em;
-                resize: none;
-                overflow: scroll;
-                background-color: rgba($color: $p-light, $alpha: 0.5);
-                font: inherit;
-                outline: none;
-                width: 100%;
-                border: 1px solid $gray;
-                transition: all .3s ease-in-out;
-                &:focus{
-                    background-color: rgba($color: $white, $alpha: .8);
-                }
-                ::placeholder{
-                    color: $darker;
-                }
             }
         }
     }

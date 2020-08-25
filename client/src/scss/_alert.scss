@@ -22,7 +22,16 @@
 
 @keyframes fadein {
     0%      { opacity: 0; top: 0; }
-    20%     { opacity: 1; top: 4em; }
-    80%     { opacity: 1; top: 4em; }
+    20%     { opacity: 1; top: 6em; }
+    80%     { opacity: 1; top: 6em; }
     100%    { opacity: 0; top: 0; }
+}
+
+@media screen and (min-width: 620px){
+    @keyframes fadein {
+        0%      { opacity: 0; top: 0; }
+        20%     { opacity: 1; top: 4em; }
+        80%     { opacity: 1; top: 4em; }
+        100%    { opacity: 0; top: 0; }
+    }
 }

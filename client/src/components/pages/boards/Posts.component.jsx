@@ -13,7 +13,7 @@ const Posts = ({
     post: { _id, text, aim, avatar, name, user, updoots, comments, date }
 }) => {
     const [toggleComments, setToggle] = useState(false);
-    const [commentForm, setCommentForm] = useState({ text: '', name: username });
+    const [commentForm, setCommentForm] = useState({ text: '', name: auth?.user?.name });
 
     const getTimeSincePost = () => {
         const sinceMinutes = parseInt((new Date() - Date.parse(date)) / 1000 / 60)
@@ -79,11 +79,17 @@ const Posts = ({
             {auth.isAuthenticated ?
                 <form className='add-comment' onSubmit={e => {
                     e.preventDefault();
-                    addComment(commentForm, _id)
-                    setCommentForm({ ...commentForm, text: '' })
+                    addComment(commentForm, _id);
+                    setToggle(true);
+                    setCommentForm({ ...commentForm, text: '' });
                 }}>
-                    <img src={auth.user.avatar} alt='' className='avatar' width='20' />
-                    <input type="text" value={commentForm.text} onChange={e => setCommentForm({ ...commentForm, text: e.target.value })} />
+                    <img src={auth.user.avatar} alt='' className='avatar' />
+                    <input
+                        type="text"
+                        value={commentForm.text}
+                        onChange={e => setCommentForm({ ...commentForm, text: e.target.value })}
+                        placeholder='add comment'
+                    />
                     <button type='submit' className='btn btn-highlight'>
                         <i className='fas fa-arrow-circle-up' />
                     </button>

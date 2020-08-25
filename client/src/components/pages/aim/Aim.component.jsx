@@ -26,19 +26,21 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
         complete: ''
     });
     const [createPost, postToggle] = useState({
-        toggle: false,
         id: '',
         title: ''
     });
 
-
+    // will make obsolete. children components will control their forms with this structure.
     const [postData, setPostData] = useState({
         text: '',
+        name: '',
         aim: {
             aim: '',
             title: ''
         }
     })
+
+    const [openCreatePost, setCreate] = useState(false);
 
     return (!loading && !loadAim && isAuthenticated &&
         <Fragment>
@@ -75,9 +77,10 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                                             aim={aim}
                                             edit={edit}
                                             setEdit={setEdit}
-                                            postToggle={postToggle}
+                                            setCreate={setCreate}
                                             setPostData={setPostData}
                                             postData={postData}
+                                            postToggle={postToggle}
                                         />))}
                                 </div>
                             </div>
@@ -89,6 +92,17 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                         <ProfileSetup />}
                 </div>
             )}
+            {openCreatePost &&
+                <CreatePost
+                    img={user.avatar}
+                    name={user.name}
+                    aims={aims}
+                    setCreate={setCreate}
+                    aimId={createPost.id}
+                    aimTitle={createPost.title}
+                    createPost={createPost}
+                />
+            }
             {edit.toggle || createPost.toggle ?
                 <div className="popup">
                     {edit.toggle &&
@@ -98,22 +112,7 @@ const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: 
                         />}
                     {createPost.toggle &&
                         <div className="floating-post">
-                            <CreatePost
-                                aims={aims}
-                                aimId={createPost.id}
-                                aimTitle={createPost.title}
-                                postToggle={postToggle}
-                                postData={postData}
-                                setPostData={setPostData}
-                            />
-                            <button
-                                className='btn'
-                                onClick={e => {
-                                    e.preventDefault();
-                                    postToggle({
-                                        toggle: false
-                                    })
-                                }}>Close</button>
+
                         </div>
                     }
                 </div> : null}

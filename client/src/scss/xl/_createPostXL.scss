@@ -1,0 +1,15 @@
+.post-form-container{
+    gap: 1em;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+
+    .select-aim{
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .post-form{
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+}

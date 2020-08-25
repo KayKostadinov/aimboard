@@ -6,7 +6,7 @@ import { deleteAim } from '../../../actions/aim';
 // display goals by hierarchy
 // goals CRUD
 
-const AimTree = ({ deleteAim, aim, setEdit, postToggle, setPostData, postData }) => {
+const AimTree = ({ deleteAim, aim, setEdit, postToggle, setPostData, postData, setCreate }) => {
 
     return (aim &&
         <div className='group-elements' >
@@ -26,14 +26,8 @@ const AimTree = ({ deleteAim, aim, setEdit, postToggle, setPostData, postData })
                     <span className="tooltip">edit</span>
                 </i>
                 <i className='fas fa-comment-alt show-hover' onClick={() => {
-                    postToggle({ toggle: true, id: aim._id, title: aim.title });
-                    setPostData({
-                        ...postData,
-                        aim: {
-                            aim: aim._id,
-                            title: aim.title
-                        }
-                    })
+                    postToggle({ id: aim._id, title: aim.title });
+                    setCreate(true);
                 }}>
                     <span className="tooltip">share your progress</span>
                 </i>

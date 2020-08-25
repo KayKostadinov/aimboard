@@ -5,21 +5,31 @@
 
 // mobile
 @import './staticComponents';
+@import './alert';
 @import './forms';
 @import './landing';
 @import './navbar';
 @import './profile';
+@import './profileSetup';
+@import './createPost';
+@import './posts';
 @import './boards';
 @import './aim';
-@import './profileSetup';
-@import './alert';
+
+body{
+    font-size: 14px;
+}
 
 // tablets/ computers
 @media screen and (min-width: 620px){
+    body{
+        font-size: 16px;
+    }
     @import './xl/navbarXL';
     @import './xl/landingXL';
     @import './xl/aimXL';
     @import './xl/boardsXL';
     @import './xl/profileSetupXL';
     @import './xl/profileXL';
+    @import './xl/createPostXL';
 }
