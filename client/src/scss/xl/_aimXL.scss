@@ -43,8 +43,20 @@
 
     .aim-content{
         .group-elements{
+            .tooltip{
+                width: auto;
+                @include roundedBorders();
+                background-color: $yellow;
+                color: $dark;
+                position: absolute;
+                margin-top: 2em;
+                text-align: center;
+                font-family: Roboto;
+                padding: .4em;
+                z-index: 3;
+            }
             i:hover .tooltip {
-                visibility: visible;
+                display: inline-block !important;
             }
             li:hover{
                 cursor: pointer;

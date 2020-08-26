@@ -7,7 +7,7 @@
 
 .aim-page-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    gap: 0;
     .hide-sm{
         display: none;
     }
@@ -17,7 +17,7 @@
     width: 100%;
     display: grid;
     grid-auto-rows: auto 1fr;
-    row-gap: 1em;
+    gap: 1em;
 
     .aim-heading {
         background-color: $dark;
@@ -91,6 +91,24 @@
             background-color: $dark;
             color: $p-light;
 
+            .title{
+                width: 90%;
+                input{
+                    color: white;
+                    width: 90%;
+                    background-color: transparent;
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid $orange;
+                    font: inherit;
+                    font-size: 1em;
+                    height: 2em;
+                    &::placeholder{
+                        color: $gray;
+                    }
+                }
+            }
+
             .icons{
                 min-width: 100px;
                 max-width: 150px;
@@ -101,16 +119,7 @@
                     color: $pink;
                     
                     .tooltip{
-                        visibility: hidden;
-                        width: auto;
-                        @include roundedBorders();
-                        background-color: $yellow;
-                        color: $dark;
-                        position: absolute;
-                        text-align: center;
-                        font-family: Roboto;
-                        padding: .4em;
-                        z-index: 3;
+                        display: none;
                     }
 
                 }
@@ -122,11 +131,6 @@
                 }
             }
 
-            li {
-                width: 100%;
-                text-align: center;
-                margin: 0 1em;
-            }
         }
     }
 }

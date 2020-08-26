@@ -1269,14 +1269,14 @@ i, .fa, .fab, .fas {
 
 .boards-page {
   background-color: #1c1c1e;
+  width: 100vw;
+  padding: 1em;
   display: -ms-grid;
   display: grid;
   grid-auto-rows: auto;
   gap: 1em;
-  width: 100vw;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  padding: 1em;
 }
 
 .boards-page .boards-container {
@@ -1381,8 +1381,7 @@ i, .fa, .fab, .fas {
 .aim-page-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  gap: 0;
 }
 
 .aim-page-grid .hide-sm {
@@ -1394,7 +1393,7 @@ i, .fa, .fab, .fas {
   display: -ms-grid;
   display: grid;
   grid-auto-rows: auto 1fr;
-  row-gap: 1em;
+  gap: 1em;
 }
 
 .branch-container .aim-heading {
@@ -1526,6 +1525,38 @@ i, .fa, .fab, .fas {
   color: #e5e5ea;
 }
 
+.branch-container .aim-content .group-elements .title {
+  width: 90%;
+}
+
+.branch-container .aim-content .group-elements .title input {
+  color: white;
+  width: 90%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ff9500;
+  font: inherit;
+  font-size: 1em;
+  height: 2em;
+}
+
+.branch-container .aim-content .group-elements .title input::-webkit-input-placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .group-elements .title input:-ms-input-placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .group-elements .title input::-ms-input-placeholder {
+  color: #8e8e93;
+}
+
+.branch-container .aim-content .group-elements .title input::placeholder {
+  color: #8e8e93;
+}
+
 .branch-container .aim-content .group-elements .icons {
   min-width: 100px;
   max-width: 150px;
@@ -1543,18 +1574,7 @@ i, .fa, .fab, .fas {
 }
 
 .branch-container .aim-content .group-elements .icons .icon .tooltip {
-  visibility: hidden;
-  width: auto;
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #ffcc00;
-  color: #2c2c2e;
-  position: absolute;
-  text-align: center;
-  font-family: Roboto;
-  padding: .4em;
-  z-index: 3;
+  display: none;
 }
 
 .branch-container .aim-content .group-elements .icons .fa-pen-square {
@@ -1563,12 +1583,6 @@ i, .fa, .fab, .fas {
 
 .branch-container .aim-content .group-elements .icons .fa-comment-alt {
   color: #5ac8fa;
-}
-
-.branch-container .aim-content .group-elements li {
-  width: 100%;
-  text-align: center;
-  margin: 0 1em;
 }
 
 .aim-form-container {
@@ -1607,8 +1621,9 @@ i, .fa, .fab, .fas {
   max-width: 80%;
 }
 
-body {
+body, html {
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 620px) {
@@ -1713,8 +1728,22 @@ body {
   .branch-container .aim-heading .fas {
     cursor: pointer;
   }
+  .branch-container .aim-content .group-elements .tooltip {
+    width: auto;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #ffcc00;
+    color: #2c2c2e;
+    position: absolute;
+    margin-top: 2em;
+    text-align: center;
+    font-family: Roboto;
+    padding: .4em;
+    z-index: 3;
+  }
   .branch-container .aim-content .group-elements i:hover .tooltip {
-    visibility: visible;
+    display: inline-block !important;
   }
   .branch-container .aim-content .group-elements li:hover {
     cursor: pointer;

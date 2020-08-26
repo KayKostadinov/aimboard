@@ -24,6 +24,7 @@ const AimTree = ({ deleteAim, updateAim, aim, postToggle, setCreate }) => {
                 {edit ?
                     <form onSubmit={e => submit(e)} >
                         <input
+                            autoFocus={true}
                             value={data.title}
                             onChange={e => setData({ title: e.target.value })}
                         />
@@ -35,7 +36,7 @@ const AimTree = ({ deleteAim, updateAim, aim, postToggle, setCreate }) => {
             <div className='icons'>
                 <i
                     className='fas fa-pen-square icon'
-                    onClick={() => setEdit(true)} >
+                    onClick={() => setEdit(!edit)} >
                     <span className="tooltip">edit</span>
                 </i>
                 <i className='fas fa-comment-alt icon' onClick={() => {

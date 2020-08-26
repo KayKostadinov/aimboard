@@ -17,8 +17,9 @@
 @import './aim';
 @import './aimForm';
 
-body{
+body, html{
     font-size: 14px;
+    overflow-x: hidden;
 }
 
 // tablets/ computers
