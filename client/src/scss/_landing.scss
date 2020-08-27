@@ -1,9 +1,10 @@
 
 .landing {
     background-color: $darker; 
-    background-image: linear-gradient(rgba($darker, 1), rgba($darker, 0), rgba($darker, 1)), url('../img/bg2.jpg');
+    background-image: linear-gradient(rgba($darker, 1), rgba($darker, 0), rgba($darker, 1)), url('../img/bg2-mobile.jpg');
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
+    background-size: cover;
     
     width: 100vw;
     height: 100vh;
