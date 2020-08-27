@@ -371,10 +371,11 @@ i, .fa, .fab, .fas {
 
 .landing {
   background-color: #1c1c1e;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1c1c1e), color-stop(rgba(28, 28, 30, 0)), to(#1c1c1e)), url("../img/bg2.jpg");
-  background-image: linear-gradient(#1c1c1e, rgba(28, 28, 30, 0), #1c1c1e), url("../img/bg2.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1c1c1e), color-stop(rgba(28, 28, 30, 0)), to(#1c1c1e)), url("../img/bg2-mobile.jpg");
+  background-image: linear-gradient(#1c1c1e, rgba(28, 28, 30, 0), #1c1c1e), url("../img/bg2-mobile.jpg");
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: center;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   -webkit-transition: all .5s ease-in-out;
@@ -640,11 +641,7 @@ i, .fa, .fab, .fas {
 .profile-setup {
   height: 100vh;
   width: 100vw;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f7), to(rgba(255, 149, 0, 0.7))), url("../img/arrows.jpg");
-  background-image: linear-gradient(#f2f2f7, rgba(255, 149, 0, 0.7)), url("../img/arrows.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: #1c1c1e;
 }
 
 .profile-setup h2 {
