@@ -457,7 +457,7 @@ i, .fa, .fab, .fas {
 .slide {
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  opacity: 1;
+  opacity: 1.0;
 }
 
 .navbar {
