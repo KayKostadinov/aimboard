@@ -36,7 +36,8 @@
 
 .form-group {
     @include flexCenter(space-between, column, center);
-    padding: .7em 0;
+    padding: 1em;
+    width: 100%;
     textarea{
         resize: none;
     }
@@ -46,7 +47,7 @@
         font: inherit;
         color: $midway;
         padding: .5rem 1rem;
-        // width: 90vw;
+        width: 100%;
         outline: none;
         overflow: hidden;
         border: 1px solid $gray;

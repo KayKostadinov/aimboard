@@ -11,10 +11,6 @@
             gap: 1em;
             width: 100%;
 
-            input, textarea{
-                width: 90%;
-            }
-
             h3{
                 margin: 1em 0;
                 padding: 0.5em;
@@ -37,6 +33,7 @@
             }
 
             .about{
+                width: auto;
                 padding: 1em;
                 margin: 0;
                 grid-row: 1 / 3;
@@ -46,7 +43,7 @@
                 @include roundedBorders();
                 @include flexCenter($direction: column);
                 .form-group{
-                    width: 100%;
+                    padding: 0;
                 }
                 background-color: $dark;
                 textarea{
@@ -59,10 +56,6 @@
                 padding: 1em;
                 .form-group{
                     @include flexCenter();
-                    input {
-                        width: 70%;
-                    }
-                    
                 }
                 grid-row: 2 / 3;
                 grid-column: 1 / 2;

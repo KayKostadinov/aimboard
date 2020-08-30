@@ -154,6 +154,119 @@ i, .fa, .fab, .fas {
       align-self: center;
 }
 
+.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: transparent;
+}
+
+.form-tooltip {
+  margin: 1em 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #f2f2f7;
+}
+
+.form-tooltip .link-text {
+  color: #007aff;
+  font-weight: 500;
+}
+
+.form .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form .checkbox span {
+  margin-right: 1em;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+  width: 100%;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-group input, .form-group textarea {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(229, 229, 234, 0.2);
+  font: inherit;
+  color: #3a3a3c;
+  padding: .5rem 1rem;
+  width: 100%;
+  outline: none;
+  overflow: hidden;
+  border: 1px solid #8e8e93;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #1c1c1e;
+}
+
+.form-group input ::-webkit-input-placeholder, .form-group textarea ::-webkit-input-placeholder {
+  color: #1c1c1e;
+}
+
+.form-group input :-ms-input-placeholder, .form-group textarea :-ms-input-placeholder {
+  color: #1c1c1e;
+}
+
+.form-group input ::-ms-input-placeholder, .form-group textarea ::-ms-input-placeholder {
+  color: #1c1c1e;
+}
+
+.form-group input ::placeholder, .form-group textarea ::placeholder {
+  color: #1c1c1e;
+}
+
 .alert {
   position: fixed;
   opacity: 0;
@@ -256,117 +369,6 @@ i, .fa, .fab, .fas {
   }
 }
 
-.form-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  width: 100%;
-  padding: 2rem 1rem;
-  text-align: center;
-  background-color: transparent;
-}
-
-.form-tooltip {
-  margin: 1em 0;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  color: #f2f2f7;
-}
-
-.form-tooltip .link-text {
-  color: #007aff;
-  font-weight: 500;
-}
-
-.form .checkbox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.form .checkbox span {
-  margin-right: 1em;
-}
-
-.form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: .7em 0;
-}
-
-.form-group textarea {
-  resize: none;
-}
-
-.form-group input, .form-group textarea {
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: rgba(229, 229, 234, 0.2);
-  font: inherit;
-  color: #3a3a3c;
-  padding: .5rem 1rem;
-  outline: none;
-  overflow: hidden;
-  border: 1px solid #8e8e93;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #1c1c1e;
-}
-
-.form-group input ::-webkit-input-placeholder, .form-group textarea ::-webkit-input-placeholder {
-  color: #1c1c1e;
-}
-
-.form-group input :-ms-input-placeholder, .form-group textarea :-ms-input-placeholder {
-  color: #1c1c1e;
-}
-
-.form-group input ::-ms-input-placeholder, .form-group textarea ::-ms-input-placeholder {
-  color: #1c1c1e;
-}
-
-.form-group input ::placeholder, .form-group textarea ::placeholder {
-  color: #1c1c1e;
-}
-
 .landing {
   background-color: #1c1c1e;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1c1c1e), color-stop(rgba(28, 28, 30, 0)), to(#1c1c1e)), url("../img/bg2-mobile.jpg");
@@ -450,6 +452,14 @@ i, .fa, .fab, .fas {
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
   z-index: 2;
+}
+
+.sidebar .form {
+  width: 100%;
+}
+
+.sidebar .form input {
+  width: 100%;
 }
 
 .slide {
@@ -560,6 +570,14 @@ i, .fa, .fab, .fas {
   font-weight: 500;
 }
 
+.profile-container .form textarea, .profile-container .form input {
+  color: #e5e5ea;
+}
+
+.profile-container .form textarea:active, .profile-container .form textarea:focus, .profile-container .form input:active, .profile-container .form input:focus {
+  color: #1c1c1e;
+}
+
 .profile-container .form .buttons {
   width: 100%;
   display: -webkit-box;
@@ -580,6 +598,7 @@ i, .fa, .fab, .fas {
 
 .profile-container .about {
   margin: 1em 0;
+  width: 100vw;
 }
 
 .profile-container .about textarea {
@@ -602,10 +621,8 @@ i, .fa, .fab, .fas {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-}
-
-.profile-container .social-media .form-group input {
-  width: 100%;
+  padding: 0;
+  margin: 1em 0;
 }
 
 .profile-container .social-media .form-group .fab {
@@ -634,14 +651,6 @@ i, .fa, .fab, .fas {
 .profile-container .user .avatar {
   width: 100px;
   margin: 1em 0;
-}
-
-.profile-container .form-group textarea, .profile-container .form-group input {
-  color: #e5e5ea;
-}
-
-.profile-container .form-group textarea:active, .profile-container .form-group input:active {
-  color: #1c1c1e;
 }
 
 .profile-setup h2 {
@@ -1870,9 +1879,6 @@ body, html {
     gap: 1em;
     width: 100%;
   }
-  .profile-container .form-container .form input, .profile-container .form-container .form textarea {
-    width: 90%;
-  }
   .profile-container .form-container .form h3 {
     margin: 1em 0;
     padding: 0.5em;
@@ -1898,6 +1904,7 @@ body, html {
     height: 100%;
   }
   .profile-container .form-container .form .about {
+    width: auto;
     padding: 1em;
     margin: 0;
     -ms-grid-row: 1;
@@ -1930,7 +1937,7 @@ body, html {
     background-color: #2c2c2e;
   }
   .profile-container .form-container .form .about .form-group {
-    width: 100%;
+    padding: 0;
   }
   .profile-container .form-container .form .about textarea {
     overflow: scroll;
@@ -1970,9 +1977,6 @@ body, html {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-  }
-  .profile-container .form-container .form .social-media .form-group input {
-    width: 70%;
   }
   .profile-container .form-container .form .buttons {
     -ms-grid-row: 3;

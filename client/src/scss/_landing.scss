@@ -45,6 +45,12 @@
     height: 100%;
     padding-top: 2em;
     width: 100%;
+    .form{
+        width: 100%;
+        input{
+            width: 100%;
+        }
+    }
     @include flexCenter();
     transform: translateY(-150%);
     transition: all .5s ease-in-out;
