@@ -234,9 +234,9 @@ i, .fa, .fab, .fas {
   border: none;
   border-radius: 20px;
   overflow: hidden;
-  background-color: rgba(229, 229, 234, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   font: inherit;
-  color: #3a3a3c;
+  color: black;
   padding: .5rem 1rem;
   width: 100%;
   outline: none;
@@ -247,24 +247,24 @@ i, .fa, .fab, .fas {
 }
 
 .form-group input:focus, .form-group input:active, .form-group textarea:focus, .form-group textarea:active {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   color: #1c1c1e;
 }
 
-.form-group input ::-webkit-input-placeholder, .form-group textarea ::-webkit-input-placeholder {
-  color: #1c1c1e;
+.form-group input::-webkit-input-placeholder, .form-group textarea::-webkit-input-placeholder {
+  color: #3a3a3c;
 }
 
-.form-group input :-ms-input-placeholder, .form-group textarea :-ms-input-placeholder {
-  color: #1c1c1e;
+.form-group input:-ms-input-placeholder, .form-group textarea:-ms-input-placeholder {
+  color: #3a3a3c;
 }
 
-.form-group input ::-ms-input-placeholder, .form-group textarea ::-ms-input-placeholder {
-  color: #1c1c1e;
+.form-group input::-ms-input-placeholder, .form-group textarea::-ms-input-placeholder {
+  color: #3a3a3c;
 }
 
-.form-group input ::placeholder, .form-group textarea ::placeholder {
-  color: #1c1c1e;
+.form-group input::placeholder, .form-group textarea::placeholder {
+  color: #3a3a3c;
 }
 
 .alert {

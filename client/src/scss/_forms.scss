@@ -44,9 +44,9 @@
     }
     input, textarea{
         @include roundedBorders();
-        background-color: rgba($color: $p-light, $alpha: 0.2);
+        background-color: $white;
         font: inherit;
-        color: $midway;
+        color: black;
         padding: .5rem 1rem;
         width: 100%;
         outline: none;
@@ -54,11 +54,11 @@
         border: 1px solid $gray;
         transition: all .3s ease-in-out;
         &:focus, &:active{
-            background-color: rgba($color: $white, $alpha: .8);
+            background-color: white;
             color: $darker;
         }
-        ::placeholder{
-            color: $darker;
+        &::placeholder{
+            color: $midway;
         }
     }
 }
