@@ -46,9 +46,15 @@
     padding-top: 2em;
     width: 100%;
     .form{
+        margin: 0;
+        padding: 0;
         width: 100%;
         input{
             width: 100%;
+        }
+        .form-group{
+            margin: 1em 0;
+            padding: 0;
         }
     }
     @include flexCenter();

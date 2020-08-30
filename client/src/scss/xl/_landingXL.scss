@@ -47,8 +47,6 @@
     transition: all .5s ease-in-out;
     @include flexCenter($direction: column);
     .form{
-        padding: 0 2em;
-        width: 90%;
         .btn{
             width: fit-content !important;
         }

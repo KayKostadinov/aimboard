@@ -186,6 +186,10 @@ i, .fa, .fab, .fas {
   font-weight: 500;
 }
 
+.form {
+  width: 100%;
+}
+
 .form .checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -200,10 +204,6 @@ i, .fa, .fab, .fas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.form .checkbox span {
-  margin-right: 1em;
 }
 
 .form-group {
@@ -246,7 +246,7 @@ i, .fa, .fab, .fas {
   transition: all .3s ease-in-out;
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus, .form-group input:active, .form-group textarea:focus, .form-group textarea:active {
   background-color: rgba(255, 255, 255, 0.8);
   color: #1c1c1e;
 }
@@ -455,11 +455,18 @@ i, .fa, .fab, .fas {
 }
 
 .sidebar .form {
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
 .sidebar .form input {
   width: 100%;
+}
+
+.sidebar .form .form-group {
+  margin: 1em 0;
+  padding: 0;
 }
 
 .slide {
@@ -2082,10 +2089,6 @@ body, html {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  .sidebar .form {
-    padding: 0 2em;
-    width: 90%;
   }
   .sidebar .form .btn {
     width: -webkit-fit-content !important;

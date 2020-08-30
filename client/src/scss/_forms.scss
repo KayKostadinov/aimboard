@@ -23,14 +23,15 @@
 }
 
 .form{
+    width: 100%;
     .checkbox {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
         align-items: center;
-        span {
-            margin-right: 1em;
-        }
+        // span {
+        //     margin-right: 1em;
+        // }
     }
 }
 
@@ -52,7 +53,7 @@
         overflow: hidden;
         border: 1px solid $gray;
         transition: all .3s ease-in-out;
-        &:focus{
+        &:focus, &:active{
             background-color: rgba($color: $white, $alpha: .8);
             color: $darker;
         }
