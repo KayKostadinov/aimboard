@@ -1,32 +1,44 @@
 
 .profile-setup{
-    height: 100vh;
-    width: 100vw;
-    background-color: $darker;
     h2{
         text-align: center;
-        margin-top: 2em;
+        margin: 2em 0;
+        color: $p-lighter;
     }
     .form-container{
-        height: 100%;
-        width: 100%;
-        backdrop-filter: blur(5px);
         @include flexCenter();
+        margin: 0;
+        padding: 0;
         .form{
-            height: 50%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
             .form-group{
-                margin: 1em 0;
                 label{
-                    padding: .5em 1em;
+                    padding: .5em 0;
                     font-weight: 500;
                     font-size: 18px;
-                    color: $dark;
+                    color: $p-light;
+                }
+
+                input, textarea {
+                    width: 100%;
+                    color: $p-light;
+                    &:focus, &:active{
+                        color: $dark;
+                    }
                 }
             }
 
             .buttons{
-                width: 100%;
-                @include flexCenter($spacing: space-around);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                .btn-regular{
+                    grid-column: 1/ 2;
+                }
+                .btn-highlight{
+                    grid-column: 2/ 3;
+                }
             }
         }
     }

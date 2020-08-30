@@ -1,32 +1,18 @@
 
 .profile-setup{
     @include flexCenter($direction: column);
-    h2{
-        margin-bottom: 2em;
-        color: $dark;
-    }
     .form-container{
-        background-color: rgba($color: $p-lighter, $alpha: 0.2);
-        height: fit-content;
-        width: 50%;
-        @include roundedBorders();
+        max-width: 500px;
         .form{
             height: 100%;
             width: 100%;
             .form-group{
+                margin: 0;
+                padding: 0;
                 width: 100%;
                 textarea{
                     margin: 1em 0;
                 }
-            }
-
-            input, textarea {
-                width: 90%;
-            }
-
-            .buttons{
-                margin: 0.5em;
-                height: fit-content;
             }
         }
     }

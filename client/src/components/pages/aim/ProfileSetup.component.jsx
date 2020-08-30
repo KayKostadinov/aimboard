@@ -28,7 +28,6 @@ const ProfileSetup = ({ createProfile, history }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(formData)
         createProfile(formData, history)
     }
 
@@ -61,15 +60,15 @@ const ProfileSetup = ({ createProfile, history }) => {
                                 e.preventDefault();
                                 setStep(step - 1)
                             }}
-                                className='btn btn-highlight'>{'<<'}</button>
+                                className='btn btn-regular'>Back</button>
                         }
                         {step === 3 ?
-                            (<button type='submit' className='btn btn-highlight'>Create</button>)
+                            (<button type='submit' className='btn btn-highlight'>Done</button>)
                             :
                             (<button onClick={e => {
                                 e.preventDefault();
                                 setStep(step + 1)
-                            }} className='btn btn-highlight'>{'>>'}</button>)
+                            }} className='btn btn-highlight'>Next</button>)
                         }
                     </div>
                 </form>

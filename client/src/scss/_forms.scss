@@ -5,7 +5,6 @@
     align-items: center;
     align-content: center;
     width: 100%;
-    min-width: 350px;
     padding: 2rem 1rem;
     text-align: center;
     background-color: transparent;
@@ -24,32 +23,6 @@
 }
 
 .form{
-    .form-group {
-        @include flexCenter(space-between, column, center);
-        padding: .7em 0;
-        textarea{
-            resize: none;
-        }
-        input, textarea{
-            @include roundedBorders();
-            background-color: rgba($color: $p-light, $alpha: 0.2);
-            font: inherit;
-            color: $midway;
-            padding: .5rem 1rem;
-            width: 90vw;
-            outline: none;
-            overflow: hidden;
-            border: 1px solid $gray;
-            transition: all .3s ease-in-out;
-            &:focus{
-                background-color: rgba($color: $white, $alpha: .8);
-                color: $darker;
-            }
-            ::placeholder{
-                color: $darker;
-            }
-        }
-    }
     .checkbox {
         display: flex;
         flex-direction: row-reverse;
@@ -61,3 +34,29 @@
     }
 }
 
+.form-group {
+    @include flexCenter(space-between, column, center);
+    padding: .7em 0;
+    textarea{
+        resize: none;
+    }
+    input, textarea{
+        @include roundedBorders();
+        background-color: rgba($color: $p-light, $alpha: 0.2);
+        font: inherit;
+        color: $midway;
+        padding: .5rem 1rem;
+        // width: 90vw;
+        outline: none;
+        overflow: hidden;
+        border: 1px solid $gray;
+        transition: all .3s ease-in-out;
+        &:focus{
+            background-color: rgba($color: $white, $alpha: .8);
+            color: $darker;
+        }
+        ::placeholder{
+            color: $darker;
+        }
+    }
+}

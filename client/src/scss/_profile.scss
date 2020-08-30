@@ -38,4 +38,13 @@
             margin: 1em 0;
         }
     }
+
+    .form-group{
+        textarea, input{
+            color: $p-light;
+            &:active{
+                color: $p-dark;
+            }
+        }
+    }
 }

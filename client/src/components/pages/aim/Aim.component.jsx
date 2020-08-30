@@ -53,31 +53,11 @@ const Aim = ({ getMyProfile, getAims, getPosts, createAim, post: { posts, loadin
 
     return (!loading && !loadAim && isAuthenticated &&
         <Fragment>
-            {loading && profile === null ? <Fragment> Replace me with Loading </Fragment> : (
+            {loading && profile === null ? <Fragment> Loading </Fragment> : (
                 <div className="aim-page">
                     {profile !== null ?
                         <div className='aim-page-grid'>
                             <div className="branch-container">
-                                <div className='aim-heading'>
-                                    <h3 className='page-title'>Goals</h3>
-                                    <div className='list-goals'>
-                                        {profile.goals.map(goal => <p key={goal} className='goal'>{goal}</p>)}
-                                    </div>
-                                    <div className="buttons">
-                                        <Link to='/profile' className='btn btn-regular' >edit goals in profile</Link>
-                                        <i
-                                            className='fas fa-plus-circle btn-big'
-                                            onClick={() => setEdit({
-                                                toggle: true,
-                                                id: 'new',
-                                                title: '',
-                                                complete: false
-                                            })
-                                            } >
-                                            <span className="info">Aim</span>
-                                        </i>
-                                    </div>
-                                </div>
                                 <div className='aim-content'>
                                     <form className='add-form' onSubmit={e => formSubmit(e)}>
                                         <input
