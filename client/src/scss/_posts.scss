@@ -172,7 +172,7 @@
             &:focus{
                 background-color: $primary;
             }
-            ::placeholder{
+            ::placeholder, &::-webkit-input-placeholder, &::-moz-placeholder{
                 color: $darker;
             }
         }

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-html, body, * {
+html, body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     background-color: $darker;
@@ -34,4 +34,8 @@ input, textarea, form {
     &::-webkit-scrollbar{
         display: none;
     }
+}
+
+::-moz-placeholder{
+    color: $gray;
 }

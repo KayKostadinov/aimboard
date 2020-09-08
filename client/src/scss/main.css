@@ -5,14 +5,14 @@
           box-sizing: border-box;
 }
 
-html, body, * {
+html, body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   background-color: #1c1c1e;
   scrollbar-width: none;
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar, *::-webkit-scrollbar {
+html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
 
@@ -37,6 +37,10 @@ input, textarea, form {
 
 input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   display: none;
+}
+
+::-moz-placeholder {
+  color: #8e8e93;
 }
 
 .buttons {
@@ -265,19 +269,11 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   color: #1c1c1e;
 }
 
-.form-group input::-webkit-input-placeholder, .form-group textarea::-webkit-input-placeholder {
+.form-group input::-webkit-input-placeholder, .form-group input::-webkit-input-placeholder, .form-group input::-moz-placeholder, .form-group textarea::-webkit-input-placeholder, .form-group textarea::-webkit-input-placeholder, .form-group textarea::-moz-placeholder {
   color: #3a3a3c;
 }
 
-.form-group input:-ms-input-placeholder, .form-group textarea:-ms-input-placeholder {
-  color: #3a3a3c;
-}
-
-.form-group input::-ms-input-placeholder, .form-group textarea::-ms-input-placeholder {
-  color: #3a3a3c;
-}
-
-.form-group input::placeholder, .form-group textarea::placeholder {
+.form-group input::placeholder, .form-group input::-webkit-input-placeholder, .form-group input::-moz-placeholder, .form-group textarea::placeholder, .form-group textarea::-webkit-input-placeholder, .form-group textarea::-moz-placeholder {
   color: #3a3a3c;
 }
 
@@ -898,19 +894,11 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   width: 100%;
 }
 
-.post-form-container .post-form .search::-webkit-input-placeholder {
+.post-form-container .post-form .search::-webkit-input-placeholder, .post-form-container .post-form .search::-webkit-input-placeholder, .post-form-container .post-form .search::-moz-placeholder {
   color: #8e8e93;
 }
 
-.post-form-container .post-form .search:-ms-input-placeholder {
-  color: #8e8e93;
-}
-
-.post-form-container .post-form .search::-ms-input-placeholder {
-  color: #8e8e93;
-}
-
-.post-form-container .post-form .search::placeholder {
+.post-form-container .post-form .search::placeholder, .post-form-container .post-form .search::-webkit-input-placeholder, .post-form-container .post-form .search::-moz-placeholder {
   color: #8e8e93;
 }
 
@@ -944,19 +932,11 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   color: #2c2c2e;
 }
 
-.post-form-container .post-form .text::-webkit-input-placeholder {
+.post-form-container .post-form .text::-webkit-input-placeholder, .post-form-container .post-form .text::-webkit-input-placeholder, .post-form-container .post-form .text::-moz-placeholder {
   color: #8e8e93;
 }
 
-.post-form-container .post-form .text:-ms-input-placeholder {
-  color: #8e8e93;
-}
-
-.post-form-container .post-form .text::-ms-input-placeholder {
-  color: #8e8e93;
-}
-
-.post-form-container .post-form .text::placeholder {
+.post-form-container .post-form .text::placeholder, .post-form-container .post-form .text::-webkit-input-placeholder, .post-form-container .post-form .text::-moz-placeholder {
   color: #8e8e93;
 }
 
@@ -1234,19 +1214,11 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   background-color: #d1d1d6;
 }
 
-.post-container .add-comment input ::-webkit-input-placeholder {
+.post-container .add-comment input ::-webkit-input-placeholder, .post-container .add-comment input::-webkit-input-placeholder, .post-container .add-comment input::-moz-placeholder {
   color: #1c1c1e;
 }
 
-.post-container .add-comment input :-ms-input-placeholder {
-  color: #1c1c1e;
-}
-
-.post-container .add-comment input ::-ms-input-placeholder {
-  color: #1c1c1e;
-}
-
-.post-container .add-comment input ::placeholder {
+.post-container .add-comment input ::placeholder, .post-container .add-comment input::-webkit-input-placeholder, .post-container .add-comment input::-moz-placeholder {
   color: #1c1c1e;
 }
 
@@ -1498,12 +1470,13 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   border-radius: 20px;
   overflow: hidden;
   background-color: #3a3a3c;
+  background: #3a3a3c;
 }
 
 .branch-container .aim-content .add-form input {
   color: #e5e5ea;
   width: 90%;
-  background-color: transparent;
+  background-color: #3a3a3c;
   outline: none;
   border: none;
   font: inherit;
@@ -1566,7 +1539,7 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
 .branch-container .aim-content .group-elements .title input {
   color: white;
   width: 90%;
-  background-color: transparent;
+  background-color: #2c2c2e;
   outline: none;
   border: none;
   border-bottom: 1px solid #ff9500;
@@ -1575,19 +1548,11 @@ input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
   height: 2em;
 }
 
-.branch-container .aim-content .group-elements .title input::-webkit-input-placeholder {
+.branch-container .aim-content .group-elements .title input::-webkit-input-placeholder, .branch-container .aim-content .group-elements .title input::-webkit-input-placeholder, .branch-container .aim-content .group-elements .title input::-moz-placeholder {
   color: #8e8e93;
 }
 
-.branch-container .aim-content .group-elements .title input:-ms-input-placeholder {
-  color: #8e8e93;
-}
-
-.branch-container .aim-content .group-elements .title input::-ms-input-placeholder {
-  color: #8e8e93;
-}
-
-.branch-container .aim-content .group-elements .title input::placeholder {
+.branch-container .aim-content .group-elements .title input::placeholder, .branch-container .aim-content .group-elements .title input::-webkit-input-placeholder, .branch-container .aim-content .group-elements .title input::-moz-placeholder {
   color: #8e8e93;
 }
 

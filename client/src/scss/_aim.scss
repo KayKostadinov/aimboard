@@ -62,10 +62,11 @@
             @include flexCenter(space-between);
             @include roundedBorders();
             background-color: $midway;
+            background: $midway;
             input{
                 color: $p-light;
                 width: 90%;
-                background-color: transparent;
+                background-color: $midway;
                 outline: none;
                 border: none;
                 font: inherit;
@@ -96,14 +97,14 @@
                 input{
                     color: white;
                     width: 90%;
-                    background-color: transparent;
+                    background-color: $dark;
                     outline: none;
                     border: none;
                     border-bottom: 1px solid $orange;
                     font: inherit;
                     font-size: 1em;
                     height: 2em;
-                    &::placeholder{
+                    &::placeholder, &::-webkit-input-placeholder, &::-moz-placeholder{
                         color: $gray;
                     }
                 }

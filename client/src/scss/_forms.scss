@@ -58,7 +58,7 @@
             background-color: white;
             color: $darker;
         }
-        &::placeholder{
+        &::placeholder, &::-webkit-input-placeholder, &::-moz-placeholder{
             color: $midway;
         }
     }
