@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
-html, body {
+html, body, * {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     background-color: $darker;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }
 
 body, a, p, ul, li {
@@ -27,4 +31,7 @@ i, .fa, .fab, .fas {
 
 input, textarea, form {
     scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }

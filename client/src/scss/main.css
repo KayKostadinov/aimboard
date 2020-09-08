@@ -5,10 +5,15 @@
           box-sizing: border-box;
 }
 
-html, body {
+html, body, * {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   background-color: #1c1c1e;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar, *::-webkit-scrollbar {
+  display: none;
 }
 
 body, a, p, ul, li {
@@ -28,6 +33,10 @@ i, .fa, .fab, .fas {
 
 input, textarea, form {
   scrollbar-width: none;
+}
+
+input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
+  display: none;
 }
 
 .buttons {
