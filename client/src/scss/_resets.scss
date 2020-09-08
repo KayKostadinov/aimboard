@@ -24,3 +24,7 @@ i, .fa, .fab, .fas {
     display: inline-block;
     text-align: center;
 }
+
+input, textarea, form {
+    scrollbar-width: none;
+}

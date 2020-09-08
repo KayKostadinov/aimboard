@@ -65,7 +65,7 @@ const CreatePost = ({ addPost, img, postToggle, aims, aimId, aimTitle, name, set
             <div className="select-aim">
                 {aims.map(aim =>
                     search ?
-                        aim.title.toLowerCase().includes(search) &&
+                        aim.title.toLowerCase().includes(search.toLowerCase()) &&
                         <div
                             className="aim"
                             key={aim._id}

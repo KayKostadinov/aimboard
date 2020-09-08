@@ -26,6 +26,10 @@ i, .fa, .fab, .fas {
   text-align: center;
 }
 
+input, textarea, form {
+  scrollbar-width: none;
+}
+
 .buttons {
   width: 100%;
   display: -ms-grid;
@@ -244,6 +248,7 @@ i, .fa, .fab, .fas {
   border: 1px solid #8e8e93;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  scrollbar-width: none;
 }
 
 .form-group input:focus, .form-group input:active, .form-group textarea:focus, .form-group textarea:active {

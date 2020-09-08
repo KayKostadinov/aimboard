@@ -53,6 +53,7 @@
         overflow: hidden;
         border: 1px solid $gray;
         transition: all .3s ease-in-out;
+        scrollbar-width: none;
         &:focus, &:active{
             background-color: white;
             color: $darker;
